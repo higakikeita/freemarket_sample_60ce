@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 
+  password:
   socket: /tmp/mysql.sock
 
 development:
@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: freemarket_sample_60ce_production
-  username: freemarket_sample_60ce
-  password: <%= ENV['team_c'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
