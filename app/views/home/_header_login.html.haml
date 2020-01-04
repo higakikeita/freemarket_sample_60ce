@@ -1,30 +1,30 @@
 .header
-  .header-contents
-    .header-contents_top
-      .header-contents_top_logo
+  .header__contents
+    .header__contents__top
+      .header__contents__top__logo
         =link_to image_tag("/assets/fmarket_logo_red.svg",width:"134",height:"36"), home_top_path
-      .header-contents_top_form
+      .header__contents__top__form
         %input.form{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}
         .search-button
-          = icon('fas', 'search', class:'icon_search',style: "color:black;")
-    .header-contents_below
-      .header-contents_below_search
-        .header-contents_below_search_category
+          = icon('fas', 'search', class:'icon__search',style: "color:black;")
+    .header__contents__below
+      .header__contents__below__search
+        .header__contents__below__search__category
           = icon('fas', 'list-ul', class:'icon',style: "color:#ea352d;")
-          %a.search-from_category{href: "/category/"} カテゴリーから探す
-        .header-contents_below_search_brand
+          %a.search__category{href: "/category/"} カテゴリーから探す
+        .header__contents__below__search__brand
           = icon('fas', 'tag', class:'icon',style: "color:#ea352d;")
-          %a.search-from_brands{href: "/brands/"} ブランドから探す
-      .header-contents_below_personal
-        .header-contents_below_personal_likes
+          %a.search__brands{href: "/brands/"} ブランドから探す
+      .header__contents__below__personal
+        .header__contents__below__personal__likes
           = icon('fas', 'heart', class:'icon',style: "color:rgb(134, 127, 127);")
           %a.likes{href: "/likes/"} いいね！
-        .header-contents_below_personal_notification
+        .header__contents__below__personal__notification
           = icon('fas', 'bell', class:'icon',style: "color:rgb(134, 127, 127);")
           %a.likes{href: "/notification/"} お知らせ
-        .header-contents_below_personal_todo
+        .header__contents__below__personal__todo
           = icon('fas', 'check', class:'icon',style: "color:rgb(134, 127, 127);")
           %a.likes{href: "/todo/"} やることリスト
-        .header-contents_below_personal_mypage
+        .header__contents__below__personal__mypage
           = icon('fas', 'user-circle', class:'icon',style: "color:rgb(134, 127, 127);")
-          %a.likes{href: "/mypage/"} マイページ   
+          %a.likes{href: "/mypage/"} マイページ       

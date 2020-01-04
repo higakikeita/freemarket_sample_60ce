@@ -1,10 +1,4 @@
-@mixin clearfix {
-  &:after {
-    content: "";
-    clear: both;
-    display: block;
-  }
-}
+@import "mixin";
 
 .product-box-container{
   width: 700px;
