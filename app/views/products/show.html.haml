@@ -1,0 +1,173 @@
+.container
+%section.product-box-container.l-single-container
+  %h1.product-box-container__product-name
+    単品でも可能  これからの季節に
+  %p.product-wording
+    単品でも可能！これからの季節に！デザインペアネックレスは100回の取引実績を持つ
+    けいたさんから出品されました
+    千葉県から１〜２日で発送されます
+  .product-box-container__main-content.clearfix
+    .product-box-container__main-content__image
+      .owl-carousel.owl-loaded.owl-drag
+        .owl-stage-outer
+          .owl-stage{ style: 'left:0px',width: '900px'}
+            .owl-item{ style: 'width:300px'}
+              .owl-item__inner.is-higher-width
+                =image_tag "Snip20190824_17.png"
+        .owl-dots
+          .owl-dot
+            .owl-dot-inner
+              =image_tag "car.jpeg"
+            .owl-dot-inner
+              =image_tag "car.jpeg"
+            .owl-dot-inner
+              =image_tag "Snip20190824_16.png"
+            .owl-dot-inner
+              =image_tag "Snip20190824_16.png"
+    %table.product-box-container__main-content__product-detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td 
+            ニックネーム
+            %div
+              .product-user-ratings
+                %i.fa.fa-grin.icon-good
+                %span
+                  = @good_count
+              .product-user-ratings
+                %i.fa.fa-meh.icon-normal
+                %span
+                  = @normal_count
+              .product-user-ratings
+                %i.fa.fa-frown.icon-bad
+                %span
+                  = @bad_count
+        %tr
+          %th カテゴリー
+          %td
+
+        %tr
+          %th ブランド
+          %td
+                
+        %tr
+          %th 商品の状態
+          %td
+            
+        %tr
+          %th 配送料の負担
+          %td
+            
+        %tr
+          %th 配送の方法
+          %td
+            
+        %tr
+          %th 配送元地域
+          %td
+            
+        %tr
+          %th 発送の目安
+          %td
+            
+
+    .item-price-box.text-center
+      %span.item-price.bold
+        ¥19800
+      %span.item-tax          (税込)
+      %span.item-shipping-fee 送料込み
+
+
+    -# .item-buy-btn.disabled
+    -#   売り切れました
+
+
+    .item-buy-btn 
+      購入画面に進む
+
+    .item-description
+      %p.item-description__inner
+        新品、未使用
+
+    .item-button-container.clearfix
+      .item-button-left
+        = link_to '#',class:'item-button item-button-like' do
+          %i.fa.fa-heart.vertical-like__red-icon  いいね!
+      
+        = link_to '#',class: 'item-button item-button-report clearfix' do
+          %i.fa.fa-flag.flag
+          %span.flag-text 適切な商品の報告
+
+      .item-button-right
+        = link_to '#' do
+          %i.fa.fa-unlock
+          %span あんしん・あんぜんへの取り組み
+
+  
+    .listening-item-change-box
+      
+      %p.text-center 
+      
+
+  .item-detail-message
+    .message-container
+      - if @comments.present?
+        .message-content
+          %ul.message-items
+            = render partial: 'user_comments',locals: { item: @item, comments: @comments}
+
+      
+        .message-content
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = form_for [@item, @comment] do |c|
+            - if @item.business_stats == 1
+              = c.text_area :text,required: "required", class: 'textarea-default'
+              = c.submit "コメントする", data: { disable_with: "送信中..." },class: 'message-submit btn-default btn-gray',id: "new-comment-submit"
+            - else
+              = c.text_area :text, class: 'textarea-default disabled'
+              = c.submit "売り切れのためコメントできません",:disabled => true, class: 'message-submit btn-default btn-gray'
+
+
+  %ul.nav-item-link-prev-next.clearfix
+    %li.nav-item-link-prev
+      
+
+    %li.nav-item-link-next
+     
+  .item-social-media-box
+    .text-center
+      %ul.social-media-box
+        %li
+          = link_to '#', class: 'share-btn','target':'_blank' do
+            %i.fab.fa-facebook-square.icon-facebook
+          = link_to '#', class: 'share-btn','target':'_blank' do
+            %i.fab.fa-twitter.icon-twitter
+          = link_to '#', class: 'share-btn','target':'_blank' do
+            %i.fab.fa-google.icon-google
+
+  .items-in-user-profile
+    - if @user_items.present?
+      %section.items-box-container.items-box-overflow.items-in-user-profile.clearfix
+        %h2.item-box-head
+          = link_to "#{@item.user.nickname}さんのその他の出品", individual_user_path(@item.user)
+        .items-box-content.clearfix
+          = render 'user_others_items'
+
+    %section.items-box-container.items-box-overflow.items-in-user-profile.clearfix
+      %h2.item-box-head
+        //ブランドがあり孫あり(優先)
+        - if @grand_category_items
+          = link_to "ブランドの#{@grand_category.name}その他の商品", category_path(@grand_category)
+        //ブランドがあり孫なし
+        - if @child_category_items
+          = link_to "ブランドの#{@children_category.name}その他の商品", category_path(@children_category)
+
+
+      .items-box-content.clearfix
+        
+
+
+  
+
+
