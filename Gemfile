@@ -63,9 +63,6 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 gem 'mini_magick'
-<<<<<<< Updated upstream
-=======
 gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'owlcarousel-rails'
->>>>>>> Stashed changes
