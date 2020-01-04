@@ -1,0 +1,252 @@
+@mixin button{
+  cursor:pointer;
+  position: relative;
+  z-index: 3;
+}
+
+@mixin login-list{
+  height: 44px;
+  position: relative;
+  padding: 0px 7px;
+  flex:auto;
+  transition: all 0.3s ease-out 0s;
+}
+
+@mixin item{
+  text-decoration: none;
+  color:black;
+  font-size:14px;
+  line-height: 36px;
+  white-space: nowrap;
+  // display:block;
+}
+
+
+.header{
+  background-color: rgb(255, 255, 255);
+  box-shadow:0px 2px 4px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 3;
+}
+
+.header-contents{
+  width: 1020px;
+  margin: 0px auto;
+  padding: 8px 0px 0px;
+
+}
+
+.header-contents_top{
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.header-contents_top_logo{
+}
+
+.header-contents_top_form{
+  position: relative;
+  width: 100%;
+}
+
+.form{
+  background-color: rgb(245, 245, 245);
+  font-size: 16px;
+  height: 40px;
+  line-height: 1.4em;
+  position: relative;
+  width: 100%;
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(204, 204, 204);
+  border-image: initial;
+  border-radius: 4px;
+  outline: none;
+  padding: 0px 50px 0px 10px;
+  transition: all 0.3s ease-out 0s;
+}
+
+.search-button{
+  background-color: transparent;
+  cursor: pointer;
+  height: 40px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 40px;
+  -webkit-appearance: none;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0px;
+}
+
+.icon_search{
+  max-width: 100%;
+  max-height: 100%;
+  color: rgb(34, 34, 34);
+  height: 14px;
+  margin: 10px 10px;
+  width: 14px;
+}
+
+.header-contents_below{
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.icon{
+  max-width: 100%;
+  max-height: 100%;
+  height: 12px;
+  margin-right: 4px;
+}
+
+
+.header-contents_below_search{
+  display: flex;
+  margin-left: -3px;
+  height: 44px;
+  line-height:44px;
+}
+
+.header-contents_below_search_category{
+  @include button;
+  padding-right:10px;
+  transition: all 0.3s ease-out 0s;
+}
+
+.header-contents_below_search_category :hover{
+  color:$link-blue;
+}
+
+.search-from_category{
+  @include item;
+  font-weight: 600;
+}
+
+.header-contents_below_search_brand{
+  @include button;
+  padding-left:10px;
+  transition: all 0.3s ease-out 0s;
+}
+
+.header-contents_below_search_brand :hover{
+  color:$link-blue;
+}
+.search-from_brands{
+  @include item;
+  font-weight: 600;
+}
+
+
+.header-contents_below_registration{
+  display: flex;
+}
+
+.header-contents_below_registration_new{
+  text-align: center;
+  @include button;
+  margin-right:10px;
+}
+
+.new-registration{
+  background-color:$header-menu-red;
+  color:$White;
+  display: block;
+  font-size: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color:$header-menu-red;
+  line-height: 14px;
+  // border-image: initial;
+  border-radius: 4px;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+
+.header-contents_below_registration_login{
+  text-align: center;
+  @include button;
+  width:76.75px;
+}
+
+.login{
+  background-color:$White;
+  color: $Blue;
+  display: block;
+  font-size: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $Blue;
+  // border-image: initial;
+  border-radius: 4px;
+  padding: 4px 10px;
+  transition: all 0.3s ease-out 0s;
+  text-decoration: none;
+}
+
+.login:hover{
+  background-color:$link-blue;
+  color:$White;
+}
+
+.header-contents_below_personal{
+  display: flex;
+  position: relative;
+}
+
+.header-contents_below_personal_likes{
+  @include login-list;
+}
+
+.header-contents_below_personal_likes :hover{
+  color:$link-blue;
+}
+
+.likes{
+  @include item;
+}
+
+.header-contents_below_personal_notification{
+  @include login-list;
+}
+
+.header-contents_below_personal_notification :hover{
+  color:$link-blue;
+}
+
+.notification{
+  @include item;
+}
+
+.header-contents_below_personal_todo{
+  @include login-list;
+}
+
+.header-contents_below_personal_todo :hover{
+  color:$link-blue;
+}
+
+.todo{
+  @include item;
+}
+
+.header-contents_below_personal_mypage{
+  @include login-list;
+}
+
+.header-contents_below_personal_mypage :hover{
+  color:$link-blue;
+}
+
+.mypage{
+    @include item;  
+}

@@ -1,0 +1,22 @@
+.header
+  .header-contents
+    .header-contents_top
+      .header-contents_top_logo
+        =link_to image_tag("/assets/fmarket_logo_red.svg",width:"134",height:"36"), home_top_path
+      .header-contents_top_form
+        %input.form{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}
+        .search-button
+          = icon('fas', 'search', class:'icon_search',style: "color:black;")
+    .header-contents_below
+      .header-contents_below_search
+        .header-contents_below_search_category
+          = icon('fas', 'list-ul', class:'icon',style: "color:#ea352d;")
+          %a.search-from_category{href: "/category/"} カテゴリーから探す
+        .header-contents_below_search_brand
+          = icon('fas', 'tag', class:'icon',style: "color:#ea352d;")
+          %a.search-from_brands{href: "/brands/"} ブランドから探す
+      .header-contents_below_registration
+        .header-contents_below_registration_new
+          %a.new-registration{href: "/registration/"} 新規会員登録
+        .header-contents_below_registration_login
+          %a.login{href: "/login/"} ログイン
