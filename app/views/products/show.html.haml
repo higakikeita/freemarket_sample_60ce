@@ -115,7 +115,7 @@
       - if @comments.present?
         .message-content
           %ul.message-items
-            = render partial: 'user_comments',locals: { item: @item, comments: @comments}
+            
 
       
         .message-content
@@ -126,7 +126,7 @@
               = c.submit "コメントする", data: { disable_with: "送信中..." },class: 'message-submit btn-default btn-gray',id: "new-comment-submit"
             - else
               = c.text_area :text, class: 'textarea-default disabled'
-              = c.submit "売り切れのためコメントできません",:disabled => true, class: 'message-submit btn-default btn-gray'
+              = c.submit "売り切れのためコメントできません",disabled:true, class: 'message-submit btn-default btn-gray'
 
 
   %ul.nav-item-link-prev-next.clearfix
