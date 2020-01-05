@@ -4,19 +4,19 @@
       .header__contents__top__logo
         =link_to image_tag("/assets/fmarket_logo_red.svg",width:"134",height:"36"), home_top_path
       .header__contents__top__form
-        %input.form{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}
+        %input.form{name: "keyword", placeholder: "何かお探しですか？", type: "search", value:""}
         .search-button
-          = icon('fas', 'search', class:'icon__search',style: "color:black;")
+          = icon('fas', 'search', class:'icon__search')
     .header__contents__below
       .header__contents__below__search
         .header__contents__below__search__category
-          = icon('fas', 'list-ul', class:'icon',style: "color:#ea352d;")
-          %a.search__category{href: "/category/"} カテゴリーから探す
+          %span.fas.fa-list-ul.icon
+          =link_to "カテゴリーから探す", "/category/",class:"search__category"
         .header__contents__below__search__brand
-          = icon('fas', 'tag', class:'icon',style: "color:#ea352d;")
-          %a.search__brands{href: "/brands/"} ブランドから探す
+          %span.fas.fa-tag.icon
+          =link_to "ブランドから探す", "/brands/",class:"search__brands"
       .header__contents__below__registration
         .header__contents__below__registration__new
-          %a.registration{href: "/registration/"} 新規会員登録
+          =link_to "新規会員登録", "/registration/",class:"registration"
         .header__contents__below__registration__login
-          %a.login{href: "/login/"} ログイン
+          =link_to "ログイン", "/login/",class:"login"

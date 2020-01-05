@@ -4,27 +4,27 @@
       .header__contents__top__logo
         =link_to image_tag("/assets/fmarket_logo_red.svg",width:"134",height:"36"), home_top_path
       .header__contents__top__form
-        %input.form{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}
+        %input.form{name: "keyword", placeholder: "何かお探しですか？", type: "search", value:""}
         .search-button
-          = icon('fas', 'search', class:'icon__search',style: "color:black;")
+          = icon('fas', 'search', class:'icon__search')
     .header__contents__below
       .header__contents__below__search
         .header__contents__below__search__category
-          = icon('fas', 'list-ul', class:'icon',style: "color:#ea352d;")
-          %a.search__category{href: "/category/"} カテゴリーから探す
+          %span.fas.fa-list-ul.icon
+          =link_to "カテゴリーから探す", "/category/",class:"search__category"
         .header__contents__below__search__brand
-          = icon('fas', 'tag', class:'icon',style: "color:#ea352d;")
-          %a.search__brands{href: "/brands/"} ブランドから探す
+          %span.fas.fa-tag.icon
+          =link_to "ブランドから探す", "/brands/",class:"search__brands"
       .header__contents__below__personal
         .header__contents__below__personal__likes
-          = icon('fas', 'heart', class:'icon',style: "color:rgb(134, 127, 127);")
-          %a.likes{href: "/likes/"} いいね！
+          %span.fas.fa-heart.login__icon
+          =link_to "いいね！", "/likes/",class:"likes"
         .header__contents__below__personal__notification
-          = icon('fas', 'bell', class:'icon',style: "color:rgb(134, 127, 127);")
-          %a.likes{href: "/notification/"} お知らせ
+          %span.fas.fa-bell.login__icon
+          =link_to "お知らせ", "/notification/",class:"notification"
         .header__contents__below__personal__todo
-          = icon('fas', 'check', class:'icon',style: "color:rgb(134, 127, 127);")
-          %a.likes{href: "/todo/"} やることリスト
+          %span.fas.fa-check.login__icon
+          =link_to "やることリスト", "/todo/",class:"todo"
         .header__contents__below__personal__mypage
-          = icon('fas', 'user-circle', class:'icon',style: "color:rgb(134, 127, 127);")
-          %a.likes{href: "/mypage/"} マイページ       
+          %span.fas.fa-user-circle.login__icon
+          =link_to "マイページ", "/mypage/",class:"mypage"    
