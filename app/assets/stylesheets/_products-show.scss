@@ -37,9 +37,12 @@
           overflow: hidden;
           .owl-stage{
             position: relative;
+            left: 0px;
+            width: 900px;
             .owl.item{
               min-height:1px;
               float: left;
+              width: 300px;
               &__inner{
                 position: relative;
                 width: 100%;
