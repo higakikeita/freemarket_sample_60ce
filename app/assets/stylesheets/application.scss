@@ -1,5 +1,7 @@
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "reset";
-@import "color";
-@import "products-show";
+@import "./color.scss";
+@import "./products-show.scss";
+@import "owl.carousel";
+@import "owl.theme.default";
