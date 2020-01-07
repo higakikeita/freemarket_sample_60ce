@@ -1,0 +1,282 @@
+@import "color";
+
+.main-section {
+  color: rgb(51, 51, 51);
+  background-color: $Background;
+  min-height: 100vh;
+  width: 100vw;
+
+  .header {
+  width: 100vw;
+  height: 100px;
+  background-color: #fff;
+  }
+  
+  .slider__image {
+    width: 100vw;
+    height: 390px;
+    background-color: skyblue;
+
+    .slider__text {
+      padding: 20px 40px;
+      width: 700px;
+      margin: 0px auto;
+
+      &--large {
+        font-size: 60px;
+        padding: 0;
+        margin-bottom: 16px;
+      }
+
+      &--small {
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+    }
+
+    .slider__link--tag {
+      margin: 0px auto;
+      width: 700px;
+      display: flex;
+
+      .link__apple #appstore {
+          height: 50px;
+          width: 170px;
+      }
+
+      .link__google #googleplay {
+          height: 50px;
+          width: 158px;
+          margin-left: 8px;
+      }
+    }
+  }
+  
+  .pickup-section {
+    background-color: rgb(251, 251, 251);
+    padding: 0px;
+    margin: 0px auto;
+
+    &__header {
+      padding: 56px 0 30px;
+
+      &--title {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 16px;
+      }
+
+      &--list {
+        display: flex;
+        justify-content: center;
+
+        .header__list--logo {
+          font-weight: bold;
+          font-size: 14px;
+          background-color: rgb(239, 239, 239);
+          padding: 8px 16px;
+          border-radius: 16px;
+          margin: 10px 0px 0px 10px;
+        }
+      }
+    }
+  }
+  
+  .pickup-section__main {
+    background-color: rgb(239, 239, 239);
+    padding: 42px 0px 100px;
+    margin: 0px auto;
+    
+
+    &--title {
+      margin: 0px auto;
+      width: 1020px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+
+      .main__title--text {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .main__title--more {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 16px 5px 5px;
+        color: rgb(0, 149, 238);
+      }
+    }
+
+    &--products {
+      margin: 0px auto;
+      width: 1020px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .products__list {
+        width: 182px;
+        height: 230px;
+        margin: 10px;
+
+        .product {
+          width: 100%;
+          display: flex;
+          flex-direction: column-reverse;
+          background-color: $White;
+          margin: 0;
+          box-shadow: 0 2px 4px rgba(0,0,0,.18);
+
+          &__text {
+            color: #222;
+            font-size: 14px;
+            height: 40px;
+            line-height: 1.4em;
+            padding: 0 12px;
+            word-break: break-word;
+            overflow: hidden;
+            margin-top: 8px;
+          }
+
+          &__thumbnail {
+            overflow: hidden;
+            padding: 0 0 100%;
+            width: 100%;
+            position: relative;
+
+            &--label {
+              align-items: center;
+              background: rgba(0,0,0,0.9);
+              border-radius: 0 14px 14px 0;
+              bottom: 8px;
+              color: $White;
+              display: inline-flex;
+              font-size: 17px;
+              height: 28px;
+              letter-spacing: .02em;
+              margin: 0;
+              padding: 0 12px;
+              position: absolute;
+              z-index: 2;
+              opacity: 0.5;
+            }
+
+            &--image {
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              vertical-align: top;
+              z-index: 1;
+            }
+          }
+        }
+
+        .product:hover {
+          margin: -1px;
+          border: 1px solid rgb(0, 149, 238);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  .bottom {
+    width: 100vw;
+    background-color: brown;
+
+    .image-bottom {
+      width: 750px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0px auto;
+
+      &__left {
+
+        &--top-text {
+          color: $header-icon;
+          font-size: 24px;
+          font-weight: 600;
+          margin: 30px 0px 15px 0px;
+        }
+
+        &--bottom-text {
+          color: $header-icon;
+          font-size: 35px;
+          margin-bottom: 20px;
+        }
+
+        &--link {
+          display: flex;
+
+          .link__mercari {
+            height: 68px;
+            margin-right: 20px;
+            width: 68px;
+          }
+
+          .link__apple #appstore {
+            height: 40px;
+            width: 144px;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+
+          .link__google #googleplay {
+            height: 40px;
+            width: 130px;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      &__right {
+        height: 260px;
+        width: 300px;
+      }
+    }
+  }
+
+  .footer {
+    width: 100vw;
+    height: 400px;
+    background-color: rgb(34, 34, 34);
+  }
+}
+
+.sell-tab {
+  font-size: 22px;
+  height: 160px;
+  width: 160px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  text-align: center;
+  z-index: 2;
+
+  &__box {
+    width: 160px;
+    height: 160px;
+    background-color: rgb(234, 53, 45);
+    border-radius: 50%;
+
+    &--text {
+      font-size: 22px;
+      color: $header-icon;
+      padding-top: 32px;
+    }
+    
+    &--logo {
+      font-size: 58px;
+      color: $header-icon;
+      margin: -15px auto 0px;
+    }
+  }
+}
