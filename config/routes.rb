@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get "/home/top" => "home#top"
+  root "home#top"
+  
   resources :products, only: [:index]
 end
