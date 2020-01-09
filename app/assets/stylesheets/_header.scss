@@ -166,12 +166,12 @@
 
 
 .search__category{
-  @include item;
+  @include header-item;
   font-weight: 600;
 }
 
 .search__brands{
-  @include item;
+  @include header-item;
   font-weight: 600;
 }
 
@@ -208,18 +208,18 @@
 }
 
 .likes{
-  @include item;
+  @include header-item;
 }
 
 
 .notification{
-  @include item;
+  @include header-item;
 }
 
 .todo{
-  @include item;
+  @include header-item;
 }
 
 .mypage{
-    @include item;  
+  @include header-item;  
 }
