@@ -1,0 +1,205 @@
+.mypage  
+  %main.mypage-contents.clearfix
+    .main-content
+      %section.user
+        .user-link
+          %figure
+            %img.user-link__icon{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+          %h2.user-link__name username
+          .user-link__number
+            評価　５　出品数　８
+      %section.notification-todo
+        %ul.tabs
+          %li.tabs__notification
+            %h3 お知らせ
+          %li.tabs__todo
+            %h3 やることリスト
+        .tab-content-notification
+          %ul.notification-item-list
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 明日、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.icon-time
+                  %span 1 時間前
+              %i.icon-arrow-right
+            %li.notification-item-link            
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 事務局から個別メッセージ「《3日間限定！ポイント倍増》招待コード「あけおめ」を入力してメルペイ登録すると合計P2,000もらえる」
+                %time
+                  %i.icon-time
+                  %span 1 時間前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 事務局から個別メッセージ「【対象者限定】セブン-イレブン初発送200円分ポイントプレゼント」
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 《最大10万円相当》売れたら売上金が2倍のチャンス！本日スタート！
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 3日後、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.icon-time
+                  %span 2 日前
+              %i.icon-arrow-right
+            %li.mypage-go-list
+              %a.go 一覧を見る
+
+          -# .tab-content-todo
+          -#   %li
+          -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/email_password/"}
+          -#       %figure
+          -#         %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
+          -#       .mypage-item-body
+          -#         .mypage-item-text メールが届いていない状態です。設定しているメールアドレスをご確認ください
+          -#         %time
+          -#           %i.icon-time
+          -#           %span 116 日前
+          -#       %i.icon-arrow-right
+          -#   %li.mypage-go-list
+          -#     %a{:href => "/jp/mypage/todo/"} 一覧を見る 
+
+
+      %section.transaction-hisory
+        %h2.header 購入した商品
+        %ul.transaction-tabs
+          %li.transaction-tabs__now
+            %h3 取引中
+          %li.transaction-tabs__old
+            %h3 過去の取引
+        .tab-content-transaction
+          %ul.tab-content-transaction__now
+            %li.tab-content-transaction__now--not-found.bold 取引中の商品がありません
+              
+          -# %ul.tab-content-transaction__old
+          -#   %li
+          -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m59827217698/"}
+          -#       %figure
+          -#         %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m59827217698_1.jpg?1515386008"}/
+          -#       .mypage-item-body
+          -#         .mypage-item-text
+          -#           「インナー付き レース スカート  新品  RETRO GIRL M」 を購入しました。
+          -#           %span 取引が完了しました
+          -#         .mypage-item-status.bold.done
+          -#           取引完了
+          -#       %i.icon-arrow-right
+          -#   %li.mypage-go-list
+          -#     %a{:href => "/jp/mypage/purchased/"} 一覧を見る
+    .side-content
+      %nav.mypage-nav
+        %ul.mypage-nav-list
+          %li
+            %a.mypage-nav-list-item
+              マイページ
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              お知らせ
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              やることリスト
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              いいね！一覧
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              出品する
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 出品中
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              出品した商品 - 売却済み
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              購入した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              購入した商品 - 過去の取引
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              ニュース一覧
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              評価一覧
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              ガイド
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-item
+              お問い合わせ
+              %i.icon-arrow-right
+        %h3.mypage-nav-head-merpay メルペイ
+        %ul.mypage-nav-list-merpay
+          %li
+            %a.mypage-nav-list-merpay-item
+              売上・振込申請
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-merpay-item
+              ポイント
+              %i.icon-arrow-right
+        %h3.mypage-nav-head-setting 設定
+        %ul.mypage-nav-list-setting
+          %li
+            %a.mypage-nav-list-setting-item
+              プロフィール
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              発送元・お届け先住所変更
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              支払い方法
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              メール/パスワード
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              本人情報
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              電話番号の確認
+              %i.icon-arrow-right
+          %li
+            %a.mypage-nav-list-setting-item
+              ログアウト
+              %i.icon-arrow-right
