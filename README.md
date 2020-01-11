@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-## usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
@@ -31,7 +31,8 @@ Things you may want to cover:
 |password|string|null: false|
 |avatar|text||
 |introduction|text||
-### Association
+
+### Association
 - has_many: products
 - has_many: user-evaluates
 - has_many: messages
@@ -44,7 +45,7 @@ Things you may want to cover:
 - has_one : credit-cards
 
 
-## profilesテーブル
+## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
@@ -53,11 +54,11 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |phone_number|string|null: false, unique:true|
 |user_id|references|foreign_key:true|
-### Association
+### Association
 - belongs_to : user
 
 
-## productsテーブル
+## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
@@ -70,7 +71,7 @@ Things you may want to cover:
 |postage|string|null: false|
 |region|string|null: false|
 |delivery_date|string|null: false|
-### Association
+### Association
 - belongs_to : user
 - has_many : comments
 - has_many : messages
@@ -81,79 +82,79 @@ Things you may want to cover:
 - belongs_to : categories
 
 
-## brandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-### Association
+### Association
 - has_many : products
 
 
-## messagesテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |message|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-### Association
+### Association
 - belongs_to : user
 - belongs_to : order
 
 
-## commentsテーブル
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-### Association
+### Association
 - belongs_to : user
 - belongs_to : product
 
 
-## categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 |ancestry|string||
-### Association
+### Association
 - has_many : products
 
 
-## ordersテーブル
+## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
 |ship_to_address_id|references|null: false, foreign_key: true|
 |order_number|integer|null: false|
-### Association
+### Association
 - has_many: messages
 - belongs_to : user
 - belongs_to : product
 - has_one : ship-to_address
 
 
-## likesテーブル
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-### Association
+### Association
 - belongs_to : user
 - belongs_to : product 
 
 
-## product-imagesテーブル
+## product-imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
 |product_image|text|null: false|
-### Association
+### Association
 - belongs_to : product
 
 
-## credit-cardsテーブル
+## credit-cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -162,20 +163,20 @@ Things you may want to cover:
 |card_year|integer|null: false| 
 |card_month|integer|null: false| 
 |card_pass|integer|null: false|
-### Association
+### Association
 - belongs_to : user
 
 
-## user-evaluatesテーブル
+## user-evaluatesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |evaluate|integer|null: false| 
-### Association
+### Association
 - belongs_to : user
 
 
-## addressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -184,11 +185,11 @@ Things you may want to cover:
 |city|string|null: false| 
 |address|string|null: false| 
 |apartment|string|| 
-### Association
+### Association
 - belongs_to : user 
 
 
-## ship_to-addressesテーブル
+## ship_to-addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -198,7 +199,7 @@ Things you may want to cover:
 |city|string|null: false| 
 |address|string|null: false| 
 |apartment|string|null: false| 
-### Association
+### Association
 - belongs_to : order
 - belongs_to : user
 
