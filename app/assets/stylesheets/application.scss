@@ -1,4 +1,10 @@
 @import "font-awesome-sprockets";
-@import "./font-awesome";
 @import "reset";
-@import "user"
+@import "user";
+@import "./products.index";
+@import "color";
+@import "header";
+@import "font-awesome";
+@import "./products-show.scss";
+@import "footer";
+

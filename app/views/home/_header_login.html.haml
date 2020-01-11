@@ -1,0 +1,30 @@
+.header
+  .header__contents
+    .header__contents__top
+      .header__contents__top__logo
+        =link_to image_tag("fmarket_logo_red.svg",width:"134",height:"36"), root_path  
+      .header__contents__top__form
+        %input.form{name: "keyword", placeholder: "何かお探しですか？", type: "search", value:""}
+        .search-button
+          = icon('fas', 'search', class:'icon__search')
+    .header__contents__below
+      .header__contents__below__search
+        .header__contents__below__search__category
+          %span.fas.fa-list-ul.icon
+          =link_to "カテゴリーから探す", "/category/",class:"search__category"
+        .header__contents__below__search__brand
+          %span.fas.fa-tag.icon
+          =link_to "ブランドから探す", "/brands/",class:"search__brands"
+      .header__contents__below__personal
+        .header__contents__below__personal__likes
+          %span.fas.fa-heart.login__icon
+          =link_to "いいね！", "/likes/",class:"likes"
+        .header__contents__below__personal__notification
+          %span.fas.fa-bell.login__icon
+          =link_to "お知らせ", "/notification/",class:"notification"
+        .header__contents__below__personal__todo
+          %span.fas.fa-check.login__icon
+          =link_to "やることリスト", "/todo/",class:"todo"
+        .header__contents__below__personal__mypage
+          %span.fas.fa-user-circle.login__icon
+          =link_to "マイページ", "/mypage/",class:"mypage"    
