@@ -20,7 +20,7 @@
   transition: all 0.3s ease-out 0s;
 }
 
-@mixin item{
+@mixin header-item{
   text-decoration: none;
   color:black;
   font-size:14px;
@@ -28,3 +28,22 @@
   white-space: nowrap;
 }
 
+@mixin footer-contents{
+  width: 1020px;
+  margin-top: 18px;
+  vertical-align: top;
+  padding: 0px 40px 0px 0px;
+}
+
+@mixin footer-title{
+  font-weight: 600;
+  line-height: 1.4em;
+  margin: 0;
+}
+
+@mixin footer-items{
+  list-style: none;
+  line-height: 1.4em;
+  margin: 16px 0px 0px;
+  display: block;
+}
