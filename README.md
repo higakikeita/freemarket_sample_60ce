@@ -65,7 +65,7 @@ Things you may want to cover:
 |sell_user_id|references|null: false, foreign_key: true|
 |buy_user_id|references|null: false, foreign_key: true|
 |introduction|text|null: false|
-|status|string|null: false| 
+|status|integer|null: false| 
 |size|string|null: false| 
 |postage|string|null: false|
 |region|string|null: false|
@@ -114,7 +114,6 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|foreign_key: true|
 |name|string|null:false|
 |ancestry|string||
 ### Association
@@ -181,7 +180,7 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |postal_code|integer|null: false| 
-|prefecture|string|null: false| 
+|prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
 |apartment|string|null: false| 
