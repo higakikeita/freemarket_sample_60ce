@@ -4,7 +4,8 @@
       %section.user
         .user-link
           %figure
-            %img.user-link__icon{:alt => "", :height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
+            .user-link__iconn
+              = image_tag "noimage.png", class:"user-link__icon"
           %h2.user-link__name username
           .user-link__number
             評価　５　出品数　８
@@ -64,7 +65,7 @@
             %li.mypage-go-list
               =link_to "#", class: "go" do 
                 一覧を見る
-
+          -# 後で実装
           -# .tab-content-todo
           -#   %li
           -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/email_password/"}
@@ -90,7 +91,7 @@
         .tab-content-transaction
           %ul.tab-content-transaction__now
             %li.tab-content-transaction__now--not-found.bold 取引中の商品がありません
-              
+          -# 後で実装             
           -# %ul.tab-content-transaction__old
           -#   %li
           -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m59827217698/"}
