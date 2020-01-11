@@ -1,4 +1,4 @@
-.mypage  
+.mypage_a  
   %main.mypage-contents.clearfix
     .main-content
       %section.user
@@ -62,7 +62,8 @@
                   %span 2 日前
               %i.icon-arrow-right
             %li.mypage-go-list
-              %a.go 一覧を見る
+              =link_to "#", class: "go" do 
+                一覧を見る
 
           -# .tab-content-todo
           -#   %li
@@ -108,98 +109,98 @@
       %nav.mypage-nav
         %ul.mypage-nav-list
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               マイページ
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               お知らせ
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               やることリスト
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               いいね！一覧
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               出品する
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               出品した商品 - 出品中
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               出品した商品 - 取引中
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               出品した商品 - 売却済み
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               購入した商品 - 取引中
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               購入した商品 - 過去の取引
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               ニュース一覧
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               評価一覧
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               ガイド
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-item
+            =link_to "#", class: "mypage-nav-list-item" do
               お問い合わせ
               %i.icon-arrow-right
         %h3.mypage-nav-head-merpay メルペイ
         %ul.mypage-nav-list-merpay
           %li
-            %a.mypage-nav-list-merpay-item
+            =link_to "#", class: "mypage-nav-list-merpay-item" do
               売上・振込申請
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-merpay-item
+            =link_to "#", class: "mypage-nav-list-merpay-item" do
               ポイント
               %i.icon-arrow-right
         %h3.mypage-nav-head-setting 設定
         %ul.mypage-nav-list-setting
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               プロフィール
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               発送元・お届け先住所変更
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               支払い方法
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               メール/パスワード
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               本人情報
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               電話番号の確認
               %i.icon-arrow-right
           %li
-            %a.mypage-nav-list-setting-item
+            =link_to "#", class: "mypage-nav-list-setting-item" do
               ログアウト
               %i.icon-arrow-right

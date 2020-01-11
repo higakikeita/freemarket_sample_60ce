@@ -1,6 +1,6 @@
 @import "color";
 
-.mypage {
+.mypage_a {
   width: 100%;
   height: 100%;
   background-color: $Background;
@@ -66,7 +66,6 @@
               width: 50%;
               display: inline-block;
               text-align: center;
-              vertical-align: top;
               margin: 0;
               padding: 0;
               height: 72px;
@@ -137,7 +136,7 @@
               height: 56px;
               padding: 16px;
               position: relative;
-              a.go {
+              .go {
               text-align: center;
               width: 668px;
               height: 56px;
@@ -145,6 +144,7 @@
               position:absolute;
               line-height: 56px;
               display: block;
+              text-decoration: none;
               }
             }
           }
@@ -237,6 +237,7 @@
             box-sizing: inherit;
             padding: 16px;
             line-height: 14px;
+            text-decoration: none;
             .icon-arrow-right {
               width: 8.594px;
               height: 14px;
@@ -262,6 +263,7 @@
             font-size: 14px;              
             color: #333;
             line-height: 14px;
+            text-decoration: none;
           }                        
         } 
         .mypage-nav-head-setting {
@@ -283,6 +285,7 @@
             font-size: 14px;              
             color: #333;
             line-height: 14px;
+            text-decoration: none;
           }                        
         }        
       }     
@@ -294,6 +297,3 @@
     display: block;
   }
 }
-// *{
-//   box-sizing: bo;
-// }
