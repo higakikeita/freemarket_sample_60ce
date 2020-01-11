@@ -130,7 +130,7 @@ Things you may want to cover:
 ### Association
 - has_many: messages
 - belongs_to : user
-- has_one : product
+- belongs_to : product
 - has_one : ship-to_address
 
 
