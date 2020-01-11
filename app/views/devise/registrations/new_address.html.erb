@@ -1,0 +1,16 @@
+<h2>住所情報登録</h2>
+
+<%= form_for @address do |f| %>
+  <%= render "devise/shared/error_messages", resource: @address %>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
