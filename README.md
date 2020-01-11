@@ -47,11 +47,11 @@ Things you may want to cover:
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|first-name|string|null: false|
-|last-name|string|null: false|
-|first-name_kana|string|null: false|
-|last-name_kana|string|null: false|
-|phone-number|string|null: false, unique:true|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|phone_number|string|null: false, unique:true|
 |user_id|references|foreign_key:true|
 ### Association
 - belongs_to : user
@@ -69,7 +69,7 @@ Things you may want to cover:
 |size|string|null: false| 
 |postage|string|null: false|
 |region|string|null: false|
-|delivery-date|string|null: false|
+|delivery_date|string|null: false|
 ### Association
 - belongs_to : user
 - has_many : comments
@@ -126,8 +126,8 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
-|ship-to_address_id|references|null: false, foreign_key: true|
-|order-number|integer|null: false|
+|ship_to_address_id|references|null: false, foreign_key: true|
+|order_number|integer|null: false|
 ### Association
 - has_many: messages
 - belongs_to : user
@@ -180,7 +180,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|postal-code|integer|null: false| 
+|postal_code|integer|null: false| 
 |prefecture|string|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
@@ -194,7 +194,7 @@ Things you may want to cover:
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |order_id|references|null: false, foreign_key: true|
-|postal-code|string|null: false| 
+|postal_code|string|null: false| 
 |prefecture|string|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
