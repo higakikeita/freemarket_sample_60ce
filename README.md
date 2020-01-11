@@ -183,7 +183,7 @@ Things you may want to cover:
 |prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
-|apartment|string|null: false| 
+|apartment|string|| 
 ### Association
 - belongs_to : user 
 
