@@ -1,0 +1,37 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo--center
+      = link_to "#" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1714804574", alt: "mercari"
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__title
+        新規会員登録
+      .step0
+        .step0__contents
+          =link_to "#", class: "btn-def--mail" do
+            %i.far.fa-envelope
+            %span<>
+            メールアドレスで登録する
+          =link_to "#", class: "btn-def--facebook" do
+            %i.fab.fa-facebook-f
+            %span<>
+            Facebookで登録する
+          =link_to "#", class: "btn-def--google" do
+            %i.fab.fa-google
+            %span<>
+            Googleで登録する                           
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    = link_to "#", class: "single-footer__logo" do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1714804574"
+    %p
+      %small 
+        © Mercari, Inc.

@@ -1,0 +1,119 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to "#" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1714804574", alt: "mercari"
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          電話番号認証
+          .single-header__progress__round
+        %li.single-header__progress__text
+          お届け先住所入力
+          .single-header__progress__round     
+        %li.single-header__progress__text
+          支払い方法
+          .single-header__progress__round    
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__title
+        会員情報入力
+      %form.single-main__container__form{action: "####", method: "POST", novalidate: "novalidate"}
+        %input{name: "__csrf_value", type: "hidden", value: "###"}
+        .single-main__container__form__frame
+          .form-group
+            %label{for: "nickname"} ニックネーム
+            %span.form-group__require 必須
+            %input.form-group__input{name: "nickname", placeholder: "例) メルカリ太郎", type: "text", value: ""}
+          .form-group
+            %label{for:"email"} メールアドレス
+            %span.form-group__require 必須
+            %input.form-group__input{name: "email", placeholder: "PC・携帯どちらでも可", type: "email", value: ""}
+          %input{name: "login_type", type: "hidden", value: ""}
+          .form-group.form-password-revelation
+            %label{for: "password"} パスワード
+            %span.form-group__require 必須
+            %input.form-group__input{name: "password", placeholder: "7文字以上の半角英数字", type: "password"}
+            %p.form-group__info ※ 英字と数字の両方を含めて設定してください
+            .form-password-revelation-toggle
+              .checkbox-default
+                %input#reveal_password{type: "checkbox"}/
+                %i.icon-check
+                %label{for: "reveal_password"} パスワードを表示する
+              .form-password-revelation-revealed-password-container
+                %span.form-password-revelation-revealed-password
+          .form-group
+            %label.form-group-text-title 本人確認
+            %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form-group
+            %div
+              %label お名前(全角)
+              %span.form-group__require 必須
+            %input.form-group__input--half{name: "family_name_kanji", placeholder: "例) 山田", type: "text", value: ""}
+            %input.form-group__input--half{name: "first_name_kanji", placeholder: "例) 彩", type: "text", value: ""}
+          .form-group
+            %div
+              %label{for: "family_name_kanji"} お名前カナ(全角)
+              %span.form-group__require 必須
+            %input.form-group__input--half{name: "family_name_kana", placeholder: "例) ヤマダ", type: "text", value: ""}/
+            %input.form-group__input--half{name: "first_name_kana", placeholder: "例) アヤ", type: "text", value: ""}/
+          .form-group
+            %label{for: "birthday"} 生年月日
+            %span.form-group__require 必須
+            %br
+            .birthday-select-wrap
+              .select-wrap
+                %i.icon-arrow-bottom
+                %select.select-default{name: "year"}
+              %span 年
+              .select-wrap.select-wrap__month
+                %i.icon-arrow-bottom
+                %select.select-default{name: "month"}
+              %span 月
+              .select-wrap.select-wrap__day
+                %i.icon-arrow-bottom
+                %select.select-default{name: "day"}
+              %span 日
+            %input{name: "birthday", type: "hidden", value: ""}
+            .clearfix
+          %p.form-group__info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .l-single-content
+            %input{name: "after_save_callback", type: "hidden", value: ""}/
+            .form-group
+              %p.form-group__text--center
+                「次へ進む」のボタンを押すことにより、
+                = link_to "利用規約", "#" , target:"_blank"
+                に同意したものとみなします
+            %button.btn-default.btn-red{type: "submit"} 次へ進む
+            .form-group__text--right
+              %p
+                = link_to "#" , target:"_blank" do
+                  %i.fas.fa-chevron-right
+                  本人情報の登録について
+            .form-group__info
+              %p
+                This site is protected by reCAPTCHA and the Google
+                = link_to "Privacy Policy", "#" , target:"_blank"
+                and
+                = link_to "Terms of Service", "#" , target:"_blank"
+                apply.
+  %footer.single-footer
+    %nav
+      %ul.clearfix
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    = link_to "#", class: "single-footer__logo" do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1714804574"
+    %p
+      %small 
+        © Mercari, Inc.
