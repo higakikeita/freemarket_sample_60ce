@@ -23,6 +23,10 @@ Things you may want to cover:
 
 * ...
 
+## ER図
+<img width="1109" alt="メルカリ　ER図" src="https://user-images.githubusercontent.com/57035748/72214994-446ef680-3550-11ea-88d7-f96c6443d596.png">
+
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -63,8 +67,6 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false, index: true|
 |price|integer|null: false|
-|sell_user_id|references|null: false, foreign_key: true|
-|buy_user_id|references|null: false, foreign_key: true|
 |introduction|text|null: false|
 |status|integer|null: false| 
 |size|string|null: false| 
@@ -86,6 +88,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - has_many : products
 
@@ -95,7 +98,7 @@ Things you may want to cover:
 |------|----|-------|
 |message|text|null: false|
 |user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|order_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
 - belongs_to : order
@@ -180,7 +183,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|postal_code|integer|null: false| 
+|postal_code|string|null: false| 
 |prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
@@ -195,13 +198,10 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |order_id|references|null: false, foreign_key: true|
 |postal_code|string|null: false| 
-|prefecture|string|null: false| 
+|prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
-|apartment|string|null: false| 
+|apartment|string|| 
 ### Association
 - belongs_to : order
 - belongs_to : user
-
-
-
