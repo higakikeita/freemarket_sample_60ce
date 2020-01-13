@@ -1,2 +1,235 @@
 =render "header_login"
+.main-section
+  .header
+  -# = render "shared/header"
+
+  .slider-section
+    .slider__image
+      %ul.slider
+        %li.slider__list
+        %li.slider__list
+      .slider__text
+        .slider__text--large
+          スマホで かんたん
+          %br
+          フリマアプリ
+        .slider__text--small
+          メルカリはスマホカメラからすぐに出品できる
+          %br
+          購入時も安心な独自システムのアプリです
+      %ul.slider__link--tag
+        %li.link__apple
+          = link_to image_tag('download_on_the_AppStore_badge.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+        %li.link__google
+          = link_to image_tag('google-play-badge.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+
+  .pickup-section
+    .pickup-section__header
+      .pickup-section__header--title
+        人気のカテゴリー
+      %ul.pickup-section__header--list
+        %li.header__list--logo
+          レディース
+        %li.header__list--logo
+          メンズ
+        %li.header__list--logo
+          家電・スマホ・カメラ
+        %li.header__list--logo
+          おもちゃ・ホビー・グッズ
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          レディース新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+                %br
+                テストテストテストテストテストテスト
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          メンズ新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          家電・スマホ・カメラ新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          おもちゃ・ホビー・グッズ新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+  .pickup-section
+    .pickup-section__header
+      .pickup-section__header--title
+        人気のブランド
+      %ul.pickup-section__header--list
+        %li.header__list--logo
+          シャネル
+        %li.header__list--logo
+          ルイ・ヴィトン
+        %li.header__list--logo
+          シュプリーム
+        %li.header__list--logo
+          ナイキ
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          シャネル新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+        
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          ルイ・ヴィトン新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          シュプリーム新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+    .pickup-section__main
+      .pickup-section__main--title
+        .main__title--text
+          ナイキ新着アイテム
+        .main__title--more
+          もっと見る >
+      %ul.pickup-section__main--products
+        - for i in 1..10
+          %li.products__list
+            -# =link_to "#" 
+            %figure.product
+              %figucaption.product__text
+                レギンス レディース
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥450
+                .product__thumbnail--image
+                  = image_tag "logo_white.svg"
+
+  .bottom
+    .image-bottom
+      .image-bottom__left
+        .image-bottom__left--top-text
+          スマホでかんたんフリマアプリ
+        .image-bottom__left--bottom-text
+          今すぐ無料ダウンロード！
+        .image-bottom__left--link
+          .link__mercari
+            = logo_white_svg("log-white.svg", class: "link__mercari")
+          .link__apple
+            = link_to image_tag('download_on_the_AppStore_badge.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
+          .link__google
+            = link_to image_tag('google-play-badge.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+
+      .image-bottom__right
+
+  .footer
+    -# = render "shared/footer"
+
+.sell-tab
+  .sell-tab__box
+    .sell-tab__box--text
+      出品
+    .sell-tab__box--logo
+      = icon('fas', 'camera')
+
 =render "footer"

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  root "users#index"
-  resources :user, only: [:index]
+  root "home#top"
+  resources :user
+  resources :product
 end
