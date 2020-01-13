@@ -1,25 +1,3 @@
-.single-container
-  %header.single-header
-    %h1.single-header__logo
-      = link_to "#" do
-        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1714804574", alt: "mercari"
-    %nav.single-header__progress
-      %ol
-        %li.single-header__progress__text--active{ id: "first" }
-          会員情報
-          .single-header__progress__round--red
-        %li.single-header__progress__text
-          電話番号認証
-          .single-header__progress__round
-        %li.single-header__progress__text
-          お届け先住所入力
-          .single-header__progress__round     
-        %li.single-header__progress__text
-          支払い方法
-          .single-header__progress__round    
-        %li.single-header__progress__text{ id: "end" }
-          完了
-          .single-header__progress__round
   %main.single-main
     %section.single-main__container
       %h2.single-main__container__title
