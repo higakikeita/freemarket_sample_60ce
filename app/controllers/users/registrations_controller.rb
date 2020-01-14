@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-    render :new_address
+    render :sms_authentication
   end
 
   def create_address
@@ -27,7 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
-      render :new_address and return
+      render :sms_authentication and return
     end
     @user.build_address(@address.attributes)
     @user.save
