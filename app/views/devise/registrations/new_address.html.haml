@@ -37,7 +37,6 @@
               = f.label :prefecture, "都道府県"
               %span.form-group__require 必須
               = f.select :prefecture, Address.prefectures.keys, {}, {class: 'form-group__input'}
-              -# = f.select :prefecture, [["国語", "国語"], ["数学", "数学"], ["英語", "英語"], ["理科", "理科"], ["社会", "社会"], ["その他", "その他"]], {}, {class: 'form-group__input'}
           .form-group
             = form_for @address do |f|
               = f.label :city, "市町村"
@@ -57,22 +56,3 @@
             = form_for @address do |f|
               = f.submit '次へ', class: "btn-default btn-red"
   = render "registration_footer"
-
-
-
-
-
-
--# <%# カリキュラム元に記載されていた通りの内容を下記に残します %>
--# <h2>住所情報登録</h2>
--# <%= form_for @address do |f| %>
--#   <%= render "devise/shared/error_messages", resource: @address %>
--#   <div class="field">
--#     <%= f.label :address %><br />
--#     <%= f.text_field :address %>
--#   </div>
--#   <div class="actions">
--#     <%= f.submit "Sign up" %>
--#   </div>
--# <% end %>
--# <%= render "devise/shared/links" %>
