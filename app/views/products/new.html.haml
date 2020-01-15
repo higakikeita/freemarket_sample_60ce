@@ -1,0 +1,19 @@
+商品の情報を入力
+= form_for @product do |f|
+  出品画像
+  = f.fields_for :images do |i|
+    = i.file_field :product_image
+    %br/
+  商品名
+  = f.text_field :name
+  %br
+  価格
+  = f.number_field :price
+  %br/
+  商品の説明
+  = f.text_field :explain
+  %br/
+
+  = f.submit
+
+  
