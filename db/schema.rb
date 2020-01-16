@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200111073435) do
+ActiveRecord::Schema.define(version: 20200114134324) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postal_code", null: false
@@ -34,6 +34,34 @@ ActiveRecord::Schema.define(version: 20200111073435) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
+  create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "product_image", limit: 65535, null: false
+    t.integer  "product_id",                  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["product_id"], name: "index_images_on_product_id", using: :btree
+  end
+
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",          limit: 191
+    t.integer  "price"
+    t.text     "explain",       limit: 65535
+    t.integer  "postage"
+    t.string   "region"
+    t.string   "state"
+    t.date     "shipping_date"
+    t.integer  "size"
+    t.integer  "brand_id"
+    t.integer  "category_id"
+    t.string   "product"
+    t.string   "image"
+    t.string   "prefecture"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["name"], name: "index_products_on_name", using: :btree
+    t.index ["price"], name: "index_products_on_price", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,5 +91,6 @@ ActiveRecord::Schema.define(version: 20200111073435) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "images", "products"
   add_foreign_key "profiles", "users"
 end
