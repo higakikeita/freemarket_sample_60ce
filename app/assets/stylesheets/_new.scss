@@ -145,6 +145,7 @@
             
           }
         }
+        // 商品名
         .sell--content {
           height: 300px;
           padding:40px;
@@ -279,21 +280,7 @@
                   padding: 0 16px;
                 }
               }
-              // #item_category_id{
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
-              // #item_size_id {
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
-              // #item_brand {
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
+              
             }
             &__status {
               margin-top:40px;
@@ -337,11 +324,7 @@
                   }
                 
               }
-              // #item_condition {
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
+              
             }
           }
         }
@@ -401,11 +384,7 @@
                   transform: translate(0, -50%);
                 }
               }
-              // #item_delivery_attributes_delivery_cost {
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
+              
             }
             &__middle {
 
@@ -450,11 +429,7 @@
                   
                 
               }
-              #item_delivery_attributes_delivery_ways {
-                height:50px;
-                width:100%;
-                background-color:white;
-              }
+              
             }
             &__bottom {
 
@@ -498,11 +473,7 @@
                   }
                 
               }
-              // #item_delivery_attributes_delivery_days {
-              //   height:50px;
-              //   width:100%;
-              //   background-color:white;
-              // }
+             
             }
           }
         }
