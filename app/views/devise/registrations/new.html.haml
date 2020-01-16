@@ -1,8 +1,7 @@
 .single-container
   %header.single-header
     %h1.single-header__logo
-      = link_to "#" do
-        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1714804574", alt: "mercari"
+      =link_to image_tag("fmarket_logo_red.svg",width:"134",height:"36"), root_path  
     %nav.single-header__progress
       %ol
         %li.single-header__progress__text--active{ id: "first" }
@@ -47,6 +46,40 @@
     .form-group
       %label.form-group-text-title 本人確認
       %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+  -# モデルの変更が必要 profileモデル
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .form-group
+      = f.label :"お名前(全角)"
+      %span.form-group__require 必須
+      = f.text_field :family_name_kanji, {placeholder:"例) 山田",class:'form-group__input--half'}
+      = f.text_field :first_name_kanji, {placeholder:"例) 彩",class:'form-group__input--half'}
+    .form-group
+      = f.label :"お名前カナ(全角)"
+      %span.form-group__require 必須
+      = f.text_field :family_name_kana, {placeholder:"例) ヤマダ",class:'form-group__input--half'}
+      = f.text_field :first_name_kana, {placeholder:"例) アヤ",class:'form-group__input--half'}
+    .form-group
+      = f.label :生年月日
+      %span.form-group__require 必須
+      %br
+      .birthday-select-wrap
+        .select-wrap
+          = f.date_select :カラム名, {オプション名: 値}
+
+          %i.icon-arrow-bottom
+          %select.select-default{name: "year"}
+        %span 年
+        .select-wrap.select-wrap__month
+          %i.icon-arrow-bottom
+          %select.select-default{name: "month"}
+        %span 月
+        .select-wrap.select-wrap__day
+          %i.icon-arrow-bottom
+          %select.select-default{name: "day"}
+        %span 日
+      %input{name: "birthday", type: "hidden", value: ""}
+      .clearfix
     .form-group
       %p.form-group__text--center
         「次へ進む」のボタンを押すことにより、
