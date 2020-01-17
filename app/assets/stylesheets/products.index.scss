@@ -276,7 +276,10 @@
     &--logo {
       font-size: 58px;
       color: $header-icon;
-      margin: -15px auto 0px;
+      
     }
+  }
+  a.sell-tab__box__text{
+    color: $header-icon;
   }
 }
