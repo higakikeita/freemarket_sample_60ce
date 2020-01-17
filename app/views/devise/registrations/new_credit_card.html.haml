@@ -1,0 +1,79 @@
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      = link_to root_path do
+        =image_tag("fmarket_logo_red.svg")
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          電話番号認証
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          お届け先住所入力
+          .single-header__progress__round--red
+        %li.single-header__progress__text--active
+          支払い方法
+          .single-header__progress__round--red
+            .single-header__progress__round--red-long{ id: "long" }
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
+  %main.single-main
+    %section.single-main__container
+      %h2.single-main__container__title
+        支払い方法
+
+      %form.single-main__container__form{action: "####", method: "POST", novalidate: "novalidate"}
+        %input{name: "__csrf_value", type: "hidden", value: "###"}
+        .single-main__container__form__frame
+          .form-group
+            = form_for @credit_card do |f|
+              = f.label :text, "カード番号", class: "label"
+              = f.label :text, "必須", class: "form-group__require"
+              = f.text_field :card_number, placeholder: "半角数字のみ", class: "form-group__input"
+
+            %ul.signup__card--list
+              %li.icon--visa
+                = image_tag("visa.svg", id:"icon--visa")
+              %li.icon--master
+                = image_tag("master-card.svg", id:"icon--master")
+              %li.icon--saison
+                = image_tag("saison-card.svg", id:"icon--saison")
+              %li.icon--jcb
+                = image_tag("jcb.svg", id:"icon--jcb")
+              %li.icon--americanexpress
+                = image_tag("american_express.svg", id:"icon--americanexpress")
+              %li.icon--diners
+                = image_tag("dinersclub.svg", id:"icon--diners")
+              %li.icon--discover
+                = image_tag("discover.svg", id:"icon--discover")
+
+          .form-group
+            = form_for @credit_card do |f|
+              = f.label :text, "有効期限", class: "label"
+              = f.label :text, "必須", class: "form-group__require"
+              %br
+              = f.select :card_year, options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]), {}, {class: "form-group__input--half"}
+              = f.label :text, "月", class: "form-group__card--year-and-month"
+              = f.select :card_month, options_for_select(["20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]), {}, {class: "form-group__input--half"}
+              = f.label :text, "年", class: "form-group__card--year-and-month"
+
+          .form-group
+            = form_for @credit_card do |f|
+              = f.label :text, "セキュリティコード", class: "label"
+              = f.label :text, "必須", class: "form-group__require"
+              = f.text_field :card_pass, placeholder: "カード背面4桁もしくは3桁の番", class: "form-group__input"
+
+          .form-group__add
+            .form-group__add--question ?
+            %p.form-group__text--right--blue
+              カード裏面の番号とは？
+
+          .form-group
+            = form_for @credit_card do |f|
+              = f.submit "次へ進む", class: "btn-default btn-red", url: "create_address_path"
+  
+  = render "/registration/registration_footer"

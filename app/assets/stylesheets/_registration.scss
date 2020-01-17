@@ -18,13 +18,10 @@ body {
   list-style: none;
 }
 
-
 .single-container{
   background-color: #F5F5F5;
   min-width: 768px;
 }
-
-
 
 /* ヘッダー大枠 */
 .single-header {
@@ -43,8 +40,7 @@ body {
     &a, img{
       height: 49px;
       line-height: 49px;
-    }  
-
+    }
   }
 
 /* ヘッダーナビ */
@@ -98,7 +94,6 @@ body {
   }
 }
 
-
 /* li ナビの棒 */  
 .single-header__progress__round::before {
   right: 50%;
@@ -111,7 +106,6 @@ body {
   height: 2px;
   background: #ccc;
 }
-
 
 .single-header__progress__round::after, .single-header__progress__round--red::after {
   left: 50%;
@@ -137,6 +131,18 @@ body {
   background: #ea352d;
 }
 
+#long {
+  right: 100%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 150%;
+  height: 2px;
+  background: #ea352d;
+}
+
 #first ::before {
   right: 50%;
   position: absolute;
@@ -149,7 +155,6 @@ body {
   background: #f5f5f5;
 }
 
-
 #end ::after {
   left: 50%;
   position: absolute;
@@ -161,8 +166,6 @@ body {
   height: 2px;
   background: #f5f5f5;
 }
-
-
 
 /* メイン全体 */
 .single-main{
@@ -265,9 +268,72 @@ body {
       }
     } 
   }
+  .signup__card--list {
+    display: flex;
+    margin-top: 8px;
+    
+    #icon--visa {
+      width: 49px;
+      height: 20px;
+      margin: 0 0 0 8px;
+      }
 
+      #icon--master {
+        width: 34px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+
+      #icon--saison {
+        width: 30px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+
+      #icon--jcb {
+        width: 32px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+
+      #icon--americanexpress {
+        width: 21px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+
+      #icon--diners {
+        width: 32px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+
+      #icon--discover {
+        width: 32px;
+        height: 20px;
+        margin: 0 0 0 8px;
+      }
+  }
+  &__add {
+    display: flex;
+    justify-content: flex-end;
+    &--question {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #0099e8;
+      color: #fff;
+      line-height: 14px;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+  &__card--year-and-month {
+    margin-left: 8px;
+  }
 }
-
 
 .checkbox-default{
   margin-top: 16px;
@@ -293,11 +359,6 @@ body {
   transform: translate(0, -50%);
 }
 
-
-.icon-arrow-bottom {
-
-}
-
 .icon-arrow-bottom {
   position: absolute;
   right: 16px;
@@ -309,10 +370,6 @@ body {
   transform: translate(0, -50%);
   position: absolute;
 }
-
-
-
-
 
 .select-wrap{
   position: relative;
@@ -328,7 +385,6 @@ body {
   font-size: 16px;
   box-sizing: border-box;
 }
-
 
 .btn-default {
   display: block;
@@ -350,11 +406,6 @@ body {
   color: #fff;
 }
 
-
-
-
-
-
 .single-footer{
   width: 456px;
   height: 220px;
@@ -366,7 +417,6 @@ body {
   padding: 40px 0;
   text-align: center;
   box-sizing: border-box;
-
 
   & nav{
     height: 12px;
@@ -384,7 +434,6 @@ body {
     display: block;
     color: #333;
   }
-
  
   &__logo {
     width: 80px;
@@ -400,19 +449,10 @@ body {
   }
 }
 
-
-
-
-
-
-
-
 .single-container{
   background-color: #F5F5F5;
   min-width: 768px;
 }
-
-
 
 .step0{
   padding: 24px 40px 64px;
