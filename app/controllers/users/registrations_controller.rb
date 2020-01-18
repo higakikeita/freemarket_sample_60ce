@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @profile = Profile.new
     super
   end
 

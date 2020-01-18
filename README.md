@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 ## ER図
-<img width="1109" alt="メルカリ　ER図" src="https://user-images.githubusercontent.com/57035748/72214994-446ef680-3550-11ea-88d7-f96c6443d596.png">
+<img width="1109" alt="メルカリ ER図" src="https://user-images.githubusercontent.com/57035748/72214994-446ef680-3550-11ea-88d7-f96c6443d596.png">
 
 
 ## usersテーブル
@@ -58,6 +58,7 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |phone_number|string|null: false, unique:true|
 |user_id|references|foreign_key:true|
+|birthday|integer|null: false|
 ### Association
 - belongs_to : user
 

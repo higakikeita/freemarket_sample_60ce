@@ -347,28 +347,30 @@ body {
 
 .checkbox-default{
   margin-top: 16px;
+  position: relative;
 }
 
 .icon-check{
-  border-color: transparent;
-  opacity: 1;
-  top: 50%;
-  left: 0;
-  z-index: 1;
-  width: 20px;
-  height: 20px;
-  border-radius: 2px;
-  background: #fff;
-  border: 1px solid #ccc;
-  font-size: 10px;
-  line-height: 17px;
-  text-align: center;
-  color: #fff;
-  vertical-align: middle;
-  transition: all ease-out .3s;
-  transform: translate(0, -50%);
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-size: 10px;
+    line-height: 17px;
+    text-align: center;
+    color: #fff;
+    vertical-align: middle;
 }
 
+input[type=checkbox] {
+  -ms-transform: scale(1.5, 1.5);
+  -webkit-transform: scale(1.5, 1.5);
+  transform: scale(1.5, 1.5);
+}
 .icon-arrow-bottom {
   position: absolute;
   right: 16px;
@@ -530,4 +532,11 @@ body {
     border: #979797 solid 1px;
     color: #333;
   }
+}
+
+.birthday-select-wrap select{
+  width: 76px;
+  height: 48px;
+  font-size: 100%;
+  margin-top: 10px;
 }
