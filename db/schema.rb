@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20200114134324) do
     t.text     "explain",       limit: 65535
     t.integer  "postage"
     t.string   "region"
-    t.string   "state"
+    t.string   "status"
     t.date     "shipping_date"
     t.integer  "size"
     t.integer  "brand_id"

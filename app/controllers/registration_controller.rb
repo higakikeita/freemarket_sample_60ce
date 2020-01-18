@@ -3,4 +3,6 @@ class RegistrationController < ApplicationController
   end
   def index_step1
   end
+  def address
+  end
 end

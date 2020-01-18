@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.text :explain
       t.integer :postage
       t.string :region
-      t.string :state
+      t.string :status
       t.date :shipping_date
       t.integer :size
       t.integer :brand_id

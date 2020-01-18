@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-    render :sms_authentication
+
   end
 
   def create_address
@@ -28,12 +28,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
-      render :sms_authentication and return
+      @credit_card = @user.build_credit_card
+      render :new_credit_card and return
     end
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @credit_card = @user.build_credit_card
+    render :new_credit_card
   end
+
+
+  # 住所登録画面作成のためだけに、仮設アクションを作成しました。sessionで統合後はnew_addressアクションそのものを削除します
+  def new_address
+    @address = Address.new
+  end
+
 
   protected
 
