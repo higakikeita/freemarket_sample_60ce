@@ -20,7 +20,7 @@
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
-                  = f.fields_for :product_images do |i|
+                  = f.fields_for :images do |i|
                     = i.file_field :product_image,class:"product-uploaded","data-nums": "0"
         .sell--content
           .sell--content__name
@@ -48,6 +48,7 @@
                 %span.form--caution 必須
                 
                 .select--wrap
+                  
                   %select.select--wrap-cat2__default-category2
                     %option{value: 0} ---
                     %option{value: 1} トップス
@@ -88,7 +89,7 @@
                 商品の状態
                 %span.form--caution 必須
                 .select--wrap
-                  = f.select :name, [['---',""]],{}, {class:"select--wrap__default"}
+                  = f.select :status, [['---',""]],{}, {class:"select--wrap__default"}
                   %i.fas.fa-angle-down
         .delivery-form
           %h3.delivery-form__about__delivery 配送について
