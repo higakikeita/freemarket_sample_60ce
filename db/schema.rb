@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20200114134324) do
     t.string   "last_name_kana",  null: false
     t.string   "phone_number",    null: false
     t.integer  "user_id",         null: false
+    t.date     "birthday",        null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree

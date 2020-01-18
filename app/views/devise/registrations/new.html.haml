@@ -33,52 +33,35 @@
     .form-group
       = f.label :パスワード
       %span.form-group__require 必須
-      = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input'}
+      = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
       %p.form-group__info ※ 英字と数字の両方を含めて設定してください
-      -#  以下、JSの実装が必要
       .form-password-revelation-toggle
         .checkbox-default
-          %input#reveal_password{type: "checkbox"}/
-          %i.icon-check
+          %input#reveal_password{type: "checkbox",class:"icon-check"}
           %label{for: "reveal_password"} パスワードを表示する
         .form-password-revelation-revealed-password-container
           %span.form-password-revelation-revealed-password
     .form-group
       %label.form-group-text-title 本人確認
       %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-  -# モデルの変更が必要 profileモデル
-  = form_for(@user, url: user_registration_path) do |f|
-    = render "devise/shared/error_messages", resource: @user
+  = form_for(@profile, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @profile
     .form-group
       = f.label :"お名前(全角)"
       %span.form-group__require 必須
-      = f.text_field :family_name_kanji, {placeholder:"例) 山田",class:'form-group__input--half'}
-      = f.text_field :first_name_kanji, {placeholder:"例) 彩",class:'form-group__input--half'}
+    = f.text_field :last_name, {placeholder:"例) 山田",class:'form-group__input--half'}
+    = f.text_field :first_name, {placeholder:"例) 彩",class:'form-group__input--half'}
     .form-group
       = f.label :"お名前カナ(全角)"
       %span.form-group__require 必須
-      = f.text_field :family_name_kana, {placeholder:"例) ヤマダ",class:'form-group__input--half'}
-      = f.text_field :first_name_kana, {placeholder:"例) アヤ",class:'form-group__input--half'}
+    = f.text_field :last_name_kana, {placeholder:"例) ヤマダ",class:'form-group__input--half'}
+    = f.text_field :first_name_kana, {placeholder:"例) アヤ",class:'form-group__input--half'}
     .form-group
-      = f.label :生年月日
+      = f.label :"生年月日"
       %span.form-group__require 必須
       %br
       .birthday-select-wrap
-        .select-wrap
-          = f.date_select :カラム名, {オプション名: 値}
-
-          %i.icon-arrow-bottom
-          %select.select-default{name: "year"}
-        %span 年
-        .select-wrap.select-wrap__month
-          %i.icon-arrow-bottom
-          %select.select-default{name: "month"}
-        %span 月
-        .select-wrap.select-wrap__day
-          %i.icon-arrow-bottom
-          %select.select-default{name: "day"}
-        %span 日
-      %input{name: "birthday", type: "hidden", value: ""}
+        != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
       .clearfix
     .form-group
       %p.form-group__text--center
@@ -99,4 +82,4 @@
           and
           = link_to "Terms of Service", "#" , target:"_blank"
           apply.
-= render "devise/shared/links"
+
