@@ -1,0 +1,171 @@
+.exhibit__page
+  = render 'single-container'
+  .exhibit__page__main
+    .exhibit__page__main__contents
+      %h3.exhibit__page__main__contents__message
+        商品の情報を入力
+      = form_for @product, html:{class:"form-content"} do |f|
+        
+        .img-form
+          %h3.img__upload__text
+            出品画像
+            %span.form--caution 
+              必須
+          %p.img__upload__comment 最大10枚までアップロードできます
+          .preview-area
+            %ul.product-image-list#product-image-list
+              .upload-area
+                .upload-area__dropbox
+                  %p 
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+                  = f.fields_for :images do |i|
+                    = i.file_field :product_image,class:"product-uploaded","data-nums": "0"
+        .sell--content
+          .sell--content__name
+            %h3.sell--content__name__name
+              商品名
+              %span.form--caution 
+                必須
+            %div
+              = f.text_field :name, class:"product-name__text__field",placeholder: "商品名（必須 40文字まで)"
+          .sell--content__description
+            %h3.sell--content__description__description
+              商品の説明
+              %span.form--caution 
+                必須
+
+            =f.text_area :explain,class:"sell--content__text__area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+              
+        .product-details
+          %h3.product-details__name 商品の詳細
+          .product-details__form
+            .product-details__form__category
+              %h3.product-details__form__category__name
+                カテゴリー
+                %span.form--caution 必須
+                
+                .select--wrap
+                  
+                  %select.select--wrap-cat2__default-category2
+                    %option{value: 0} ---
+                    %option{value: 1} トップス
+                    %option{value: 2} ジャケット/アウター
+                    %option{value: 3} パンツ
+                    %option{value: 4} スカート
+                    %option{value: 5} ワンピース
+                    %option{value: 1328} 靴
+                    %option{value: 6} ルームウェア/パジャマ
+                    %option{value: 7} レッグウェア
+                    %option{value: 8} 帽子
+                    %option{value: 9}バッグ
+                    %option{value: 1027} アクセサリー
+                    %option{value: 1318} ヘアアクセサリー
+                    %option{value: 10} その他
+                  %i.fas.fa-angle-down
+                .select--wrap
+                  %select.select--wrap-cat3__default-category3
+                    %option{value: "0"} ---
+                    %option{value: "1"} Tシャツ
+                    %option{value: "2"} シャツ
+                    %option{value: "3"} ポロシャツ
+                    %option{value: "4"} キャミソール
+                    %option{value: "5"} タンクトップ
+                    %option{value: "1328"} ホルターネック
+                    %option{value: "6"} ニット/セーター
+                    %option{value: "7"} チュニック
+                    %option{value: "8"} カーディガン
+                    %option{value: "9"} アンサンブル
+                    %option{value: "1027"} ベスト
+                    %option{value: "1318"} パーカー
+                    %option{value: "10"} その他
+                  %i.fas.fa-angle-down
+                
+                
+            .product-details__form__status
+              %h3.product-details__form__status__name
+                商品の状態
+                %span.form--caution 必須
+                .select--wrap
+                  = f.select :status, [['---',""]],{}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+        .delivery-form
+          %h3.delivery-form__about__delivery 配送について
+          =link_to "#", class: 'form--question' do
+            ?
+          .delivery-form__box
+            .delivery-form__box__top
+              %h3.delivery-form__box__top__name
+                配送料の負担
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :postage,[['---',""], ['送料込み（出品者負担）', '送料込み（出品者負担）'], ['着払い（購入者負担）', '着払い（購入者負担）']], {}, {class:"select--wrap__default"}
+                %i.fas.fa-angle-down
+            .delivery-form__box__middle
+              %h3.delivery-form__box__top__name
+                発送元の地域
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :prefecture,[['---',""]],{},{class:"select--wrap__default "}
+                %i.fas.fa-angle-down
+            .delivery-form__box__bottom
+              %h3.delivery-form__box__top__name
+                発送までの日数
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :shipping_date,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, {class:"select--wrap__default"}
+                %i.fas.fa-angle-down
+        .product-price
+          %h3.product-price__name 
+            販売価格(300〜9,999,999)
+          =link_to "#", class: 'form--question' do
+            ?
+            .product-price__form
+              .product-price__form__left
+                %h3.product-price__form__name
+                  価格
+                  %span.form--caution 必須
+                  %span.product-price__form__right
+                    ¥
+              .input--price
+                
+                =f.text_field :price,class:"input--price__default",placeholder: "例）300"
+          
+        .submit-button
+          .subimit-button__text
+            =link_to "#", class: 'sell--content5__p__a' do
+              禁止されている出品
+            、
+            =link_to "#", class: 'sell--content5__p__a' do
+              行為
+            を必ずご確認ください。
+            %p.sell--content5__p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              =link_to "#", class: 'sell--content5__p__a' do
+                偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p.sell--content5__p
+              また、出品をもちまして
+              =link_to "#", class: 'sell--content5__p__a' do
+                加盟店規約
+              に同意したことになります。
+            .actions
+              =f.submit "出品する",class:"btn--red"
+          %a.btn--gray もどる
+  .exhibit-page__footer
+    .exhibit-page__footer__content
+      .exhibit-page__footer__content__main
+        %ul.exhibit-page__footer__lists
+          %li.exhibit-page__footer__list
+            プライバシーポリシー
+          %li.exhibit-page__footer__list
+            メルカリ利用規約
+          %li.exhibit-page__footer__list
+            特定商取引に関する表記
+
+    
+      
+          %p.exhibit-page__footer__copyright
+            © 2019 Mercari
