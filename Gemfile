@@ -67,3 +67,5 @@ gem 'font-awesome-sass'
 gem 'haml-rails'
 gem 'owlcarousel-rails'
 gem 'devise'
+gem 'active_hash'
+
