@@ -1,19 +1,19 @@
 class CreateProducts < ActiveRecord::Migration[5.0]
   def change
     create_table :products do |t|
-      t.string :name, limit: 191, index: true
+      t.string :name, limit: 191,null:false,index: true
       t.integer :price, index: true
-      t.text :explain
-      t.integer :postage
+      t.text :explain,null:false
+      t.integer :postage,null:false
       t.string :region
-      t.string :status
-      t.date :shipping_date
+      t.integer :status
+      t.integer :shipping_date
       t.integer :size
       t.integer :brand_id
       t.integer :category_id
       t.string :product
       t.string :image
-      t.string :prefecture
+      t.integer :prefecture
       t.timestamps
     end
   end

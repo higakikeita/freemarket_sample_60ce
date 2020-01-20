@@ -48,7 +48,8 @@
                 %span.form--caution 必須
                 
                 .select--wrap
-                  
+                  .select--wrap
+                  = f.collection_select :category_id, Category.all, :id, :name
                   %select.select--wrap-cat2__default-category2
                     %option{value: 0} ---
                     %option{value: 1} トップス
@@ -89,7 +90,7 @@
                 商品の状態
                 %span.form--caution 必須
                 .select--wrap
-                  = f.select :status, [['---',""]],{}, {class:"select--wrap__default"}
+                  = f.select :status,Product.statuses.keys,{}, {class:"select--wrap__default"}
                   %i.fas.fa-angle-down
         .delivery-form
           %h3.delivery-form__about__delivery 配送について
@@ -101,37 +102,37 @@
                 配送料の負担
                 %span.form--caution 必須
               .select--wrap
-                = f.select :postage,[['---',""], ['送料込み（出品者負担）', '送料込み（出品者負担）'], ['着払い（購入者負担）', '着払い（購入者負担）']], {}, {class:"select--wrap__default"}
+                = f.select :postage,Product.postages.keys,{}, {class:"select--wrap__default"}
                 %i.fas.fa-angle-down
             .delivery-form__box__middle
               %h3.delivery-form__box__top__name
                 発送元の地域
                 %span.form--caution 必須
               .select--wrap
-                = f.select :prefecture,[['---',""]],{},{class:"select--wrap__default "}
+                = f.select :prefecture,Product.prefectures.keys,{},{class:"select--wrap__default "}
                 %i.fas.fa-angle-down
             .delivery-form__box__bottom
               %h3.delivery-form__box__top__name
                 発送までの日数
                 %span.form--caution 必須
               .select--wrap
-                = f.select :shipping_date,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, {class:"select--wrap__default"}
+                = f.select :shipping_date,Product.shipping_dates.keys,{}, {class:"select--wrap__default"}
                 %i.fas.fa-angle-down
         .product-price
           %h3.product-price__name 
             販売価格(300〜9,999,999)
           =link_to "#", class: 'form--question' do
             ?
-            .product-price__form
-              .product-price__form__left
-                %h3.product-price__form__name
-                  価格
-                  %span.form--caution 必須
-                  %span.product-price__form__right
-                    ¥
-              .input--price
-                
-                =f.text_field :price,class:"input--price__default",placeholder: "例）300"
+          .product-price__form
+            .product-price__form__left
+              %h3.product-price__form__name
+                価格
+                %span.form--caution 必須
+                %span.product-price__form__right
+                  ¥
+            .input--price
+              
+              =f.text_field :price,class:"input--price__default",placeholder: "例）300"
           
         .submit-button
           .subimit-button__text
