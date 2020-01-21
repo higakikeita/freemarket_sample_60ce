@@ -48,8 +48,9 @@
                 %span.form--caution 必須
                 
                 .select--wrap
-                  .select--wrap
-                  = f.collection_select :category_id, Category.all, :id, :name
+                  = f.collection_select :category_id, Category.all, :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
+                  %i.fas.fa-angle-down
+                .select--wrap
                   %select.select--wrap-cat2__default-category2
                     %option{value: 0} ---
                     %option{value: 1} トップス
@@ -90,7 +91,7 @@
                 商品の状態
                 %span.form--caution 必須
                 .select--wrap
-                  = f.select :status,Product.statuses.keys,{}, {class:"select--wrap__default"}
+                  = f.select :status,Product.statuses.keys,{prompt:"---"}, {class:"select--wrap__default"}
                   %i.fas.fa-angle-down
         .delivery-form
           %h3.delivery-form__about__delivery 配送について
@@ -102,21 +103,21 @@
                 配送料の負担
                 %span.form--caution 必須
               .select--wrap
-                = f.select :postage,Product.postages.keys,{}, {class:"select--wrap__default"}
+                = f.select :postage,Product.postages.keys,{prompt:"---"}, {class:"select--wrap__default"}
                 %i.fas.fa-angle-down
             .delivery-form__box__middle
               %h3.delivery-form__box__top__name
                 発送元の地域
                 %span.form--caution 必須
               .select--wrap
-                = f.select :prefecture,Product.prefectures.keys,{},{class:"select--wrap__default "}
+                = f.select :prefecture,Product.prefectures.keys,{prompt:"---"},{class:"select--wrap__default "}
                 %i.fas.fa-angle-down
             .delivery-form__box__bottom
               %h3.delivery-form__box__top__name
                 発送までの日数
                 %span.form--caution 必須
               .select--wrap
-                = f.select :shipping_date,Product.shipping_dates.keys,{}, {class:"select--wrap__default"}
+                = f.select :shipping_date,Product.shipping_dates.keys,{prompt:"---"}, {class:"select--wrap__default"}
                 %i.fas.fa-angle-down
         .product-price
           %h3.product-price__name 
