@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_detail, only: [:show]
+  before_action :set_product, only: [:show]
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name,:category_id,:price,:explain,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image])
     end
 
-    def set_detail
+    def set_product
       @product = Product.find(params[:id])
       
     end
