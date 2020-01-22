@@ -3,19 +3,19 @@
   .product-details__page__head
     .product-details__page__main
       %h1.product-name
-        単品でも可能  これからの季節に
+        =@product.name
       %p.product-wording
-        単品でも可能！これからの季節に！デザインペアネックレスは100回の取引実績を持つ
-        けいたさんから出品されました
-        千葉県から１〜２日で発送されます
+        =@product.explain
       .product-details__page__main__content.clearfix
         .product-details__page__main__content__image
-          .owl-carousel.owl-loaded.owl-drag
-            .owl-stage-outer
-              .owl-stage
-                .owl-item
-                  .owl-item__inner.is-higher-width
-                    =image_tag "car.jpeg"
+          =image_tag(@product.images[0].product_image.url)
+          
+          -# .owl-carousel.owl-loaded.owl-drag
+          -#   .owl-stage-outer
+          -#     .owl-stage
+          -#       .owl-item
+          -#         .owl-item__inner.is-higher-width
+                    
             .owl-dots
               .owl-dot
                 .owl-dot-inner
@@ -48,7 +48,7 @@
             %tr
               %th カテゴリー
               %td
-
+                =@product.category.name
             %tr
               %th ブランド
               %td
@@ -56,10 +56,12 @@
             %tr
               %th 商品の状態
               %td
+                =@product.status
                 
             %tr
               %th 配送料の負担
               %td
+                =@product.postage
                 
             %tr
               %th 配送の方法
@@ -68,15 +70,17 @@
             %tr
               %th 配送元地域
               %td
+                =@product.prefecture
                 
             %tr
               %th 発送の目安
               %td
+                =@product.shipping_date
                 
 
         .product-details-page__price
           %span.product-price.bold
-            ¥19800
+            =@product.price
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
 
