@@ -10,22 +10,16 @@
         .product-details__page__main__content__image
           =image_tag(@product.images[0].product_image.url)
           
-          -# .owl-carousel.owl-loaded.owl-drag
-          -#   .owl-stage-outer
-          -#     .owl-stage
-          -#       .owl-item
-          -#         .owl-item__inner.is-higher-width
-                    
-            .owl-dots
-              .owl-dot
-                .owl-dot-inner
-                  =image_tag "bike.jpg"
-                .owl-dot-inner
-                  =image_tag "bike.jpg"
-                .owl-dot-inner
-                  =image_tag "bike.jpg"
-                .owl-dot-inner
-                  =image_tag "bike.jpg"
+          .owl-dots
+            .owl-dot
+              .owl-dot-inner
+                
+              .owl-dot-inner
+                
+              .owl-dot-inner
+                
+              .owl-dot-inner
+                
         %table.product-details__page__main__content__right
           %tbody
             %tr
