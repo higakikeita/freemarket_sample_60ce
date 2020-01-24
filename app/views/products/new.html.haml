@@ -20,8 +20,15 @@
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
-                  = f.fields_for :images do |i|
-                    = i.file_field :product_image,class:"product-uploaded","data-nums": "0"
+                  #image-box
+                    #previews
+                      - if @product.persisted?
+                        - @product.images.each_with_index do |image, i|
+                          = image_tag image.src.url, data: {index: i}, width: "100", height: "100"
+                      = f.fields_for :images do |image|
+                        .js-file_group{data: {index:image.index}}
+                        = image.file_field :product_image,class:"js-file"
+                        %span.js-remove 削除
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name

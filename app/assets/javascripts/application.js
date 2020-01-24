@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require owl.carousel
 //= require_tree .
+console.log("kota")
