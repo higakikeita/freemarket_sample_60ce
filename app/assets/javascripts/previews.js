@@ -8,23 +8,19 @@ $(function () {
                   </div>`;
     return html;
   }
-console.log("aya")
 
   const buildImg = (index, url)=> {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
-  console.log("higa")
 
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
-  console.log("a")
 
   $('#image-box').on('change', '.js-file', function(e) {
-    console.log("h")
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
