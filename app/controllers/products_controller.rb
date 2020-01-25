@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
+  before_action :set_product, only: [:show,:comment]
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
 
   def show
+    @comment =Comment.new
+    @comments =@product.comments
   end
 
   def new
@@ -28,7 +30,7 @@ class ProductsController < ApplicationController
     end
 
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.includes(:comments).find(params[:id])
       
     end
 end

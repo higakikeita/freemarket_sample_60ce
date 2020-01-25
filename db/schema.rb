@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200120100937) do
+ActiveRecord::Schema.define(version: 20200125120245) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postal_code", null: false
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20200120100937) do
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "comment",    limit: 65535
+    t.integer  "product_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["product_id"], name: "index_comments_on_product_id", using: :btree
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,6 +106,7 @@ ActiveRecord::Schema.define(version: 20200120100937) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "comments", "products"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "profiles", "users"
