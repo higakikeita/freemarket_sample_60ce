@@ -91,6 +91,14 @@
                     %option{value: "1318"} パーカー
                     %option{value: "10"} その他
                   %i.fas.fa-angle-down
+
+            .product-details__form__size
+              %h3.product-details__form__size__name
+                サイズ
+                %span.form--caution 必須
+                .select--wrap
+                  = f.select :size,Product.sizes.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
                         
             .product-details__form__status
               %h3.product-details__form__status__name
