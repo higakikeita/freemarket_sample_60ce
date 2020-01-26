@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
       
       if @comment.save
         
-        redirect_to "/products/#{@comment.product_id}"
+        redirect_to product_path(@comment.product_id)
         
       else
         redirect_to root_path
