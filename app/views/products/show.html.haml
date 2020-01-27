@@ -69,7 +69,13 @@
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
 
-        .product-buy-btn 
+        .product-buy-btn-box
+        -# ユーザ登録機能実装後、記述
+        -# - if user_signed_in? && current_user.id 
+        = link_to "削除する", product_path(@product.id), method: :delete,class:"product-buy-btn__delete"
+        = link_to "編集する", edit_product_path(@product.id),class:"product-buy-btn"
+        -# - else
+        .product-purchase-btn
           購入画面に進む
 
         .product-details-page-bottom.clearfix

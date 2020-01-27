@@ -39,8 +39,7 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.index ["product_id"], name: "index_comments_on_product_id", using: :btree
   end
 
-  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-
+  create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "card_company", null: false
     t.string   "card_number",  null: false
     t.integer  "card_year",    null: false
@@ -101,9 +100,8 @@ ActiveRecord::Schema.define(version: 20200125120245) do
   end
 
   add_foreign_key "addresses", "users"
-
   add_foreign_key "comments", "products"
-  add_foreign_key "credit_cards", "users"
+  add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "users", "users"
 end

@@ -151,17 +151,41 @@
       font-size: 16px;
     }
   }
-  .product-buy-btn {
-    background:$Red;
+  .product-buy-btn__delete {
+    background:#aaa;
     cursor: not-allowed;
-    height: 60px;
-    line-height: 60px;
+    height: 48px;
+    line-height: 48px;
     display: block;
     margin: 16px 0 0;
     color: $White;
     text-align: center;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 14px;
+  }
+  .product-buy-btn {
+    background:$Red;
+    cursor: not-allowed;
+    height: 48px;
+    line-height: 48px;
+    display: block;
+    margin: 16px 0 0;
+    color: $White;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .product-purchase-btn {
+    background:$Red;
+    cursor: not-allowed;
+    height: 48px;
+    line-height: 48px;
+    display: block;
+    margin: 16px 0 0;
+    color: $White;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
   }
   .product-details-page-bottom{
     margin: 16px 0 0;
