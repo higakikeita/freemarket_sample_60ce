@@ -1,3 +1,4 @@
+
 .single-container
   %header.single-header
     %h1.single-header__logo
@@ -24,5 +25,5 @@
       会員登録完了
       %h3.single-main__container__subtitle ありがとうございます。
       %h3.single-main__container__subtitle 会員登録が完了しました。
-      %input{type:"button",value:"メルカリを始める",class: "btn-default btn-red", url: "root_path"}
+      %button{type:"button",class: "btn-default btn-red",onclick: "location.href='/'"}メルカリを始める
 = render "registration_footer"

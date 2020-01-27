@@ -202,6 +202,6 @@
               電話番号の確認
               %i.icon-arrow-right
           %li
-            =link_to "/users/sign_out",method: :delete,class: "mypage-nav-list-setting-item" do
+            =link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list-setting-item" do
               ログアウト
               %i.icon-arrow-right

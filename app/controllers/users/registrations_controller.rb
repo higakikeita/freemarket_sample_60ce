@@ -46,16 +46,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
     @user.build_address(@address.attributes)
     @user.build_creditcard(@creditcard.attributes)
-    @user.save
-    sign_in(:user, @user)
+    if @user.save
+      sign_in(:user, @user)
+    else
+      render :new
+    end
   end
 
   protected
-
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana])
-  # end
-
   def address_params
     params.require(:address).permit(:address,:postal_code, :prefecture,:city,:apartment)
   end
