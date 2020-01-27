@@ -4,7 +4,7 @@ $(function () {
                     <input class="js-file" type="file"
                     name="product[images_attributes][${index}][product_image]"
                     id="product_images_attributes_${index}_product_image"><br>
-                    <div class="js-remove">削除</div>
+                    <div class="js-remove"></div>
                   </div>`;
     return html;
   }
@@ -13,7 +13,6 @@ $(function () {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
-  
   let fileIndex = [1,2,3,4,5,6,7,8,9,10];
   // 既に使われているindexを除外
   lastIndex = $('.js-file_group:last').data('index');
@@ -39,6 +38,7 @@ $(function () {
     }
 
   });
+  
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する

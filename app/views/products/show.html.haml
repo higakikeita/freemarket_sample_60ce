@@ -9,15 +9,11 @@
       .product-details__page__main__content.clearfix
         .product-details__page__main__content__image
           =image_tag(@product.images[0].product_image.url)
-          
           .owl-dots
             .owl-dot
+              .owl-dot-inner 
               .owl-dot-inner
-                
               .owl-dot-inner
-                
-              .owl-dot-inner
-                
               .owl-dot-inner
                 
         %table.product-details__page__main__content__right
@@ -41,26 +37,22 @@
                       = @bad_count
             %tr
               %th カテゴリー
-              %td
-                =@product.category.name
+              %td=@product.category.name
+                
             %tr
               %th ブランド
-              %td
+              %td=@product.brand_id
                     
             %tr
               %th 商品の状態
-              %td
-                =@product.status
+              %td=@product.status
+                
                 
             %tr
               %th 配送料の負担
               %td
                 =@product.postage
-                
-            %tr
-              %th 配送の方法
-              %td
-                
+            
             %tr
               %th 配送元地域
               %td
@@ -69,8 +61,7 @@
             %tr
               %th 発送の目安
               %td
-                =@product.shipping_date
-                
+                =@product.shipping_date             
 
         .product-details-page__price
           %span.product-price.bold
@@ -78,13 +69,8 @@
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
 
-
         .product-buy-btn 
           購入画面に進む
-
-        .product-description
-          %p.product-description__inner
-            新品、未使用
 
         .product-details-page-bottom.clearfix
           .product-button-left
@@ -136,14 +122,4 @@
                 %i.fab.fa-twitter.icon-twitter
               = link_to '#', class: 'share-btn','target':'_blank' do
                 %i.fab.fa-google.icon-google
-
-      
     =render "home/footer"
-
-      
-        
-
-
-  
-
-
