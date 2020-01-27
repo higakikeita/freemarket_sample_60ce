@@ -62,7 +62,7 @@
         .product-buy-btn__restart 
           出品を再開する
         .product-buy-btn__delete
-          この商品を削除する
+          =link_to 'この商品を削除する', product_path, method: :delete
         .product-details-page-bottom.clearfix
           .product-button-left
             = link_to '#',class:'product-button-like' do
