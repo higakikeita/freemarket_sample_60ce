@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
   def edit
     @comment =Comment.new
     @comments =@product.comments
@@ -35,10 +36,11 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to root_path
-    # if product.user_id == current_user.id
-    #   product.destroy
-    # end
+    if product.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :edit
+    end
   end
 
   private
@@ -48,7 +50,6 @@ class ProductsController < ApplicationController
 
     def set_product
       @product = Product.includes(:comments).find(params[:id])
-      
     end
 end
 
