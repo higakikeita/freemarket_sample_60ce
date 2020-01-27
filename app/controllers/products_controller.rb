@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:comment]
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
 
   def show
+    @comment =Comment.new
+    @comments =@product.comments
   end
 
   def new
@@ -23,7 +26,12 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name, :price,:explain,:status,:postage,:shipping_date,images_attributes: [:product_image])
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image])
+    end
+
+    def set_product
+      @product = Product.includes(:comments).find(params[:id])
+      
     end
 end
 
