@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   root "home#top"
   resources :users, only: [:index]
-  resources :products, only: [:index, :show,:new,:create]do
+  resources :products, only: [:index, :show,:new,:create,:edit]do
     resources :comments,only:[:create,:destroy]
   end
   resources :registration, only: [:index]
