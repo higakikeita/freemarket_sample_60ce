@@ -3,11 +3,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     }
   devise_scope :user do
-    get 'sms_authentications', to: 'users/registrations#create_sms_authentication'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
-    get 'credit_cards', to: 'users/registrations#new_credit_card'
-    post 'credit_cards', to: 'users/registrations#create_credit_card'
+    get 'creditcards', to: 'users/registrations#new_creditcard'
+    post 'creditcards', to: 'users/registrations#create_creditcard'
   end
   root "home#top"
   resources :users, only: [:index]

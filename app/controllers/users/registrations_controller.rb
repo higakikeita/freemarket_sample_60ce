@@ -6,12 +6,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @profile = Profile.new
     super
   end
 
   # POST /resource
   def create
+    params[:user][:birthday] = params[:birthday]
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -20,7 +20,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"] = {user: @user.attributes}
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-
+    render :new_address
   end
 
   def create_address
@@ -28,34 +28,41 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
-      @credit_card = @user.build_credit_card
-      render :new_credit_card and return
+      render :new_address and return
     end
     @user.build_address(@address.attributes)
-    @user.save
-    sign_in(:user, @user)
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
-    @credit_card = @user.build_credit_card
+    session["address"] = @address.attributes
+    @creditcard = @user.build_creditcard
     render :new_credit_card
   end
 
-
-  # 住所登録画面作成のためだけに、仮設アクションを作成しました。sessionで統合後はnew_addressアクションそのものを削除します
-  def new_address
-    @address = Address.new
+  def create_creditcard
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(session["address"])
+    @creditcard = Creditcard.new(creditcard_params)
+    unless @creditcard.valid?
+      flash.now[:alert] = @creditcard.errors.full_messages
+      render :new_credit_card and return
+    end
+    @user.build_address(@address.attributes)
+    @user.build_creditcard(@creditcard.attributes)
+    if @user.save
+      sign_in(:user, @user)
+    else
+      render :new
+    end
   end
-
 
   protected
-
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  end
-
   def address_params
-    params.require(:address).permit(:address)
+    params.require(:address).permit(:address,:postal_code, :prefecture,:city,:apartment)
   end
+
+  def creditcard_params
+    params.require(:creditcard).permit(:card_number,:card_year, :card_month, :card_pass,:card_company)
+  end
+
+
 
   # GET /resource/edit
   # def edit

@@ -131,6 +131,19 @@ body {
   background: #ea352d;
 }
 
+.single-header__progress__round--red::after {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content: '';
+  width: 150%;
+  height: 2px;
+  background: #ea352d;
+}
+
+
 #long {
   right: 100%;
   position: absolute;
@@ -539,4 +552,9 @@ input[type=checkbox] {
   height: 48px;
   font-size: 100%;
   margin-top: 10px;
+}
+
+.single-main__container__subtitle{
+  text-align: center
+
 }
