@@ -29,7 +29,16 @@ class ProductsController < ApplicationController
   end
   def update
     product=Product.includes(:comments).find(params[:id])
-    product.update(set_detail)
+    product.update(set_product)
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    product.destroy
+    redirect_to root_path
+    # if product.user_id == current_user.id
+    #   product.destroy
+    # end
   end
 
   private
