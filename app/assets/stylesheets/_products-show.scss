@@ -1,5 +1,4 @@
 @import "mixin";
-
 .product-details__page__main{
   width: 700px;
   padding: 24px 40px 40px;
@@ -21,7 +20,6 @@
       min-width: 300px;
       max-width: 300px;
       min-height: 200px;
-      
       position: relative;
       margin: 0 auto;
       background-color: #fafafa;
@@ -81,7 +79,6 @@
                 width: 100%;
                 vertical-align: bottom;
               }
-
             }
           }
         }
@@ -151,44 +148,31 @@
       font-size: 16px;
     }
   }
-  .product-buy-btn {
+  .product-details-delete__btn {
+    background:#aaa;
+    @include product-buy;
+  }
+  .product-details-edit__btn {
     background:$Red;
     cursor: not-allowed;
-    height: 60px;
-    line-height: 60px;
-    display: block;
-    margin: 16px 0 0;
-    color: $White;
-    text-align: center;
-    font-weight: 600;
-    font-size: 24px;
+    @include product-buy;
+  }
+  .product-purchase__btn {
+    background:$Red;
+    cursor: not-allowed;
+    @include product-buy;
   }
   .product-details-page-bottom{
     margin: 16px 0 0;
-    
     @include clearfix;
     .product-button-left{
       float: left;
       .product-button-like{
-        border: 1px solid #f5f5f5;
-        background: #f5f5f5;
-        padding: 8px 16px;
-        vertical-align: middle;
-        display: inline-block;
-        border-radius: 40px;
-        color: #333;
+       @include product-button; 
       }
       .product-button-report{
-        border: 1px solid #f5f5f5;
-        margin: 0 0 0 16px;
-        padding: 8px 16px;
-        vertical-align: middle;
-        display: inline-block;
-        border-radius: 40px;
-        background: #f5f5f5;
-        color: #333;
+        @include product-button;
       }
-    
     }
     .product-button-right{
       margin: 8px 0 0;
@@ -199,7 +183,6 @@
       border-radius: 40px;
       background: #f5f5f5;
     }
-    
   }
 }
 .listening-item-change-box{
