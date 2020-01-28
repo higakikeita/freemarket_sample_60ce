@@ -5,7 +5,6 @@
       %h3.exhibit__page__main__contents__message
         商品の情報を入力
       = form_for @product, html:{class:"form-content"} do |f|
-        
         .img-form
           %h3.img__upload__text
             出品画像
@@ -28,7 +27,6 @@
                       = f.fields_for :images do |image|
                         .js-file_group{data: {index:image.index}}
                         = image.file_field :product_image,class:"js-file"
-                        
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name
@@ -42,10 +40,7 @@
               商品の説明
               %span.form--caution 
                 必須
-
             =f.text_area :explain,class:"sell--content__text__area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-
-              
         .product-details
           %h3.product-details__name 商品の詳細
           .product-details__form
@@ -154,10 +149,8 @@
                 %span.form--caution 必須
                 %span.product-price__form__right
                   ¥
-            .input--price
-              
+            .input--price 
               =f.text_field :price,class:"input--price__default",placeholder: "例）300"
-          
         .submit-button
           .subimit-button__text
             =link_to "#", class: 'sell--content5__p__a' do
@@ -189,8 +182,5 @@
             メルカリ利用規約
           %li.exhibit-page__footer__list
             特定商取引に関する表記
-
-    
-      
           %p.exhibit-page__footer__copyright
             © 2019 Mercari

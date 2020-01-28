@@ -1,105 +1,139 @@
-=render "home/header_unlogin"
-.product-details__page
-  .product-details__page__head
-    .product-details__page__main
-      %h1.product-name
-        =@product.name
-      %p.product-wording
-        =@product.explain
-      .product-details__page__main__content.clearfix
-        .product-details__page__main__content__image
-          =image_tag(@product.images[0].product_image.url)
-          .owl-dots
-            .owl-dot
-              .owl-dot-inner  
-              .owl-dot-inner  
-              .owl-dot-inner
-              .owl-dot-inner     
-        %table.product-details__page__main__content__right
-          %tbody
-            %tr
-              %th 出品者
-              %td 
-                ニックネーム
-                %div
-                  .product-user-ratings
-                    %i.fa.fa-grin.icon-good
-                    %span= @good_count   
-                  .product-user-ratings
-                    %i.fa.fa-meh.icon-normal
-                    %span= @normal_count   
-                  .product-user-ratings
-                    %i.fa.fa-frown.icon-bad
-                    %span= @bad_count
-            %tr
-              %th カテゴリー
-              %td=@product.category.name
-            %tr
-              %th ブランド
-              %td
-            %tr
-              %th 商品の状態
-              %td=@product.status
-            %tr
-              %th 配送料の負担
-              %td=@product.postage
-            %tr
-              %th 配送の方法
-              %td
-            %tr
-              %th 配送元地域
-              %td=@product.prefecture
-            %tr
-              %th 発送の目安
-              %td=@product.shipping_date
-        .product-details-page__price
-          %span.product-price.bold
-            =@product.price
-          %span.product-tax          (税込)
-          %span.product-shipping-fee 送料込み
-        .product-buy-btn__edit
-          商品の編集
-        .product-buy-btn__restart 
-          出品を再開する
-        .product-buy-btn__delete
-          =link_to 'この商品を削除する', product_path, method: :delete
-        .product-details-page-bottom.clearfix
-          .product-button-left
-            = link_to '#',class:'product-button-like' do
-              %i.fa.fa-heart.vertical-like__red-icon  いいね!
-            = link_to '#',class: 'product-button-report clearfix' do
-              %i.fa.fa-flag.flag
-              %span.flag-text 適切な商品の報告
-          .product-button-right
-            = link_to '#' do
-              %i.fa.fa-unlock
-              %span あんしん・あんぜんへの取り組み
-        .listening-item-change-box
-          %p.text-center 
-      .product-detail-message
-        .message-container
-          .product-details-comment-form__contents
-        .product-details-comment-form__comment
-          %h4 ＜コメント一覧＞
-          .comments-block
-            - if @product.comments
-              - @product.comments.each do |comment|
-                .one-block
-                  .item-comment
-                    = simple_format(comment.comment)
-        .message-content
-          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = form_for [@product,@comment] do |c|
-          =c.text_area :comment,class:"text_area-default"
-          =c.submit 'コメントする',class:"text_area-default_btn"
-      .product-social-media-box
-        .text-center
-          %ul.social-media-box
-            %li
-              = link_to '#', class: 'share-btn','target':'_blank' do
-                %i.fab.fa-facebook-square.icon-facebook
-              = link_to '#', class: 'share-btn','target':'_blank' do
-                %i.fab.fa-twitter.icon-twitter
-              = link_to '#', class: 'share-btn','target':'_blank' do
-                %i.fab.fa-google.icon-google
-    =render "home/footer"
+.exhibit__page
+  = render 'single-container'
+  .exhibit__page__main
+    .exhibit__page__main__contents
+      %h3.exhibit__page__main__contents__message
+        商品の情報を入力
+      = form_for @product,url:product_path, html:{class:"form-content"},method: :patch do |f|
+        
+        .img-form
+          %h3.img__upload__text
+            出品画像
+            %span.form--caution 
+              必須
+          %p.img__upload__comment 最大10枚までアップロードできます
+          .preview-area
+            %ul.product-image-list#product-image-list
+              .upload-area
+                .upload-area__dropbox
+                  %p 
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+        .sell--content
+          .sell--content__name
+            %h3.sell--content__name__name
+              商品名
+              %span.form--caution 
+                必須
+            %div
+              = f.text_field :name, class:"product-name__text__field",placeholder: "商品名（必須 40文字まで)"
+          .sell--content__description
+            %h3.sell--content__description__description
+              商品の説明
+              %span.form--caution 
+                必須
+            =f.text_area :explain,class:"sell--content__text__area",placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .product-details
+          %h3.product-details__name 商品の詳細
+          .product-details__form
+            .product-details__form__category
+              %h3.product-details__form__category__name
+                カテゴリー
+                %span.form--caution 必須
+                .select--wrap
+                  = f.collection_select :category_id, Category.all, :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
+                  %i.fas.fa-angle-down
+            .product-details__form__brand
+              %h3.product-details__form__brand__name
+                ブランド
+                %span.form--caution 任意
+                .select--wrap
+                  = f.select :brand_id,Product.brand_ids.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+            .product-details__form__size
+              %h3.product-details__form__size__name
+                サイズ
+                %span.form--caution 必須
+                .select--wrap
+                  = f.select :size,Product.sizes.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+            .product-details__form__status
+              %h3.product-details__form__status__name
+                商品の状態
+                %span.form--caution 必須
+                .select--wrap
+                  = f.select :status,Product.statuses.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                  %i.fas.fa-angle-down
+        .delivery-form
+          %h3.delivery-form__about__delivery 配送について
+          =link_to "#", class: 'form--question' do
+            ?
+          .delivery-form__box
+            .delivery-form__box__top
+              %h3.delivery-form__box__top__name
+                配送料の負担
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :postage,Product.postages.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                %i.fas.fa-angle-down
+            .delivery-form__box__middle
+              %h3.delivery-form__box__top__name
+                発送元の地域
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :prefecture,Product.prefectures.keys,{prompt:"---"},{class:"select--wrap__default "}
+                %i.fas.fa-angle-down
+            .delivery-form__box__bottom
+              %h3.delivery-form__box__top__name
+                発送までの日数
+                %span.form--caution 必須
+              .select--wrap
+                = f.select :shipping_date,Product.shipping_dates.keys,{prompt:"---"}, {class:"select--wrap__default"}
+                %i.fas.fa-angle-down
+        .product-price
+          %h3.product-price__name 
+            販売価格(300〜9,999,999)
+          =link_to "#", class: 'form--question' do
+            ?
+          .product-price__form
+            .product-price__form__left
+              %h3.product-price__form__name
+                価格
+                %span.form--caution 必須
+                %span.product-price__form__right
+                  ¥
+            .input--price
+              =f.text_field :price,class:"input--price__default",placeholder: "例）300"
+        .submit-button
+          .subimit-button__text
+            =link_to "#", class: 'sell--content5__p__a' do
+              禁止されている出品
+            =link_to "#", class: 'sell--content5__p__a' do
+              行為
+            を必ずご確認ください。
+            %p.sell--content5__p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              =link_to "#", class: 'sell--content5__p__a' do
+                偽ブランドの販売
+              は犯罪であり処罰される可能性があります。
+            %p.sell--content5__p
+              また、出品をもちまして
+              =link_to "#", class: 'sell--content5__p__a' do
+                加盟店規約
+              に同意したことになります。
+            .actions
+              =f.submit "変更する",class:"btn--red"
+          %a.btn--gray もどる
+  .exhibit-page__footer
+    .exhibit-page__footer__content
+      .exhibit-page__footer__content__main
+        %ul.exhibit-page__footer__lists
+          %li.exhibit-page__footer__list
+            プライバシーポリシー
+          %li.exhibit-page__footer__list
+            メルカリ利用規約
+          %li.exhibit-page__footer__list
+            特定商取引に関する表記
+          %p.exhibit-page__footer__copyright
+            © 2019 Mercari
