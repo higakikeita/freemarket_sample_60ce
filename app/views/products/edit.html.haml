@@ -20,6 +20,7 @@
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
+
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name
@@ -124,7 +125,8 @@
               に同意したことになります。
             .actions
               =f.submit "変更する",class:"btn--red"
-          %a.btn--gray もどる
+          %a.btn--gray
+            =link_to "キャンセル", :back,class: "btn--gray"
   .exhibit-page__footer
     .exhibit-page__footer__content
       .exhibit-page__footer__content__main
