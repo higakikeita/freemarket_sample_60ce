@@ -58,7 +58,7 @@
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
         .product-buy__btn__box
-        -# ユーザ登録機能実装後、記述
+        -# 公開予定
         -# - if user_signed_in? && current_user.id 
         = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
         = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
