@@ -154,7 +154,6 @@
   }
   .product-details-edit__btn {
     background:$Red;
-    cursor: not-allowed;
     @include product-buy;
   }
   .product-purchase__btn {
