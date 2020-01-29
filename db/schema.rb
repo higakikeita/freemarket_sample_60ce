@@ -97,7 +97,6 @@ ActiveRecord::Schema.define(version: 20200127150520) do
     t.string   "last_name",                                         null: false
     t.string   "first_name_kana",                                   null: false
     t.string   "last_name_kana",                                    null: false
-    t.integer  "user_id",                                           null: false
     t.date     "birthday",                                          null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -105,7 +104,6 @@ ActiveRecord::Schema.define(version: 20200127150520) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "nickname"
-    t.index ["user_id"], name: "index_users_on_user_id", using: :btree
   end
 
   add_foreign_key "addresses", "users"
