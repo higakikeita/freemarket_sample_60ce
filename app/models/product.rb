@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  enum brand_id: {"シャネル": 0, "グッチ": 1, "プラダ": 2, "エルメス": 3, "バレンシアガ": 4, "フェンディ": 5, "ボッテガ・ヴェネタ": 6, "ヴァレンチノ": 7, "サン・ローラン": 8, "アルマーニ": 9}
   enum size: {"XXS以下": 0, "XS(SS)": 1, "S": 2, "M": 3, "L": 4, "XL(LL)": 5, "2XL(3L)": 6, "3XL(4L)": 7, "4XL(5L)以上": 8, "FREESIZE": 9}
   enum status: {"新品・未使用": 1, "未使用に近い": 2,"目立った傷や汚れなし":3,"やや傷や汚れあり":4,"傷や汚れあり":5,"全体的に状態が悪い":6}
   enum postage: {"送料込み（出品者負担)":1, "送料込み（出品者負担）":2, "着払い（購入者負担）":3, "着払い（購入者負担）":4}
@@ -13,10 +14,9 @@ class Product < ApplicationRecord
     "徳島県":36,"香川県":37,"愛媛県":38,"高知県":39,
     "福岡県":40,"佐賀県":41,"長崎県":42,"熊本県":43,"大分県":44,"宮崎県":45,"鹿児島県":46,"沖縄県":47
   }
-  
-  has_many :images
+  has_many :users
+  has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
-
   validates :name, :explain, presence: true
   validates :price,presence: true,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}

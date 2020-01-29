@@ -8,9 +8,6 @@
           会員情報
           .single-header__progress__round--red
         %li.single-header__progress__text
-          電話番号認証
-          .single-header__progress__round
-        %li.single-header__progress__text
           お届け先住所入力
           .single-header__progress__round     
         %li.single-header__progress__text
@@ -30,22 +27,23 @@
       = f.label :メールアドレス
       %span.form-group__require 必須
       = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
-    .form-group
-      = f.label :パスワード
-      %span.form-group__require 必須
-      = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
-      %p.form-group__info ※ 英字と数字の両方を含めて設定してください
-      .form-password-revelation-toggle
-        .checkbox-default
-          %input#reveal_password{type: "checkbox",class:"icon-check"}
-          %label{for: "reveal_password"} パスワードを表示する
-        .form-password-revelation-revealed-password-container
-          %span.form-password-revelation-revealed-password
+    - if @sns_id.present?
+      = hidden_field_tag :sns_auth, true
+    - else
+      .form-group
+        = f.label :パスワード
+        %span.form-group__require 必須
+        = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
+        %p.form-group__info ※ 英字と数字の両方を含めて設定してください
+        .form-password-revelation-toggle
+          .checkbox-default
+            %input#reveal_password{type: "checkbox",class:"icon-check"}
+            %label{for: "reveal_password"} パスワードを表示する
+          .form-password-revelation-revealed-password-container
+            %span.form-password-revelation-revealed-password
     .form-group
       %label.form-group-text-title 本人確認
       %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-  = form_for(@profile, url: user_registration_path) do |f|
-    = render "devise/shared/error_messages", resource: @profile
     .form-group
       = f.label :"お名前(全角)"
       %span.form-group__require 必須
@@ -61,25 +59,12 @@
       %span.form-group__require 必須
       %br
       .birthday-select-wrap
-        != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+        = raw sprintf(f.date_select(:birthday, with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
       .clearfix
     .form-group
       %p.form-group__text--center
         「次へ進む」のボタンを押すことにより、
         = link_to "利用規約", "#" , target:"_blank"
         に同意したものとみなします
-      .actions
-        = f.submit "次へ進む", {class:"btn-default btn-red"}
-        .form-group__text--right
-          %p
-            = link_to "#" , target:"_blank" do
-              %i.fas.fa-chevron-right
-              本人情報の登録について
-      .form-group__info
-        %p
-          This site is protected by reCAPTCHA and the Google
-          = link_to "Privacy Policy", "#" , target:"_blank"
-          and
-          = link_to "Terms of Service", "#" , target:"_blank"
-          apply.
-
+      = f.submit '次へ', class: "btn-default btn-red", url: "address_path"
+  = render "devise/registrations/registration_footer"

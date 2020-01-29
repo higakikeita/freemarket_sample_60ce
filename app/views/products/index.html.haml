@@ -1,4 +1,8 @@
-=render "home/header_login"
+-if user_signed_in?
+  =render "home/header_login"
+-else
+  =render "home/header_unlogin"
+
 .main-section
   .header
 

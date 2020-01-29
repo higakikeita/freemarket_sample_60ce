@@ -35,6 +35,12 @@ Things you may want to cover:
 |password|string|null: false|
 |avatar|text||
 |introduction|text||
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|user_id|references|foreign_key:true|
+|birthday|integer|null: false|
 
 ### Association
 - has_many: products
@@ -44,24 +50,8 @@ Things you may want to cover:
 - has_many: likes
 - has_many: orders
 - has_many: ship_to-addresses
-- has_one : profiles 
 - has_one: address
-- has_one : credit-cards
-
-
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|phone_number|string|null: false, unique:true|
-|user_id|references|foreign_key:true|
-|birthday|integer|null: false|
-### Association
-- belongs_to : user
-
+- has_one : creditcards
 
 ## productsテーブル
 |Column|Type|Options|
@@ -149,7 +139,7 @@ Things you may want to cover:
 - belongs_to : product 
 
 
-## product-imagesテーブル
+## product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
@@ -158,7 +148,7 @@ Things you may want to cover:
 - belongs_to : product
 
 
-## credit-cardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -171,7 +161,7 @@ Things you may want to cover:
 - belongs_to : user
 
 
-## user-evaluatesテーブル
+## user_evaluatesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -193,7 +183,7 @@ Things you may want to cover:
 - belongs_to : user 
 
 
-## ship_to-addressesテーブル
+## ship_to_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|

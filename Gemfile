@@ -43,6 +43,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+
 end
 
 group :development do
@@ -62,6 +67,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'unicorn', '5.4.1'
 end
+group :test do 
+ gem 'faker', "~> 2.8"
+end
 gem 'mini_magick'
 gem 'font-awesome-sass'
 gem 'haml-rails'
@@ -70,3 +78,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'ancestry'
 gem 'pry-rails'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
