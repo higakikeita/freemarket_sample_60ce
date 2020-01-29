@@ -63,8 +63,8 @@
         = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
         = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
         -# - else
-        .product-purchase__btn
-          購入画面に進む
+        = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
+        
         .product-details-page-bottom.clearfix
           .product-button-left
             = link_to '#',class:'product-button-like' do
