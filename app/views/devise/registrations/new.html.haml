@@ -27,17 +27,20 @@
       = f.label :メールアドレス
       %span.form-group__require 必須
       = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
-    .form-group
-      = f.label :パスワード
-      %span.form-group__require 必須
-      = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
-      %p.form-group__info ※ 英字と数字の両方を含めて設定してください
-      .form-password-revelation-toggle
-        .checkbox-default
-          %input#reveal_password{type: "checkbox",class:"icon-check"}
-          %label{for: "reveal_password"} パスワードを表示する
-        .form-password-revelation-revealed-password-container
-          %span.form-password-revelation-revealed-password
+    - if @sns_id.present?
+      = hidden_field_tag :sns_auth, true
+    - else
+      .form-group
+        = f.label :パスワード
+        %span.form-group__require 必須
+        = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'form-group__input',id:"password"}
+        %p.form-group__info ※ 英字と数字の両方を含めて設定してください
+        .form-password-revelation-toggle
+          .checkbox-default
+            %input#reveal_password{type: "checkbox",class:"icon-check"}
+            %label{for: "reveal_password"} パスワードを表示する
+          .form-password-revelation-revealed-password-container
+            %span.form-password-revelation-revealed-password
     .form-group
       %label.form-group-text-title 本人確認
       %p.form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -64,7 +67,4 @@
         = link_to "利用規約", "#" , target:"_blank"
         に同意したものとみなします
       = f.submit '次へ', class: "btn-default btn-red", url: "address_path"
-  = render "registration_footer"
-
-
-
+  = render "devise/registrations/registration_footer"
