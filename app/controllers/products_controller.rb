@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show,:comment,:edit]
+  before_action :set_product, only: [:show,:comment,:edit,:update]
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -30,7 +30,11 @@ class ProductsController < ApplicationController
   end
   def update
     product=Product.includes(:comments).find(params[:id])
-    product.update(set_product)
+    if product.update(product_params)
+      redirect_to product_path
+    else
+      render :edit
+    end
   end
 
   def destroy

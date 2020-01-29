@@ -113,5 +113,4 @@ ActiveRecord::Schema.define(version: 20200127150520) do
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "sns_credentials", "users"
-  add_foreign_key "users", "users"
 end
