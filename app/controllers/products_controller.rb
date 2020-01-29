@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show,:comment]
+  before_action :set_product, only: [:show,:comment,:edit,:update]
   def index
     @products = Product.includes(:images).order('created_at DESC')
   end
@@ -24,14 +24,35 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @comment =Comment.new
+    @comments =@product.comments
+  end
+  def update
+    product=Product.includes(:comments).find(params[:id])
+    if product.update(product_params)
+      redirect_to product_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :edit
+    end
+  end
+
   private
     def product_params
-      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image])
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image])
     end
 
     def set_product
       @product = Product.includes(:comments).find(params[:id])
-      
     end
 end
 

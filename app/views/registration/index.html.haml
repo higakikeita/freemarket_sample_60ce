@@ -17,8 +17,8 @@
             %i.fab.fa-facebook-f
             %span<>
             Facebookで登録する
-          =link_to "#", class: "btn-def--google" do
+          =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-def--google" do
             %i.fab.fa-google
             %span<>
-            Googleで登録する                           
+            Googleで登録する
   = render "registration_footer"
