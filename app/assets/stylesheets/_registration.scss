@@ -545,6 +545,21 @@ input[type=checkbox] {
     border: #979797 solid 1px;
     color: #333;
   }
+  &--login{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    color: #fff;
+    background-color:#0099e8;
+  }
 }
 
 .birthday-select-wrap select{
@@ -556,5 +571,26 @@ input[type=checkbox] {
 
 .single-main__container__subtitle{
   text-align: center
-
 }
+
+.single-main-login{
+  display: block;
+}
+
+
+.login-panel{
+  width: 456px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.login-no-account{
+  padding: 40px 64px;
+  text-align: center;
+}
+
+.login-form-inner{
+  padding: 32px 64px;
+  border-top: 1px solid #eee;
+}
+
