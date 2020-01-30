@@ -20,7 +20,9 @@
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
-
+                    = f.fields_for :images do |image|
+                      .js-file_group{data: {index:image.index}}
+                      = image.file_field :product_image,class:"js-file"
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name
