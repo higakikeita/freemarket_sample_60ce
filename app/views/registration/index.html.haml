@@ -13,7 +13,7 @@
             %i.far.fa-envelope
             %span<>
             メールアドレスで登録する
-          =link_to "#", class: "btn-def--facebook" do
+          =link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn-def--facebook" do
             %i.fab.fa-facebook-f
             %span<>
             Facebookで登録する
