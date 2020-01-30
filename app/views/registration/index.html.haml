@@ -9,7 +9,7 @@
         新規会員登録
       .step0
         .step0__contents
-          =link_to new_user_registration_path, class: "btn-def--mail" do
+          =link_to new_user_registration_path, class: "btn-def--mail","data-turbolinks": false do
             %i.far.fa-envelope
             %span<>
             メールアドレスで登録する
