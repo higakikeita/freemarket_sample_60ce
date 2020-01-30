@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200120100937) do
+ActiveRecord::Schema.define(version: 20200122131722) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "postal_code", null: false
@@ -52,19 +52,19 @@ ActiveRecord::Schema.define(version: 20200120100937) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          limit: 191,   null: false
+    t.string   "name",          limit: 191
     t.integer  "price"
-    t.text     "explain",       limit: 65535, null: false
-    t.integer  "postage",                     null: false
+    t.text     "explain",       limit: 65535
+    t.integer  "postage"
     t.string   "region"
-    t.integer  "status"
-    t.integer  "shipping_date"
+    t.string   "status"
+    t.date     "shipping_date"
     t.integer  "size"
     t.integer  "brand_id"
     t.integer  "category_id"
     t.string   "product"
     t.string   "image"
-    t.integer  "prefecture"
+    t.string   "prefecture"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
@@ -84,6 +84,15 @@ ActiveRecord::Schema.define(version: 20200120100937) do
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
@@ -101,4 +110,5 @@ ActiveRecord::Schema.define(version: 20200120100937) do
   add_foreign_key "credit_cards", "users"
   add_foreign_key "images", "products"
   add_foreign_key "profiles", "users"
+  add_foreign_key "sns_credentials", "users"
 end
