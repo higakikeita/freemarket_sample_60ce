@@ -9,7 +9,7 @@
         新規会員登録
       .step0
         .step0__contents
-          =link_to new_user_registration_path, class: "btn-def--mail" do
+          =link_to new_user_registration_path, class: "btn-def--mail","data-turbolinks": false do
             %i.far.fa-envelope
             %span<>
             メールアドレスで登録する
@@ -17,8 +17,8 @@
             %i.fab.fa-facebook-f
             %span<>
             Facebookで登録する
-          =link_to "#", class: "btn-def--google" do
+          =link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-def--google" do
             %i.fab.fa-google
             %span<>
-            Googleで登録する                           
+            Googleで登録する
   = render "registration_footer"

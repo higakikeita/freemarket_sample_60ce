@@ -14,10 +14,10 @@
           %i.fab.fa-facebook-f
           %span<>
           Facebookでログイン
-        =link_to "#", class: "btn-def--google" do
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-def--google" do
           %i.fab.fa-google
           %span<>
-          Googleでログイン                 
+          Googleでログイン             
       .login-form-inner
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .form-group
@@ -27,4 +27,3 @@
           .form-group
             = f.submit 'ログイン', class: "btn-default btn-red", url: "root_path"
   = render "/registration/registration_footer"
-
