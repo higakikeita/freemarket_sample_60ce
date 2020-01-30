@@ -9,17 +9,12 @@
       .product-details__page__main__content.clearfix
         .product-details__page__main__content__image
           =image_tag(@product.images[0].product_image.url)
-          
           .owl-dots
             .owl-dot
+              .owl-dot-inner 
               .owl-dot-inner
-                
               .owl-dot-inner
-                
               .owl-dot-inner
-                
-              .owl-dot-inner
-                
         %table.product-details__page__main__content__right
           %tbody
             %tr
@@ -41,79 +36,64 @@
                       = @bad_count
             %tr
               %th カテゴリー
-              %td
-                =@product.category.name
+              %td=@product.category.name
             %tr
               %th ブランド
-              %td
-                    
+              %td=@product.brand_id
             %tr
               %th 商品の状態
-              %td
-                =@product.status
-                
+              %td=@product.status
             %tr
               %th 配送料の負担
-              %td
-                =@product.postage
-                
-            %tr
-              %th 配送の方法
-              %td
-                
+              %td=@product.postage
             %tr
               %th 配送元地域
-              %td
-                =@product.prefecture
-                
+              %td=@product.prefecture
             %tr
               %th 発送の目安
-              %td
-                =@product.shipping_date
-                
-
+              %td=@product.shipping_date         
         .product-details-page__price
           %span.product-price.bold
             =@product.price
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
-
-
-        .product-buy-btn 
-          購入画面に進む
-
-        .product-description
-          %p.product-description__inner
-            新品、未使用
-
+        .product-buy__btn__box
+        -# 公開予定
+        -# - if user_signed_in? && current_user.id 
+        = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
+        = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+        -# - else
+        = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
+        
         .product-details-page-bottom.clearfix
           .product-button-left
             = link_to '#',class:'product-button-like' do
               %i.fa.fa-heart.vertical-like__red-icon  いいね!
-          
             = link_to '#',class: 'product-button-report clearfix' do
               %i.fa.fa-flag.flag
               %span.flag-text 適切な商品の報告
-
           .product-button-right
             = link_to '#' do
               %i.fa.fa-unlock
               %span あんしん・あんぜんへの取り組み
-
-      
         .listening-item-change-box
-          
           %p.text-center 
-          
-
-      .item-detail-message
+      .product-detail-message
         .message-container
-          
-          
+          .product-details-comment-form__contents
+        .product-details-comment-form__comment
+          %h4 ＜コメント一覧＞
+          .comments-block
+            - if @product.comments
+              - @product.comments.each do |comment|
+                .one-block
+                  .item-comment
+                    = simple_format(comment.comment)
           .message-content
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            
-        
+          = form_for [@product,@comment] do |c|
+            =c.text_area :comment,class:"text_area-default"
+            =c.submit 'コメントする',class:"text_area-default_btn"
       .product-social-media-box
         .text-center
           %ul.social-media-box
@@ -124,14 +104,4 @@
                 %i.fab.fa-twitter.icon-twitter
               = link_to '#', class: 'share-btn','target':'_blank' do
                 %i.fab.fa-google.icon-google
-
-      
     =render "home/footer"
-
-      
-        
-
-
-  
-
-

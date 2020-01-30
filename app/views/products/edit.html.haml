@@ -4,7 +4,8 @@
     .exhibit__page__main__contents
       %h3.exhibit__page__main__contents__message
         商品の情報を入力
-      = form_for @product, html:{class:"form-content"} do |f|
+      = form_for @product,url:product_path, html:{class:"form-content"},method: :patch do |f|
+        
         .img-form
           %h3.img__upload__text
             出品画像
@@ -19,14 +20,7 @@
                     ドラッグアンドドロップ
                     %br
                     またはクリックしてファイルをアップロード
-                  #image-box
-                    #previews
-                      - if @product.persisted?
-                        - @product.images.each_with_index do |image, i|
-                          = image_tag image.src.url, data: {index: i}, width: "100", height: "100"
-                      = f.fields_for :images do |image|
-                        .js-file_group{data: {index:image.index}}
-                        = image.file_field :product_image,class:"js-file"
+
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name
@@ -48,46 +42,9 @@
               %h3.product-details__form__category__name
                 カテゴリー
                 %span.form--caution 必須
-                
                 .select--wrap
                   = f.collection_select :category_id, Category.all, :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
                   %i.fas.fa-angle-down
-                -# 後で実装予定
-                -# .select--wrap
-                -#   %select.select--wrap-cat2__default-category2
-                -#     %option{value: 0} ---
-                -#     %option{value: 1} トップス
-                -#     %option{value: 2} ジャケット/アウター
-                -#     %option{value: 3} パンツ
-                -#     %option{value: 4} スカート
-                -#     %option{value: 5} ワンピース
-                -#     %option{value: 1328} 靴
-                -#     %option{value: 6} ルームウェア/パジャマ
-                -#     %option{value: 7} レッグウェア
-                -#     %option{value: 8} 帽子
-                -#     %option{value: 9}バッグ
-                -#     %option{value: 1027} アクセサリー
-                -#     %option{value: 1318} ヘアアクセサリー
-                -#     %option{value: 10} その他
-                -#   %i.fas.fa-angle-down
-                -# .select--wrap
-                -#   %select.select--wrap-cat3__default-category3
-                -#     %option{value: "0"} ---
-                -#     %option{value: "1"} Tシャツ
-                -#     %option{value: "2"} シャツ
-                -#     %option{value: "3"} ポロシャツ
-                -#     %option{value: "4"} キャミソール
-                -#     %option{value: "5"} タンクトップ
-                -#     %option{value: "1328"} ホルターネック
-                -#     %option{value: "6"} ニット/セーター
-                -#     %option{value: "7"} チュニック
-                -#     %option{value: "8"} カーディガン
-                -#     %option{value: "9"} アンサンブル
-                -#     %option{value: "1027"} ベスト
-                -#     %option{value: "1318"} パーカー
-                -#     %option{value: "10"} その他
-                -#   %i.fas.fa-angle-down
-
             .product-details__form__brand
               %h3.product-details__form__brand__name
                 ブランド
@@ -95,7 +52,6 @@
                 .select--wrap
                   = f.select :brand_id,Product.brand_ids.keys,{prompt:"---"}, {class:"select--wrap__default"}
                   %i.fas.fa-angle-down
-
             .product-details__form__size
               %h3.product-details__form__size__name
                 サイズ
@@ -103,7 +59,6 @@
                 .select--wrap
                   = f.select :size,Product.sizes.keys,{prompt:"---"}, {class:"select--wrap__default"}
                   %i.fas.fa-angle-down
-                        
             .product-details__form__status
               %h3.product-details__form__status__name
                 商品の状態
@@ -149,13 +104,12 @@
                 %span.form--caution 必須
                 %span.product-price__form__right
                   ¥
-            .input--price 
+            .input--price
               =f.text_field :price,class:"input--price__default",placeholder: "例）300"
         .submit-button
           .subimit-button__text
             =link_to "#", class: 'sell--content5__p__a' do
               禁止されている出品
-            、
             =link_to "#", class: 'sell--content5__p__a' do
               行為
             を必ずご確認ください。
@@ -170,8 +124,9 @@
                 加盟店規約
               に同意したことになります。
             .actions
-              =f.submit "出品する",class:"btn--red"
-          %a.btn--gray もどる
+              =f.submit "変更する",class:"btn--red"
+          %a.btn--gray
+            =link_to "キャンセル", :back,class: "btn--gray"
   .exhibit-page__footer
     .exhibit-page__footer__content
       .exhibit-page__footer__content__main

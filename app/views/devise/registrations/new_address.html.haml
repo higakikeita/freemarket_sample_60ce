@@ -8,9 +8,6 @@
         %li.single-header__progress__text{ id: "first" }
           会員情報
           .single-header__progress__round--red
-        %li.single-header__progress__text
-          電話番号認証
-          .single-header__progress__round--red
         %li.single-header__progress__text--active
           お届け先住所入力
           .single-header__progress__round--red
@@ -24,35 +21,29 @@
     %section.single-main__container
       %h2.single-main__container__title
         住所入力
-      %form.single-main__container__form{action: "####", method: "POST", novalidate: "novalidate"}
-        %input{name: "__csrf_value", type: "hidden", value: "###"}
-        .single-main__container__form__frame
+      .single-main__container__form__frame
+        =form_for(@address, url: addresses_path, method: :post) do |f|
+          =render "devise/shared/error_messages", resource: @address
           .form-group
-            = form_for @address do |f|
-              = f.label :postal_code, "郵便番号"
-              %span.form-group__require 必須
-              = f.text_field :postal_code, autofocus: true, placeholder: "例）123-4567", class: 'form-group__input'
+            = f.label :郵便番号
+            %span.form-group__require 必須
+            = f.text_field :postal_code,{autofocus: true, placeholder: "例）123-4567", class: 'form-group__input'}
           .form-group
-            = form_for @address do |f|
-              = f.label :prefecture, "都道府県"
-              %span.form-group__require 必須
-              = f.select :prefecture, Address.prefectures.keys, {}, {class: 'form-group__input'}
+            = f.label :都道府県
+            %span.form-group__require 必須
+            = f.select :prefecture, Address.prefectures.keys, {}, {class: 'form-group__input'}
           .form-group
-            = form_for @address do |f|
-              = f.label :city, "市町村"
-              %span.form-group__require 必須
-              = f.text_field :city, autofocus: true, placeholder: "例）札幌市", class: 'form-group__input'
+            = f.label :市町村
+            %span.form-group__require 必須
+            = f.text_field :city, autofocus: true, placeholder: "例）札幌市", class: 'form-group__input'
           .form-group
-            = form_for @address do |f|
-              = f.label :address, "番地"
-              %span.form-group__require 必須
-              = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: 'form-group__input'
+            = f.label :番地
+            %span.form-group__require 必須
+            = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: 'form-group__input'
           .form-group
-            = form_for @address do |f|
-              = f.label :apartment, "建物名"
-              %span.form-group__optional 任意
-              = f.text_field :apartment, autofocus: true, placeholder: "例）柳ビル103", class: 'form-group__input'
+            = f.label :建物名
+            %span.form-group__optional 任意
+            = f.text_field :apartment, autofocus: true, placeholder: "例）柳ビル103", class: 'form-group__input'
           .form-group
-            = form_for @address do |f|
-              = f.submit '次へ', class: "btn-default btn-red", url: "new_credit_card_path"
+            = f.submit '次へ', class: "btn-default btn-red", url: "creditcard_path"
   = render "registration_footer"

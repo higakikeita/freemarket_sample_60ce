@@ -1,8 +1,11 @@
-=render "header_login"
+-if user_signed_in?
+  =render "header_login"
+-else
+  =render "header_unlogin"
+
 .main-section
   .header
   -# = render "shared/header"
-
   .slider-section
     .slider__image
       %ul.slider
@@ -231,5 +234,4 @@
       =link_to'出品',new_product_path,class:"sell-tab__box--text"
     .sell-tab__box--logo
       = icon('fas', 'camera')
-
 =render "footer"

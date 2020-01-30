@@ -1,0 +1,15 @@
+@import "mixin";
+  .product-details-delete__btn {
+    background:#aaa;
+    @include product-buy;
+  }
+  .product-details-edit__btn {
+    background:$Red;
+    @include product-buy;
+  }
+  .product-purchase__btn {
+    background:$Red;
+    cursor: not-allowed;
+    @include product-buy;
+  }
+  
