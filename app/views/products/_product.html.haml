@@ -1,0 +1,13 @@
+= link_to product_path(product.id), class: "products__list" do
+  %li.products__list
+    %figure.product
+      %figucaption.product__text
+        = product.name
+      .product__thumbnail
+        .product__thumbnail--label
+          = "¥ #{product.price.to_s(:delimited)}"
+        .product__thumbnail--image
+          - if product.images.present?
+            = image_tag product.images[0].product_image
+          - else
+            = image_tag "no_image.png"

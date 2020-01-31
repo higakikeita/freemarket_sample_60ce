@@ -19,7 +19,6 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :name, :explain, presence: true
   validates :price,presence: true,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  
   validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}
 
   accepts_nested_attributes_for :images
