@@ -48,19 +48,7 @@
           もっと見る >
       %ul.pickup-section__main--products
         - @ladies.each do |product|
-          = link_to product_path(product.id), class: "products__list" do
-            %li.products__list
-              %figure.product
-                %figucaption.product__text
-                  = product.name
-                .product__thumbnail
-                  .product__thumbnail--label
-                    = "¥ #{product.price.to_s(:delimited)}"
-                  .product__thumbnail--image
-                    - if product.images.present?
-                      = image_tag product.images[0].product_image
-                    - else
-                      = image_tag "no_image.png"
+          = render "product", product: product 
 
     .pickup-section__main
       .pickup-section__main--title
@@ -69,20 +57,8 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - @mens.each do |product|
-          = link_to product_path(product.id), class: "products__list" do
-            %li.products__list
-              %figure.product
-                %figucaption.product__text
-                  = product.name
-                .product__thumbnail
-                  .product__thumbnail--label
-                    = "¥ #{product.price.to_s(:delimited)}"
-                  .product__thumbnail--image
-                    - if product.images.present?
-                      = image_tag product.images[0].product_image
-                    - else
-                      = image_tag "no_image.png"
+        - @men.each do |product|
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
@@ -92,19 +68,7 @@
           もっと見る >
       %ul.pickup-section__main--products
         - @home_appliances.each do |product|
-          = link_to product_path(product.id), class: "products__list" do
-            %li.products__list
-              %figure.product
-                %figucaption.product__text
-                  = product.name
-                .product__thumbnail
-                  .product__thumbnail--label
-                    = "¥ #{product.price.to_s(:delimited)}"
-                  .product__thumbnail--image
-                    - if product.images.present?
-                      = image_tag product.images[0].product_image
-                    - else
-                      = image_tag "no_image.png"
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
@@ -114,19 +78,7 @@
           もっと見る >
       %ul.pickup-section__main--products
         - @hobbies.each do |product|
-          = link_to product_path(product.id), class: "products__list" do
-            %li.products__list
-              %figure.product
-                %figucaption.product__text
-                  = product.name
-                .product__thumbnail
-                  .product__thumbnail--label
-                    = "¥ #{product.price.to_s(:delimited)}"
-                  .product__thumbnail--image
-                    - if product.images.present?
-                      = image_tag product.images[0].product_image
-                    - else
-                      = image_tag "no_image.png"
+          = render "product", product: product
 
   .pickup-section
     .pickup-section__header
