@@ -8,7 +8,19 @@ describe ProductsController do
     end
   end
   describe 'POST #create' do
-    it "renders the :create template" do
+    let(:params) { create(:product) }
+    context 'can save' do
+      it "root_pathへ遷移するか" do
+        get :create
+        expect(response).to redirect_to(root_path)
+      end
     end
+    # context 'can not save' do
+    #   let(:params) { create(:product, name: nil)}
+    #   it ":new templateへ遷移するか" do
+    #     get :create
+    #     expect(response).to render_template :new
+    #   end
+    # end
   end
 end

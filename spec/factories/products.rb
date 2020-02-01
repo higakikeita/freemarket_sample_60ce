@@ -9,5 +9,6 @@ FactoryBot.define do
     prefecture              {"北海道"}
     shipping_date           {"4〜7日で発送"}
     price                   {"300"}
+    image {File.open("#{Rails.root}/public/images/test_image.jpg")}
   end
 end
