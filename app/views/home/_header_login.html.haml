@@ -27,4 +27,4 @@
           =link_to "やることリスト", "/todo/",class:"todo"
         .header__contents__below__personal__mypage
           %span.fas.fa-user-circle.login__icon
-          =link_to "マイページ", users_path,class:"mypage"
+          =link_to "マイページ", user_path(current_user.id),class:"mypage"

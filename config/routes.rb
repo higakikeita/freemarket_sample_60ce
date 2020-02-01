@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
   root "products#index"
-  resources :users, only: [:index, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
   resources :products do
     resources :comments,only:[:create,:destroy]
   end
