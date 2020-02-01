@@ -170,28 +170,8 @@
                 .product__thumbnail--image
                   = image_tag "logo_white.svg"
 
-  .bottom
-    .image-bottom
-      .image-bottom__left
-        .image-bottom__left--top-text
-          スマホでかんたんフリマアプリ
-        .image-bottom__left--bottom-text
-          今すぐ無料ダウンロード！
-        .image-bottom__left--link
-          .link__mercari
-            = logo_white_svg("log-white.svg", class: "link__mercari")
-          .link__apple
-            = link_to image_tag('download_on_the_AppStore_badge.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
-          .link__google
-            = link_to image_tag('google-play-badge.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+  = render "bottom"
 
-      .image-bottom__right
-
-.sell-tab
-  .sell-tab__box
-    .sell-tab__box--text
-      = link_to '出品', new_product_path, class: "sell-tab__box--text"
-    .sell-tab__box--logo
-      = icon('fas', 'camera')
+= render "sell-tab"
 
 =render "home/footer"
