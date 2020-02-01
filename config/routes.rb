@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
-  root "home#top"
-  resources :users, only: [:index]
+  root "products#index"
+  resources :users, only: [:index, :edit, :update]
   resources :products do
     resources :comments,only:[:create,:destroy]
   end
