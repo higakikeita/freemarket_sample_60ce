@@ -1,7 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update]
   def index
-    @products = Product.includes(:images).order('created_at DESC')
+    @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
+    @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
+    @home_appliances = Product.where(category_id: "8").order(created_at: "DESC").limit(10)
+    @hobbies = Product.where(category_id: "6").order(created_at: "DESC").limit(10)
   end
 
   def show
@@ -48,11 +51,10 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image])
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id])
     end
 
     def set_product
       @product = Product.includes(:comments).find(params[:id])
     end
 end
-

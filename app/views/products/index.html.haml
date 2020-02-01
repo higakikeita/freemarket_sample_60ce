@@ -1,11 +1,11 @@
 -if user_signed_in?
-  =render "header_login"
+  =render "home/header_login"
 -else
-  =render "header_unlogin"
+  =render "home/header_unlogin"
 
 .main-section
   .header
-  -# = render "shared/header"
+
   .slider-section
     .slider__image
       %ul.slider
@@ -47,19 +47,8 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-                %br
-                テストテストテストテストテストテスト
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @ladies.each do |product|
+          = render "product", product: product 
 
     .pickup-section__main
       .pickup-section__main--title
@@ -68,17 +57,8 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @men.each do |product|
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
@@ -87,17 +67,8 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @home_appliances.each do |product|
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
@@ -106,17 +77,8 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @hobbies.each do |product|
+          = render "product", product: product
 
   .pickup-section
     .pickup-section__header
@@ -225,13 +187,11 @@
 
       .image-bottom__right
 
-  .footer
-    -# = render "shared/footer"
-
 .sell-tab
   .sell-tab__box
     .sell-tab__box--text
-      =link_to'出品',new_product_path,class:"sell-tab__box--text"
+      = link_to '出品', new_product_path, class: "sell-tab__box--text"
     .sell-tab__box--logo
       = icon('fas', 'camera')
-=render "footer"
+
+=render "home/footer"
