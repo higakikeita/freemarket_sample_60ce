@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
   end
 
+
   def edit
     @user = User.find(params[:id])
     @address = Address.find(params[:id])
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
+  
   private
   def address_params
     params.require(:address).permit(:postal_code, :prefecture, :city, :address, :apartment)
