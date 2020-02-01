@@ -1,0 +1,167 @@
+= render "home/header_login"
+.mypage_a  
+  %main.mypage-contents.clearfix
+
+    .edit-main__content
+      .edit-main__content--title
+        本人情報の登録
+      .edit-main__content--introduction
+        お客様の本人情報をご登録ください。
+        %br/
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        .edit-main__content--introduction-append
+          本人確認書類のアップロードについて＞
+
+      %ul.edit-main__content--box
+
+        %li.box__info
+          .box__info--label
+            お名前
+          .box__info--user
+            = "#{@user.first_name} #{@user.last_name}"
+
+        %li.box__info
+          .box__info--label
+            お名前 カナ
+          .box__info--user
+            = "#{@user.first_name_kana} #{@user.last_name_kana}"
+
+        %li.box__info
+          .box__info--label
+            生年月日
+          .box__info--user
+            = @user.birthday.strftime("%Y/%m/%d")
+
+      .form-main__content
+        = form_for(@address, url: user_path, method: :patch) do |f|
+          = render "devise/shared/error_messages", resource: @address
+          .form-group
+            = f.label :郵便番号
+            %span.form-group__optional 任意
+            = f.text_field :postal_code, {autofocus: true, placeholder: "例）123-4567", class: "form-group__input"}
+          .form-group
+            = f.label :都道府県
+            %span.form-group__optional 任意
+            = f.select :prefecture, Address.prefectures.keys, {}, {class: "form-group__input"}
+          .form-group
+            = f.label :市町村
+            %span.form-group__optional 任意
+            = f.text_field :city, autofocus: true, placeholder: "例）札幌市", class: "form-group__input"
+          .form-group
+            = f.label :番地
+            %span.form-group__optional 任意
+            = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: "form-group__input"
+          .form-group
+            = f.label :建物名
+            %span.form-group__optional 任意
+            = f.text_field :apartment, autofocus: true, placeholder: "例）柳ビル103", class: "form-group__input"
+          .form-group
+            = f.submit "登録する", class: "btn-default btn-red"
+          .form__info
+            本人情報の登録について＞
+
+    .side-content
+      %nav.mypage-nav
+        %ul.mypage-nav-list
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              マイページ
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              お知らせ
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              やることリスト
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              いいね！一覧
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              出品する
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              出品した商品 - 出品中
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              出品した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              出品した商品 - 売却済み
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              購入した商品 - 取引中
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              購入した商品 - 過去の取引
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              ニュース一覧
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              評価一覧
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              ガイド
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-item" do
+              お問い合わせ
+              %i.icon-arrow-right
+        %h3.mypage-nav-head-merpay メルペイ
+        %ul.mypage-nav-list-merpay
+          %li
+            =link_to "#", class: "mypage-nav-list-merpay-item" do
+              売上・振込申請
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-merpay-item" do
+              ポイント
+              %i.icon-arrow-right
+        %h3.mypage-nav-head-setting 設定
+        %ul.mypage-nav-list-setting
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              プロフィール
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              発送元・お届け先住所変更
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              支払い方法
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              メール/パスワード
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              本人情報
+              %i.icon-arrow-right
+          %li
+            =link_to "#", class: "mypage-nav-list-setting-item" do
+              電話番号の確認
+              %i.icon-arrow-right
+          %li
+            =link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list-setting-item" do
+              ログアウト
+              %i.icon-arrow-right
+
+= render "products/bottom"
+
+= render "products/sell-tab"
+
+= render "home/footer"
