@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 20200125120245) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postal_code", null: false
-    t.integer  "prefecture",  null: false
-    t.string   "city",        null: false
-    t.string   "address",     null: false
+    t.string   "postal_code", limit: 7, null: false
+    t.integer  "prefecture",            null: false
+    t.string   "city",                  null: false
+    t.string   "address",               null: false
     t.string   "apartment"
-    t.integer  "user_id",     null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id",               null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
@@ -64,14 +64,11 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.integer  "price"
     t.text     "explain",       limit: 65535, null: false
     t.integer  "postage",                     null: false
-    t.string   "region"
     t.integer  "status"
     t.integer  "shipping_date"
     t.integer  "size"
     t.integer  "brand_id"
     t.integer  "category_id"
-    t.string   "product"
-    t.string   "image"
     t.integer  "prefecture"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
