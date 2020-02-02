@@ -57,6 +57,38 @@ describe ProductsController do
       expect(response).to render_template :edit
     end
   end
+
+  describe "GET #index" do
+    it "期待するビューに変遷するか？" do
+      get :index
+      expect(response).to render_template :index
+    end
+  
+    it "@ladiesが期待される値を持つか？" do
+      ladies = create_list(:product, 10, category_id: "1") 
+      get :index
+      expect(assigns(:ladies)).to match(ladies.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "@menが期待される値を持つか？" do
+      men = create_list(:product, 10, category_id: "2") 
+      get :index
+      expect(assigns(:men)).to match(men.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "@home_appliancesが期待される値を持つか？" do
+      home_appliances = create_list(:product, 10, category_id: "8") 
+      get :index
+      expect(assigns(:home_appliances)).to match(home_appliances.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+
+    it "@hobbiesが期待される値を持つか？" do
+      hobbies = create_list(:product, 10, category_id: "6") 
+      get :index
+      expect(assigns(:hobbies)).to match(hobbies.sort{ |a, b| b.created_at <=> a.created_at } )
+    end
+  end
+
   describe 'DELETE #destroy' do
     let(:product) { FactoryBot.create(:product) }
       it "リクエストが成功すること" do
