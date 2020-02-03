@@ -9,9 +9,9 @@ FactoryBot.define do
     prefecture              {"北海道"}
     shipping_date           {"4〜7日で発送"}
     price                   {"300"}
-    image {File.open("#{Rails.root}/public/images/test_image.jpg")}
     trait :invalid do
       name                  {""}
     end
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 end

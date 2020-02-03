@@ -39,8 +39,7 @@ Things you may want to cover:
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|user_id|references|foreign_key:true|
-|birthday|integer|null: false|
+|birthday|date|null: false|
 
 ### Association
 - has_many: products
@@ -56,14 +55,15 @@ Things you may want to cover:
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, index: true|
+|name|string(191)|null: false, index: true|
 |price|integer|null: false|
-|introduction|text|null: false|
-|status|integer|null: false| 
+|explain|text|null: false|
+|status|integer|null: false|
+|prefecture|integer|null: false| 
 |size|string|null: false| 
 |postage|string|null: false|
-|region|string|null: false|
-|delivery_date|string|null: false|
+|shipping_date|string|null: false|
+|brand_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
 - has_many : comments
@@ -75,7 +75,7 @@ Things you may want to cover:
 - belongs_to : categories
 
 
-## brandsテーブル
+## brandsテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -84,7 +84,7 @@ Things you may want to cover:
 - has_many : products
 
 
-## messagesテーブル
+## messagesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |message|text|null: false|
@@ -106,7 +106,7 @@ Things you may want to cover:
 - belongs_to : product
 
 
-## categoriesテーブル
+## categoriesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -115,7 +115,7 @@ Things you may want to cover:
 - has_many : products
 
 
-## ordersテーブル
+## ordersテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -129,7 +129,7 @@ Things you may want to cover:
 - has_one : ship-to_address
 
 
-## likesテーブル
+## likesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -139,7 +139,7 @@ Things you may want to cover:
 - belongs_to : product 
 
 
-## product_imagesテーブル
+## imagesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
@@ -161,7 +161,7 @@ Things you may want to cover:
 - belongs_to : user
 
 
-## user_evaluatesテーブル
+## user_evaluatesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -174,7 +174,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|postal_code|string|null: false| 
+|postal_code|string(7)|null: false| 
 |prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
@@ -183,16 +183,25 @@ Things you may want to cover:
 - belongs_to : user 
 
 
-## ship_to_addressesテーブル
+## ship_to_addressesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |order_id|references|null: false, foreign_key: true|
-|postal_code|string|null: false| 
+|postal_code|string(7)|null: false| 
 |prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
 |apartment|string|| 
 ### Association
 - belongs_to : order
+- belongs_to : user
+
+## sns_credentialテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string|null: false|
+|uid|string|null: false|
+|user_id|references|null: false, foreign_key: true|
+### Association
 - belongs_to : user
