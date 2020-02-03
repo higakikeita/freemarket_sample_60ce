@@ -50,5 +50,10 @@ describe Creditcard do
       product.valid?
       expect(product.errors[:card_pass]).to include("is too long (maximum is 4 characters)")
     end
+    it "card_passがinteger以外ならNG" do
+      product = build(:creditcard, card_pass: "１１１")
+      product.valid?
+      expect(product.errors[:card_pass]).to include("is not a number")
+    end
   end
 end
