@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update]
+  
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
     @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
@@ -13,13 +14,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @product.images.new
+    if user_signed_in?
+      @product = Product.new
+      @product.images.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to root_path
     else
@@ -51,10 +55,11 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id])
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
     end
 
     def set_product
       @product = Product.includes(:comments).find(params[:id])
     end
+    
 end

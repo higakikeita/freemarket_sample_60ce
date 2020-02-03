@@ -1,4 +1,7 @@
-=render "home/header_unlogin"
+-if user_signed_in?
+  =render "home/header_login"
+-else
+  =render "home/header_unlogin"
 .product-details__page
   .product-details__page__head
     .product-details__page__main
@@ -20,7 +23,7 @@
             %tr
               %th 出品者
               %td 
-                ニックネーム
+                =@product.user.nickname
                 %div
                   .product-user-ratings
                     %i.fa.fa-grin.icon-good
@@ -58,12 +61,12 @@
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
         .product-buy__btn__box
-        -# 公開予定
-        -# - if user_signed_in? && current_user.id 
-        = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
-        = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
-        -# - else
-        = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
+        
+        - if user_signed_in? && current_user.id ==@product.user_id
+          = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
+          = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+        - else
+          = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
         
         .product-details-page-bottom.clearfix
           .product-button-left

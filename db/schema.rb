@@ -70,10 +70,12 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.integer  "brand_id"
     t.integer  "category_id"
     t.integer  "prefecture"
+    t.integer  "user_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["price"], name: "index_products_on_price", using: :btree
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,5 +109,6 @@ ActiveRecord::Schema.define(version: 20200125120245) do
   add_foreign_key "comments", "products"
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"
 end
