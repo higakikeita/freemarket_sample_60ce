@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update]
+  
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
     @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
@@ -61,4 +62,5 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.includes(:comments).find(params[:id])
     end
+    
 end
