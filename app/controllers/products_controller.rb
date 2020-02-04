@@ -36,8 +36,7 @@ class ProductsController < ApplicationController
     @comments =@product.comments
   end
   def update
-    product=Product.includes(:comments).find(params[:id])
-    if product.update(product_params)
+    if @product.update(update_params)
       redirect_to product_path
     else
       render :edit
@@ -60,6 +59,9 @@ class ProductsController < ApplicationController
 
     def set_product
       @product = Product.includes(:comments).find(params[:id])
+    end
+    def update_params
+      params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
     
 end
