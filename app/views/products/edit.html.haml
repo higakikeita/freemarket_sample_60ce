@@ -15,12 +15,12 @@
           .sell__main__content__file__up__head__preview
             %ul#preview_list
               - i = 0
-              - @product.images[0..4].each do |image|
+              - @product.images.each_with_index do |image,i|
                 %li.upload-sell-item{id: i}
                   - i += 1
                   .preview
                     .preview__img
-                      %img{src: image.product_image, size: "114x114"}/
+                      =image_tag(@product.images[0].product_image.url,size: "114x114")
                     .preview__delete
                       .preview__delete--button
                         %p 削除
