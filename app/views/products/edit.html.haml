@@ -12,17 +12,23 @@
             %span.form--caution 
               必須
           %p.img__upload__comment 最大10枚までアップロードできます
-          .preview-area
-            %ul.product-image-list#product-image-list
-              .upload-area
-                .upload-area__dropbox
-                  %p 
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    = f.fields_for :images do |image|
-                      .js-file_group{data: {index:image.index}}
-                      = image.file_field :product_image,class:"js-file"
+          .sell__main__content__file__up__head__preview
+            %ul#preview_list
+              - i = 0
+              - @product.images.each_with_index do |image,i|
+                %li.upload-sell-item{id: i}
+                  - i += 1
+                  .preview
+                    .preview__img
+                      =image_tag(@product.images[0].product_image.url,size: "114x114")
+                    .preview__delete
+                      .preview__delete--button
+                        %p 削除
+              .dropbox
+                %label.dropbox__img
+                  %p ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                  = f.fields_for :images do |i|
+                    = i.file_field :product_image,id:"sell-img"
         .sell--content
           .sell--content__name
             %h3.sell--content__name__name
