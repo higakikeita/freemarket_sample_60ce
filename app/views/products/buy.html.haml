@@ -1,0 +1,59 @@
+=render 'single-container'
+
+%main.buy-main
+  .buy-item-container
+    %h2.buy-item-head 購入内容の確認
+    
+    %section.buy-content.buy-item
+      .buy-content-inner
+        .buy-item-box
+          %h3.buy-item-image
+            = image_tag "logo-gray-icon.svg", class:""
+        .buy-item-detail
+          %p.buy-item-name
+            商品名
+            %p.buy-item-price.bold         
+              値段
+              %span.item-shipping-fee.f14.bold
+                送料込み
+    %section.buy-content.buy-user-info
+      .buy-content-inner
+        %ul.buy-price-table
+          %li.buy-price-row.buy-you-pay.bold
+          %li.buy-price-cell 支払い金額
+          %li.buy-price-cell ¥2500
+
+
+    %section.buy-content.buy-user-info
+      .buy-content-inner
+        %h3 支払方法
+        %p.buy-user-info-text
+          登録してください
+
+    %section.buy-content.buy-user-info
+      .buy-content-inner
+        %h3 配送先
+        %address.buy-user-info-text
+          〒231-0023
+          %br
+          神奈川県横浜市
+          %br
+          鈴村 こたろう
+        = link_to "#", class: "buy-user-info-fix" do
+          %span 変更する
+          %i.fas.fa-angle-right.arrow-right
+
+        %button.btn-buy.bold{:type => "submit"} 購入する
+
+.exhibit-page__footer
+  .exhibit-page__footer__content
+    .exhibit-page__footer__content__main
+      %ul.exhibit-page__footer__lists
+        %li.exhibit-page__footer__list
+          プライバシーポリシー
+        %li.exhibit-page__footer__list
+          メルカリ利用規約
+        %li.exhibit-page__footer__list
+          特定商取引に関する表記
+        %p.exhibit-page__footer__copyright
+          © 2019 Mercari
