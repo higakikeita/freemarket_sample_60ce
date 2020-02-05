@@ -1,5 +1,6 @@
 require 'rails_helper'
-describe Product do  
+
+describe Product do
   describe '#create' do
     it "全て入力されていればOK" do
       product = build(:product)
@@ -37,5 +38,3 @@ describe Product do
     end
   end
 end
-
-

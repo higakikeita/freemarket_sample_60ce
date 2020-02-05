@@ -5,15 +5,13 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :price, index: true
       t.text :explain,null:false
       t.integer :postage,null:false
-      t.string :region
       t.integer :status
       t.integer :shipping_date
       t.integer :size
       t.integer :brand_id
       t.integer :category_id
-      t.string :product
-      t.string :image
       t.integer :prefecture
+      t.references :user,index: true, foreign_key: true
       t.timestamps
     end
   end
