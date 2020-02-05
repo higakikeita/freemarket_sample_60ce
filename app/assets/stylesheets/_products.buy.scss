@@ -1,0 +1,170 @@
+@import "color";
+
+.buy-main {
+  display: block;
+}
+
+.buy-item-container {
+  margin: 0 auto;
+  width: 700px;
+  background-color: #fff;
+}
+
+.buy-item-head {
+  padding: 32px 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: 700;
+}
+
+.buy-content {
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5; 
+  &:first-of-type {
+    margin: 0;
+  }
+  &:last-of-type {
+    padding: 40px 12.5%;
+  }
+}
+
+.buy-item {
+  text-align: center;
+  height: 80px;
+  & img {
+    width: 148px;
+    float: left;
+    width: 80px;
+    height: 80px;
+  }
+  &-name {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.buy-form p {
+    margin: 8px 0 0;
+    line-height: 1.5;
+}
+
+.buy-item-price {
+    margin: 16px 0 0;
+    font-size: 15px;
+  .item-shipping-fee {
+    margin: 0 0 0 8px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.item-shipping-fee {
+    display: inline-block;
+    font-size: 16px;
+}
+
+.buy-accordion {
+  margin: 16px 0 0;
+  &.not-have {
+    background: #ccc;
+  }
+}
+
+.accrodion-toggle {
+  padding: 16px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.buy-price-table {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.buy-you-pay {
+  font-size: 28px;
+}
+
+.buy-price-row {
+  display: table-row;
+  border-top: 1px solid #ccc;
+  &:first-child {
+    border: 0;
+  }
+}
+
+.buy-price-cell {
+  display: table-cell;
+  padding: 16px 0;
+  text-align: right;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  &:nth-child(2) {
+    text-align: left;
+  }
+}
+
+.buy-content-inner {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.buy-user-info-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $Blue;
+}
+
+.buy-user-info-fix {
+  display: block;
+  text-align: right;
+  color: #0099e8;
+  text-decoration: none;
+  font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.5;
+  }
+  & span {
+    vertical-align: middle;
+  }
+}
+
+.arrow-right {
+  vertical-align: middle;
+  margin: 0 0 0 3px;
+  font-size: 14px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.buy-user-info h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.btn-buy {
+  margin: 16px 0 0;
+  background: #888888;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+}
