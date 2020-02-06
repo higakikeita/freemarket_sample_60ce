@@ -94,9 +94,13 @@
                     = simple_format(comment.comment)
           .message-content
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = form_for [@product,@comment] do |c|
-            =c.text_area :comment,class:"text_area-default"
-            =c.submit 'コメントする',class:"text_area-default_btn"
+          - if current_user
+            = form_for [@product,@comment] do |c|
+              =c.text_area :comment,class:"text_area-default"
+              =c.submit 'コメントする',class:"text_area-default_btn"
+          - else
+            .not-comment
+              コメントはできません
       .product-social-media-box
         .text-center
           %ul.social-media-box
