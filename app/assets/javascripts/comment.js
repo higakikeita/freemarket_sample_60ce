@@ -1,7 +1,8 @@
 $(function () {
   function buildHTML(comment) {
-    var html = `<div class="comments-block data-comment-id=${comment_comment}">
+    var html = `<div class="comments-block" data-comment-id="${comment}">
         <div class="item-comment">
+           ${comment}
         </div>
     </div >
     </div >
@@ -25,7 +26,8 @@ $(function () {
         console.log('こたろ')
         var html = buildHTML(data);
         $('.comments-block').append(html);
-        $('form')[0].reset();
+        $('#new_comment')[0].reset();
+        $('input').prop('disabled', false);
       })
   });
 });
