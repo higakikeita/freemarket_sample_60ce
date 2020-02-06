@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
       @product =@comment.product
       
       if @comment.save
-        
         respond_to do |format|
           format.json
         end

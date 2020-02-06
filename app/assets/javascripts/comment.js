@@ -1,4 +1,13 @@
 $(function () {
+  function buildHTML(comment) {
+    var html = `<div class="comments-block data-comment-id=${comment_comment}">
+        <div class="item-comment">
+        </div>
+    </div >
+    </div >
+      `
+    return html;
+  }
   $('#new_comment').on('submit', function (e) {
     console.log('hoge');
     e.preventDefault();
@@ -12,5 +21,11 @@ $(function () {
       processData: false,
       contentType: false
     })
+      .done(function (data) {
+        console.log('こたろ')
+        var html = buildHTML(data);
+        $('.comments-block').append(html);
+        $('form')[0].reset();
+      })
   });
 });
