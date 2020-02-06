@@ -11,8 +11,9 @@ class CommentsController < ApplicationController
       
       if @comment.save
         
-        redirect_to product_path(@comment.product_id)
-        
+        respond_to do |format|
+          format.json
+        end
       else
         redirect_to root_path
       end
