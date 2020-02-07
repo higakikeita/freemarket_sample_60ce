@@ -1,30 +1,29 @@
--if user_signed_in?
-  =render "home/header_login"
--else
-  =render "home/header_unlogin"
-
 .main-section
   .header
+    -if user_signed_in?
+      =render "home/header_login"
+    -else
+      =render "home/header_unlogin"
 
-  .slider-section
-    .slider__image
-      %ul.slider
-        %li.slider__list
-        %li.slider__list
-      .slider__text
-        .slider__text--large
+  %ul.slick
+    %li.slick-list
+      = image_tag "topPageSlider1.png"
+      .slick__text
+        .slick__text--large
           スマホで かんたん
           %br
           フリマアプリ
-        .slider__text--small
+        .slick__text--small
           メルカリはスマホカメラからすぐに出品できる
           %br
           購入時も安心な独自システムのアプリです
-      %ul.slider__link--tag
+      %ul.slick__link--tag
         %li.link__apple
           = link_to image_tag('download_on_the_AppStore_badge.svg', id: "appstore"), "https://apps.apple.com/jp/app/id667861049?l=ja"
         %li.link__google
           = link_to image_tag('google-play-badge.svg', id: "googleplay"), "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"
+    %li.slick-list
+      = image_tag "topPageSlider2.png"
 
   .pickup-section
     .pickup-section__header

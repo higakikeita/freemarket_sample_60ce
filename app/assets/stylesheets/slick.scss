@@ -1,0 +1,45 @@
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    .slick__text {
+        position: absolute;
+        top: 15px;
+        left: 300px;
+        padding: 20px 40px;
+
+      &--large {
+        font-size: 65px;
+        padding: 0;
+        margin-bottom: 16px;
+      }
+
+      &--small {
+        font-size: 20px;
+        margin-bottom: 24px;
+        line-height: 2;
+      }
+    }
+
+    .slick__link--tag {
+        position: absolute;
+        bottom: 35px;
+        left: 330px;
+        margin: 0px auto;
+        display: flex;
+
+        .link__apple #appstore {
+          height: 50px;
+          width: 170px;
+        }
+
+        .link__google #googleplay {
+          height: 50px;
+          width: 158px;
+          margin-left: 8px;
+        }
+    }
+}
