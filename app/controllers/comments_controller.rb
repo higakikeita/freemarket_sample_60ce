@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  
+    
     before_action :set_product
     def new
       @comment = Comment.new
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     end
     private
     def comment_params
-      params.require(:comment).permit(:comment,:product_id)
+      params.require(:comment).permit(:comment,:product_id).merge(user_id: current_user.id)
     end
     def set_product
       @product = Product.find(params[:product_id])

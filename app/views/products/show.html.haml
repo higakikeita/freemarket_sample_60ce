@@ -1,4 +1,7 @@
-=render "home/header_unlogin"
+-if user_signed_in?
+  =render "home/header_login"
+-else
+  =render "home/header_unlogin"
 .product-details__page
   .product-details__page__head
     .product-details__page__main
@@ -20,7 +23,7 @@
             %tr
               %th 出品者
               %td 
-                ニックネーム
+                =@product.user.nickname
                 %div
                   .product-user-ratings
                     %i.fa.fa-grin.icon-good
@@ -58,12 +61,12 @@
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
         .product-buy__btn__box
-        -# 公開予定
-        -# - if user_signed_in? && current_user.id 
-        = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
-        = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
-        -# - else
-        = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
+        
+        - if user_signed_in? && current_user.id ==@product.user_id
+          = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
+          = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+        - else
+          = link_to "購入画面に進む",product_path,class:"product-purchase__btn" 
         
         .product-details-page-bottom.clearfix
           .product-button-left
@@ -91,9 +94,13 @@
                     = simple_format(comment.comment)
           .message-content
             %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = form_for [@product,@comment] do |c|
-            =c.text_area :comment,class:"text_area-default"
-            =c.submit 'コメントする',class:"text_area-default_btn"
+          - if current_user
+            = form_for [@product,@comment] do |c|
+              =c.text_area :comment,class:"text_area-default"
+              =c.submit 'コメントする',class:"text_area-default_btn"
+          - else
+            .not-comment
+              コメントはできません
       .product-social-media-box
         .text-center
           %ul.social-media-box

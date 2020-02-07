@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :products do
     resources :comments,only:[:create,:destroy]
+    collection do
+      get 'buy'
+    end
   end
   resources :registration, only: [:index]
 end
