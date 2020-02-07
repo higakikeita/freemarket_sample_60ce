@@ -1,15 +1,17 @@
 $(function () {
   function buildHTML(comment) {
-    console.log(this)
+    console.log(comment)
     var html = `<div class="comments-block" data-comment-id="${comment}">
         <div class="item-comment">
-           ${comment}
+           ${comment.comment}
         </div>
     </div >
     </div >
       `
     return html;
+
   }
+  console.log('ooo')
   $('#new_comment').on('submit', function (e) {
     console.log('hoge');
     e.preventDefault();

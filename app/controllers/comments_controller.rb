@@ -8,10 +8,8 @@ class CommentsController < ApplicationController
     def create
       @comment = @product.comments.new(comment_params)
       @product =@comment.product
-      
       if @comment.save
         respond_to do |format|
-          binding.pry
           format.json
         end
       else
