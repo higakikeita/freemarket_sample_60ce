@@ -11,6 +11,7 @@ class CommentsController < ApplicationController
       
       if @comment.save
         respond_to do |format|
+          binding.pry
           format.json
         end
       else

@@ -1,5 +1,6 @@
 $(function () {
   function buildHTML(comment) {
+    console.log(this)
     var html = `<div class="comments-block" data-comment-id="${comment}">
         <div class="item-comment">
            ${comment}
@@ -24,7 +25,9 @@ $(function () {
     })
       .done(function (data) {
         console.log('こたろ')
+
         var html = buildHTML(data);
+
         $('.comments-block').append(html);
         $('#new_comment')[0].reset();
         $('input').prop('disabled', false);

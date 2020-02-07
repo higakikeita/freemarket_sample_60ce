@@ -1,2 +1,2 @@
-json.content @comment.content
+json.content @comment.comment
 json.id @comment.id
