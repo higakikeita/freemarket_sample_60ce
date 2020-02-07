@@ -30,7 +30,7 @@ describe User do
       user.valid?
       expect(user.errors[:password]).to include("can't be blank")
     end
-    it "passwordが6文字以下ならNG" do
+    it "passwordが7文字よりも短ければNG" do
       user = build(:user, password: "aaa111")
       user.valid?
       expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
@@ -45,6 +45,7 @@ describe User do
       user.valid?
       expect(user.errors[:password]).to include("is invalid")
     end
+
     it "first_nameが空ならNG" do
       user = build(:user, first_name: nil)
       user.valid?
