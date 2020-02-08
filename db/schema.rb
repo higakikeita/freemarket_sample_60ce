@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20200125120245) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "postal_code", null: false
+    t.string   "postal_code", null: false
     t.integer  "prefecture",  null: false
     t.string   "city",        null: false
     t.string   "address",     null: false
@@ -34,9 +34,11 @@ ActiveRecord::Schema.define(version: 20200125120245) do
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "comment",    limit: 65535
     t.integer  "product_id"
+    t.integer  "user_id"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.index ["product_id"], name: "index_comments_on_product_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "creditcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -64,19 +66,18 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.integer  "price"
     t.text     "explain",       limit: 65535, null: false
     t.integer  "postage",                     null: false
-    t.string   "region"
     t.integer  "status"
     t.integer  "shipping_date"
     t.integer  "size"
     t.integer  "brand_id"
     t.integer  "category_id"
-    t.string   "product"
-    t.string   "image"
     t.integer  "prefecture"
+    t.integer  "user_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["price"], name: "index_products_on_price", using: :btree
+    t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -108,7 +109,9 @@ ActiveRecord::Schema.define(version: 20200125120245) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"
 end
