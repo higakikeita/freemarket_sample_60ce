@@ -213,6 +213,13 @@
     color: #fff;
     height: 60px;
   }
+  .item-comment{
+    width: calc(100% - 56px);
+    padding: 16px;
+    background: #eef0f4;
+    border-radius: 15px;
+    line-height: 1.5;
+  }
 }
 .product-social-media-box{
   margin: 24px auto;
