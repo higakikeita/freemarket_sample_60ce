@@ -8,11 +8,10 @@ class CommentsController < ApplicationController
     def create
       @comment = @product.comments.new(comment_params)
       @product =@comment.product
-      
       if @comment.save
-        
-        redirect_to product_path(@comment.product_id)
-        
+        respond_to do |format|
+          format.json
+        end
       else
         redirect_to root_path
       end
