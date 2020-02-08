@@ -90,6 +90,7 @@
             - if @product.comments
               - @product.comments.each do |comment|
                 .one-block
+                  =@product.user.nickname
                   .item-comment
                     = simple_format(comment.comment)
           .message-content
