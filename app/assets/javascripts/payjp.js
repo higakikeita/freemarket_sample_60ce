@@ -14,6 +14,7 @@ $(function() {
     Payjp.createToken(card, function(status, response) {
       console.log(status);
       if (response.error) {
+
         $("#charge-form").prop('disabled', false);
         alert("カード情報が正しくありません。");
       }
