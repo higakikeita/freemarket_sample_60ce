@@ -71,4 +71,5 @@
       .form-group
         = f.submit "登録する", class: "btn-default btn-red", url: "creditcards_path",id:"charge-form",method: :post
       #card_token
+      %input.payjp-token{ type: "hidden", name: "creditcard[payjpToken]", value: "" }
   = render "/registration/registration_footer"
