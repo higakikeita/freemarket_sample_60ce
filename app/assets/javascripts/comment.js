@@ -1,6 +1,9 @@
 $(function () {
   function buildHTML(comment) {
     var html = `<div class="comments-block" data-comment-id="${comment}">
+    <div class="one-block">
+       ${comment.nickname}
+    </div>
         <div class="item-comment">
            ${comment.comment}
         </div>
