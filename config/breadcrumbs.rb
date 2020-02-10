@@ -13,10 +13,10 @@ crumb :edit_profile do
   parent :mypage
 end
 
-# crumb :logout do
-#   link "ログアウト", users_sign_out_path
-#   parent :mypage
-# end
+crumb :edit_card do
+  link "支払い方法", card_path
+  parent :mypage
+end
 
 
 
