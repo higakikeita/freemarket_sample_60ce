@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.string   "city",        null: false
     t.string   "address",     null: false
     t.string   "apartment"
-    t.integer  "user_id",               null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "user_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
