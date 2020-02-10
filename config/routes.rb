@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     end
   end
   resources :registration, only: [:index]
+  resources :cards, only: [:show]
 end
