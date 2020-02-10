@@ -57,7 +57,7 @@
               %td=@product.shipping_date         
         .product-details-page__price
           %span.product-price.bold
-            = number_to_currency(@product.price,unit:"¥",precision: 0)
+            = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
         .product-buy__btn__box
@@ -90,6 +90,7 @@
             - if @product.comments
               - @product.comments.each do |comment|
                 .one-block
+                  =comment.user.nickname
                   .item-comment
                     = simple_format(comment.comment)
           .message-content

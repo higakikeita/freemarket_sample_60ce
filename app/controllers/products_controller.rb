@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
 
   def show
     @comment =Comment.new
-    @comments =@product.comments
+    @comments =@product.comments.includes(:user).all
     
   end
 
