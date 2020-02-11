@@ -20,12 +20,8 @@ class UsersController < ApplicationController
   def profile
   end
   def profile_update
-    if @user.update(user_params)
-      redirect_to user_path
-    else
-      render :profile
-    end
   end
+  
 
   private
 
@@ -40,10 +36,5 @@ class UsersController < ApplicationController
   def set_address
     @address = Address.find(params[:id])
   end
-  def user_params
-    params.require(:user).permit(
-      :name,
-      :profile,
-    )
-  end
+  
 end

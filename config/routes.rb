@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]do
     member do
       get 'profile'
-      patch 'profile_update'
+      
     end
   end
   resources :products do
