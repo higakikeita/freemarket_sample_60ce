@@ -1,3 +1,4 @@
+=render "home/header_login"
 .main
   
   .profile-form
@@ -12,7 +13,9 @@
             .profile-name__form
               = form.text_field :nickname
         .profile-message
-          = form.text_area :nickname
+          = form.text_area :introduction
         .profile-edit-btn
           .edit-btn
             = form.submit '変更する', class: 'edit-btn__btn'
+=render "mypage_side"
+=render "home/footer"
