@@ -1,4 +1,6 @@
 =render "home/header_login"
+- breadcrumb :mypage
+= render "layouts/breadcrumbs"
 .mypage_a  
   %main.mypage-contents.clearfix
     .main-content
@@ -180,7 +182,7 @@
         %h3.mypage-nav-head-setting 設定
         %ul.mypage-nav-list-setting
           %li
-            =link_to "#", class: "mypage-nav-list-setting-item" do
+            =link_to profile_user_path, class: "mypage-nav-list-setting-item" do
               プロフィール
               %i.icon-arrow-right
           %li
@@ -188,7 +190,7 @@
               発送元・お届け先住所変更
               %i.icon-arrow-right
           %li
-            =link_to "#", class: "mypage-nav-list-setting-item" do
+            =link_to card_path, class: "mypage-nav-list-setting-item" do
               支払い方法
               %i.icon-arrow-right
           %li

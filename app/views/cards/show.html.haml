@@ -1,67 +1,25 @@
-= render "home/header_login"
-- breadcrumb :edit_profile
+=render "home/header_login"
+- breadcrumb :edit_card
 = render "layouts/breadcrumbs"
 .mypage_a  
   %main.mypage-contents.clearfix
-
-    .edit-main__content
-      .edit-main__content--title
-        本人情報の登録
-      .edit-main__content--introduction
-        お客様の本人情報をご登録ください。
-        %br/
-        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        .edit-main__content--introduction-append
-          本人確認書類のアップロードについて＞
-
-      %ul.edit-main__content--box
-
-        %li.box__info
-          .box__info--label
-            お名前
-          .box__info--user
-            = "#{@user.first_name} #{@user.last_name}"
-
-        %li.box__info
-          .box__info--label
-            お名前 カナ
-          .box__info--user
-            = "#{@user.first_name_kana} #{@user.last_name_kana}"
-
-        %li.box__info
-          .box__info--label
-            生年月日
-          .box__info--user
-            = @user.birthday.strftime("%Y/%m/%d")
-
-      .form-main__content
-        = form_for(@address, url: user_path, method: :patch) do |f|
-          = render "devise/shared/error_messages", resource: @address
-          .form-group
-            = f.label :郵便番号
-            %span.form-group__optional 任意
-            = f.text_field :postal_code, {autofocus: true, placeholder: "例）123-4567", class: "form-group__input"}
-          .form-group
-            = f.label :都道府県
-            %span.form-group__optional 任意
-            = f.select :prefecture, Address.prefectures.keys, {}, {class: "form-group__input"}
-          .form-group
-            = f.label :市町村
-            %span.form-group__optional 任意
-            = f.text_field :city, autofocus: true, placeholder: "例）札幌市", class: "form-group__input"
-          .form-group
-            = f.label :番地
-            %span.form-group__optional 任意
-            = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: "form-group__input"
-          .form-group
-            = f.label :建物名
-            %span.form-group__optional 任意
-            = f.text_field :apartment, autofocus: true, placeholder: "例）柳ビル103", class: "form-group__input"
-          .form-group
-            = f.submit "登録する", class: "btn-default btn-red"
-          .form__info
-            本人情報の登録について＞
-
+    .main-content
+      .payment
+        .payment-content
+          .payment-content__title
+            %h1.payment-header 支払い方法
+          .payment-content__main
+            .payment-content__creditcards
+              %h2.payment-title クレジットカード一覧
+            .payment-content__creditcards__list
+              %figure
+                = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
+              .payment-content__creditcards__list__number
+                = "**** **** **** " + @creditcard_information.last4
+              .payment-content__creditcards__list__number
+                - exp_month = @creditcard_information.exp_month.to_s
+                - exp_year = @creditcard_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
     .side-content
       %nav.mypage-nav
         %ul.mypage-nav-list
@@ -161,9 +119,7 @@
             =link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list-setting-item" do
               ログアウト
               %i.icon-arrow-right
+=render "home/footer"
 
-= render "products/bottom"
 
-= render "products/sell-tab"
 
-= render "home/footer"

@@ -3,8 +3,10 @@
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title FreemarketSample60ce
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    %script{type: "text/javascript"}Payjp.setPublicKey('pk_test_57c5bfaa1f1d1f2acd058a77');
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all'
     %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
     = javascript_include_tag 'application'
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}

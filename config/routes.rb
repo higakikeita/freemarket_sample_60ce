@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
   root "products#index"
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update]do
+    member do
+      get 'profile'
+      
+    end
+  end
   resources :products do
     resources :comments,only:[:create,:destroy]
     collection do
@@ -19,4 +24,5 @@ Rails.application.routes.draw do
     end
   end
   resources :registration, only: [:index]
+  resources :cards, only: [:show]
 end
