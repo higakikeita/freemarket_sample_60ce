@@ -62,7 +62,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       flash.now[:alert] = @creditcard.errors.full_messages
       render :new_credit_card and return
     end
-    binding.pry
     @user.build_address(@address.attributes)
     @user.build_creditcard(@creditcard.attributes)
     if @user.save
