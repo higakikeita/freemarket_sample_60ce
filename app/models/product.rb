@@ -15,6 +15,7 @@ class Product < ApplicationRecord
     "福岡県":40,"佐賀県":41,"長崎県":42,"熊本県":43,"大分県":44,"宮崎県":45,"鹿児島県":46,"沖縄県":47
   }
   belongs_to :user
+  belongs_to :category
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
   validates :name, :explain, presence: true
@@ -22,6 +23,4 @@ class Product < ApplicationRecord
   validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}
 
   accepts_nested_attributes_for :images
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category
 end
