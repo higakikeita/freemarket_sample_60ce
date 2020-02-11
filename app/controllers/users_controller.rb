@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit,:profile,:profile_update]
   before_action :set_address, only: [:edit, :update]
 
   def show
@@ -17,7 +17,16 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
+  def profile
+  end
+  def profile_update
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render :profile
+    end
+  end
+
   private
 
   def address_params
@@ -31,5 +40,10 @@ class UsersController < ApplicationController
   def set_address
     @address = Address.find(params[:id])
   end
-  
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :profile,
+    )
+  end
 end
