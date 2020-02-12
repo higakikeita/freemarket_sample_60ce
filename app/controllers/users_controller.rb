@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit,:profile,:profile_update]
   before_action :set_address, only: [:edit, :update]
+  before_action :set_category, only: [:show, :edit]
 
   def show
   end
@@ -35,6 +36,10 @@ class UsersController < ApplicationController
 
   def set_address
     @address = Address.find(params[:id])
+  end
+
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
   end
   
 end

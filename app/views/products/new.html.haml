@@ -39,7 +39,7 @@
                 %span.form--caution 必須
                 
                 .select--wrap
-                  = f.collection_select :category_id, Category.all, :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
+                  = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
                   %i.fas.fa-angle-down
                 -# 後で実装予定
                 -# .select--wrap
