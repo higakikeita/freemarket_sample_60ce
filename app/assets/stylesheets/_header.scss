@@ -39,39 +39,19 @@
 
           // プルダウンメニュー（カテゴリ）
           > ul {
-            width: 250px;
-            display: flex;
-            flex-direction: column;
-            margin: 0 auto;
+            @include nav-ul;
             > li {
-              font-size: 12px;
-              width: 250px;
-              flex: 1;
-              &:not(:last-child) {
-                margin-right: 5px;
-              }
+              @include nav-li;
             }
           }
           .list--name {
-            color: black;
-            text-decoration: none;
-            display: block;
-            transition: 0.1s;
-            &:hover {
-              text-decoration: none;
-            }
+            @include nav-li--name;
           }
           .level1, .level2 {
-            width: 250px;
+            @include nav-level--common;
             position: absolute;
-            z-index: 9;
-            border-right: 1px solid $header-border;
-            border-bottom: 1px solid $header-border;
-            border-left: 1px solid $header-border;
             .list--name {
-              padding: 0 15px 0 15px;
-              background: $White;
-              line-height: 4.5;
+              @include nav-list--name;
             }
           }
           .level1 {
@@ -79,8 +59,7 @@
             top: 100%;
             left: 0;
             .active {
-              color: lighten(black, 95%);
-              background: $header-menu-red;
+              @include nav-level--active;
             }
           }
           .level2 {
@@ -104,8 +83,32 @@
           &:hover .search__brands{
             color:$link-blue;
           }
+
+          // プルダウンメニュー（ブランド）
+          ul.level1--category {
+            @include nav-ul;
+            display: none;
+            .active {
+              @include nav-level--active;
+            }
+            li.parent__list--category {
+              @include nav-li;
+            }
+          }
+          .list__name--category {
+            @include nav-li--name;
+          }
+          .level1--category {
+            @include nav-level--common;
+            top: 100%;
+            left: 0;
+            .list__name--category {
+              @include nav-list--name;
+            }
+          }
         }
       }
+
       &__registration{
         display: flex;
         &__new{

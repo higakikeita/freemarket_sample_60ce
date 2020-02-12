@@ -16,6 +16,7 @@
         .header__contents__below__search__brand
           %span.fas.fa-tag.icon
           =link_to "ブランドから探す", "/brands/",class:"search__brands"
+          = render partial: "home/nav-brand"
       .header__contents__below__registration
         .header__contents__below__registration__new
           =link_to "新規会員登録", "/registration/",class:"registration"
