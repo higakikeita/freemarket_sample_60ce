@@ -44,7 +44,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_creditcard
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(session["address"])
+    Payjp.api_key = 'sk_test_be263def71d21c8f58b223e3'
+    if params['payjpToken'].blank?
+      redirect_to action: "new"
+    else
+      # 顧客情報をPAY.JPに登録。
+      customer = Payjp::Customer.create(
+        description: 'test', 
+        email: @user.email,
+        card: params['payjpToken'], 
+      )
+    end
     @creditcard = Creditcard.new(creditcard_params)
+    @creditcard[:customer_id]=customer.id
+    @creditcard[:card_id]=customer.default_card
     unless @creditcard.valid?
       flash.now[:alert] = @creditcard.errors.full_messages
       render :new_credit_card and return
