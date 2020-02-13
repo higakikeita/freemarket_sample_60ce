@@ -24,7 +24,7 @@ class CardsController < ApplicationController
   end
 
   def destroy #PayjpとCardのデータベースを削除
-    Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
+    Payjp.api_key = "秘密鍵"
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy #削除に成功した時にポップアップを表示します。
