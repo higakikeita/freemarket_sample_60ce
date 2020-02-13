@@ -13,7 +13,7 @@
             .profile-name__form
               = form.text_field :nickname
       .profile-message
-        = form.text_area :introduction
+        = form.text_area :introduction,class:'text-introduction'
       .profile-edit-btn
         .edit-btn
           = form.submit '変更する', class: 'edit-btn__btn'
