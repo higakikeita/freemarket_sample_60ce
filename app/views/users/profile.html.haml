@@ -12,10 +12,10 @@
             = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", height: "50", width: "50", class: "user-img"
             .profile-name__form
               = form.text_field :nickname
-        .profile-message
-          = form.text_area :introduction
-        .profile-edit-btn
-          .edit-btn
-            = form.submit '変更する', class: 'edit-btn__btn'
+      .profile-message
+        = form.text_area :introduction
+      .profile-edit-btn
+        .edit-btn
+          = form.submit '変更する', class: 'edit-btn__btn'
 
 =render "home/footer"
