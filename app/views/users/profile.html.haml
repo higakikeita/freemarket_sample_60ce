@@ -5,7 +5,7 @@
     .profile-header
       %h1 プロフィール
     .profile-detail
-    = form_for @user,class:"personal-input-form"  do |form|
+    = form_for @user,profile_user_path,method: :patch,html:{class:"personal-input-form" } do |form|
       .profile-name
         .profile-name-detail
           .profile-name__img
