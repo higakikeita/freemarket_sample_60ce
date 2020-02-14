@@ -1,0 +1,21 @@
+.top.body
+  .top.body__new
+    .top.body__new__item
+      .top.body__new__item__box
+        .top.body__new__item__box__category
+          #{@keyword}
+          .top.body__new__item__box__category__view
+            の検索結果
+        .top.body__new__item__box__more
+          = link_to "もっと見る ＞", root_path
+      .top.body__new__item__list
+        - @products.each do |product|
+          .top.body__new__item__list__show
+            = link_to "", product_path(product)
+            .top.body__new__item__list__show__image
+              = image_tag(product.images.first.image, size: "184x184")
+              %p
+                ¥#{product.price}
+            .top.body__new__item__list__show__name
+              = product.name
+              .top.body__new__item__list__show__name__opa
