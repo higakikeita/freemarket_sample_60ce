@@ -9,7 +9,7 @@
     text-align: center;
     width: 100%;
     height: 200px;
-    
+    padding-left: 20px;
     background-position: center;
     background-size: cover;
   
@@ -25,6 +25,7 @@
   font-size: 16px;
   padding: 8px 24px;
   background-image: image-url("user-bg.jpg");
+  height:150px;
 }
 #user_introduction{
   display: block;
@@ -36,9 +37,9 @@
   background: #fff;
   font-size: 16px;
   line-height: 1.5;
-  width: 100%;
+  width: 95%;
   margin-top: 10px;
-  padding-right: 40px;
+  
   height: 200px;
 }
 
@@ -51,7 +52,7 @@
   color: $White;
   text-align: center;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
 }
 a{
   text-decoration: none;

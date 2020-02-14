@@ -13,9 +13,10 @@
             .profile-name__form
               = form.text_field :nickname
       .profile-message
-        = form.text_area :introduction,class:'text-introduction'
+        = form.text_area :introduction,class:'text-introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" 
+
       .profile-edit__btn
         
         = link_to "変更する",user_path, class: 'edit-btn__btn'
-
+=render "products/sell-tab"
 =render "home/footer"
