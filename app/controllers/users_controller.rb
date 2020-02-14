@@ -15,11 +15,15 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-  def profile
+  def profile   
   end
 
   def profile_update
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render :profile
+    end
   end
 
   private
@@ -35,4 +39,13 @@ class UsersController < ApplicationController
     @address = Address.find(params[:id])
   end
 
+  def set_category
+    @parents = Category.all.order("id ASC").limit(13)
+  end
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :introduction,
+    )
+  end
 end
