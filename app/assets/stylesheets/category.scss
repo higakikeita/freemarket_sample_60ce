@@ -1,0 +1,36 @@
+.categrory__container {
+  .search__section {
+    &--title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+  .list__section {
+    .category__box {
+      &--title {
+        background-color: red;
+        .title--name {
+          font-size: 24px;
+          font-weight: bold;
+          color: white;
+        }
+      }
+      &--inner {
+        .list__child {
+          &--name {
+            font-size: 18px;
+            font-weight: bold;
+            .list__child--all {
+              font-size: 14px;
+              font-weight: normal;
+            }
+            .list__grandchild {
+              font-size: 14px;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}
