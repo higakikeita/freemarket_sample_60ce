@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update]
-  before_action :set_category, only: [:index, :show]
-  
+
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
     @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
@@ -36,6 +35,7 @@ class ProductsController < ApplicationController
     @comment =Comment.new
     @comments =@product.comments
   end
+
   def update
     if @product.update(update_params)
       redirect_to product_path
@@ -65,7 +65,4 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
 
-    def set_category
-      @parents = Category.all.order("id ASC").limit(13)
-    end
 end
