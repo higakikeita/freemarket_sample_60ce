@@ -5,7 +5,7 @@
     .profile-header
       %h1 プロフィール
     .profile-detail
-    = form_for @user,profile_user_path,method: :patch,html:{class:"personal-input-form" } do |form|
+    = form_for @user,url:profile_update_user_path(current_user), method: :patch,html:{class:"personal-input-form" } do |form|
       .profile-name
         .profile-name-detail
           .profile-name__img
@@ -15,8 +15,7 @@
       .profile-message
         = form.text_area :introduction,class:'text-introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" 
 
-      .profile-edit__btn
-        
-        = link_to "変更する",user_path, class: 'edit-btn__btn'
+      .form-group
+        = form.submit "変更する", class: "btn-default btn-red"
 =render "products/sell-tab"
 =render "home/footer"

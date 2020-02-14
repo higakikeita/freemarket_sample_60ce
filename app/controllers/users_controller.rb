@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  def profile
+  def profile   
   end
   def profile_update
     if @user.update(user_params)
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
       render :profile
     end
   end
-  
 
   private
 
@@ -46,5 +45,10 @@ class UsersController < ApplicationController
   def set_category
     @parents = Category.all.order("id ASC").limit(13)
   end
-  
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :introduction,
+    )
+  end
 end
