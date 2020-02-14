@@ -1,0 +1,61 @@
+
+.side-content {
+  width: 280px;
+  margin: 0 40px 0 0; 
+  display: block;
+  padding: 0;
+}
+  .mypage-nav {
+    width: 280px;
+    height: 1252px;
+    float: left;
+    margin: 40px;
+    margin-left: 20px;
+    &-list {
+      width: 280px;
+      height: 685px;
+      list-style-type : none;
+      padding:5px 10px;
+      border-bottom:1px solid $Background;
+      &-item {
+        width: 248px;
+        position: relative;
+        display: block;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        box-sizing: inherit;
+        padding: 16px;
+        line-height: 14px;
+        text-decoration: none;
+        .icon-arrow-right {
+          width: 8.594px;
+          height: 14px;
+        }
+      }
+    }
+    
+    .mypage-nav-head-setting {
+      width: 280px;
+      color: #333;
+      margin: 40px 0 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .mypage-nav-list-setting {
+      width: 280px;
+      height: 342px;
+      &-item {
+        width: 248px;
+        height: 16px;
+        position: relative;
+        display: block;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        line-height: 14px;
+        text-decoration: none;
+      }
+    }
+  }
