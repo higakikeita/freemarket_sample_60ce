@@ -21,6 +21,11 @@ class UsersController < ApplicationController
   def profile
   end
   def profile_update
+    if @user.update(user_params)
+      redirect_to user_path
+    else
+      render :profile
+    end
   end
   
 
