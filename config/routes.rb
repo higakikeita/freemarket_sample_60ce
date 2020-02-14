@@ -22,6 +22,9 @@ Rails.application.routes.draw do
     collection do
       get 'buy'
     end
+    collection do
+      get 'search'
+    end
   end
   resources :registration, only: [:index]
   resources :cards, only: [:show]
