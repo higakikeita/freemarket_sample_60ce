@@ -14,8 +14,8 @@
               = form.text_field :nickname
       .profile-message
         = form.text_area :introduction,class:'text-introduction'
-      .profile-edit-btn
-        .edit-btn
-          = form.submit '変更する', class: 'edit-btn__btn'
+      .profile-edit__btn
+        
+        = link_to "変更する",user_path, class: 'edit-btn__btn'
 
 =render "home/footer"

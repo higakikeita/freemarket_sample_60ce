@@ -1,8 +1,10 @@
 .main-p {
   margin: 40px auto 0px;
   width: 71%;
-  
   height: 1252px;
+  background-color: #fff;
+  padding-right: 40px;
+  margin-left: 360px;
   .profile-form{
     text-align: center;
     width: 100%;
@@ -10,12 +12,12 @@
     
     background-position: center;
     background-size: cover;
+  
+
+  .profile-header{
+    font-size: 24px;
+    padding: 8px 24px;
   }
-}
-.profile-header{
-  font-size: 24px;
-  padding: 8px 24px;
-}
 
 .profile-name{
   text-align: center;
@@ -26,17 +28,22 @@
 }
 #user_introduction{
   display: block;
-   margin: 0 auto;
-    max-width: 100%;
-    min-height: 104px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #fff;
-    font-size: 16px;
-    line-height: 1.5;
+  margin: 0 auto;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 100%;
+  margin-top: 10px;
+  padding-right: 40px;
+  height: 200px;
 }
 
-.edit-btn{
+.profile-edit__btn{
+  background:$Red;
   height: 48px;
   line-height: 48px;
   display: block;
@@ -45,4 +52,10 @@
   text-align: center;
   font-weight: 600;
   font-size: 14px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+  }
 }
