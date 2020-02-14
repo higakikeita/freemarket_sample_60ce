@@ -23,4 +23,7 @@ class Product < ApplicationRecord
   validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}
 
   accepts_nested_attributes_for :images
+  def self.search(search)
+    search ? Product.where('name LIKE(?)', "%#{search}%") : Product.all
+  end
 end
