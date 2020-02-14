@@ -11,13 +11,13 @@
     float: left;
     margin: 40px;
     margin-left: 20px;
-    .mypage-nav-list {
+    &-list {
       width: 280px;
       height: 685px;
       list-style-type : none;
       padding:5px 10px;
       border-bottom:1px solid $Background;
-      .mypage-nav-list-item {
+      &-item {
         width: 248px;
         position: relative;
         display: block;
@@ -34,29 +34,7 @@
         }
       }
     }
-    .mypage-nav-head-merpay {
-      width: 280px;
-      color: #333;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    .mypage-nav-list-merpay {
-      width: 280px;
-      height: 97px;
-
-      .mypage-nav-list-merpay-item {
-        width: 248px;
-        height: 16px;
-        position: relative;
-        display: block;
-        padding: 16px;
-        background: #fff;
-        font-size: 14px;              
-        color: #333;
-        line-height: 14px;
-        text-decoration: none;
-      }                        
-    } 
+    
     .mypage-nav-head-setting {
       width: 280px;
       color: #333;
@@ -64,12 +42,10 @@
       font-size: 16px;
       font-weight: bold;
     }
-
     .mypage-nav-list-setting {
       width: 280px;
       height: 342px;
-
-      .mypage-nav-list-setting-item {
+      &-item {
         width: 248px;
         height: 16px;
         position: relative;
@@ -83,5 +59,3 @@
       }
     }
   }
-
-
