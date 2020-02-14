@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-
   before_action :set_user, only: [:show, :edit,:profile,:profile_update]
   before_action :set_address, only: [:edit, :update]
-  before_action :set_category, only: [:show, :edit]
 
   def show
   end
-
 
   def edit
   end
@@ -20,6 +17,7 @@ class UsersController < ApplicationController
   end
   def profile   
   end
+
   def profile_update
     if @user.update(user_params)
       redirect_to user_path
@@ -29,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def address_params
     params.require(:address).permit(:postal_code, :prefecture, :city, :address, :apartment)
   end
