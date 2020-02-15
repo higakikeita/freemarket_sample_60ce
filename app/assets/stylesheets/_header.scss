@@ -184,7 +184,7 @@
   transition: all 0.3s ease-out 0s;
 }
 
-.search-button{
+.search-buttom{
   background-color: transparent;
   cursor: pointer;
   height: 40px;
@@ -199,9 +199,12 @@
   border-image: initial;
   border-radius: 0px 4px 4px 0px;
   padding: 0px;
+  margin:10px;
 }
-
-.icon__search{
+.search-button{
+  display: none;
+}
+.fas.fa-search-minus{
   max-width: 100%;
   max-height: 100%;
   color: rgb(34, 34, 34);
