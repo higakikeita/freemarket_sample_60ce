@@ -23,16 +23,22 @@ class CardsController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardのデータベースを削除
-    Payjp.api_key = "秘密鍵"
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    customer.delete
-    if @card.destroy #削除に成功した時にポップアップを表示します。
-      redirect_to action: "index", notice: "削除しました"
-    else #削除に失敗した時にアラートを表示します。
-      redirect_to action: "index", alert: "削除できませんでした"
-    end
-  end
+
+  def
+
+
+
+  # 機能追加時に使用
+  # def destroy #PayjpとCardのデータベースを削除
+  #   Payjp.api_key = "秘密鍵"
+  #   customer = Payjp::Customer.retrieve(@card.customer_id)
+  #   customer.delete
+  #   if @card.destroy #削除に成功した時にポップアップを表示します。
+  #     redirect_to action: "index", notice: "削除しました"
+  #   else #削除に失敗した時にアラートを表示します。
+  #     redirect_to action: "index", alert: "削除できませんでした"
+  #   end
+  # end
 
   private
 

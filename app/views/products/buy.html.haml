@@ -3,39 +3,51 @@
 %main.buy-main
   .buy-item-container
     %h2.buy-item-head 購入内容の確認
-    
     %section.buy-content.buy-item
       .buy-content-inner
         .buy-item-box
-          %h3.buy-item-image
-            = image_tag "logo-gray-icon.svg", class:""
-        .buy-item-detail
-          %p.buy-item-name
-            商品名
-            %p.buy-item-price.bold         
-              値段
-              %span.item-shipping-fee.f14.bold
-                送料込み
+          .buy-item-image
+            =image_tag(@product.images[0].product_image.url,class:"buy-image")
+          .buy-item-detail
+            %p.buy-item-name
+              =@product.name
+              %p.buy-item-price.bold
+                = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+                %span.item-shipping-fee.f14.bold
+                  (税込)送料込み
     %section.buy-content.buy-user-info
       .buy-content-inner
         %ul.buy-price-table
           %li.buy-price-row.buy-you-pay.bold
           %li.buy-price-cell 支払い金額
-          %li.buy-price-cell ¥2500
+          %li.buy-price-cell
+            = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
     %section.buy-content.buy-user-info
       .buy-content-inner
         %h3 支払方法
-        %p.buy-user-info-text
-          登録してください
+        .payment-content__creditcards__list
+          %figure
+            = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
+          .payment-content__creditcards__list__number
+            = "**** **** **** " + @creditcard_information.last4
+          .payment-content__creditcards__list__number
+            - exp_month = @creditcard_information.exp_month.to_s
+            - exp_year = @creditcard_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
     %section.buy-content.buy-user-info
       .buy-content-inner
         %h3 配送先
         %address.buy-user-info-text
-          〒231-0023
+          =@address.postal_code
           %br
-          神奈川県横浜市
+          =@address.prefecture
           %br
-          鈴村 こたろう
+          =@address.city
+          =@address.address
+          =@address.apartment
+          %br
+          =@user.last_name
+          =@user.first_name
         = link_to "#", class: "buy-user-info-fix" do
           %span 変更する
           %i.fas.fa-angle-right.arrow-right

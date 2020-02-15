@@ -158,7 +158,7 @@
   }
   .product-purchase__btn {
     background:$Red;
-    cursor: not-allowed;
+    cursor: hand;
     @include product-buy;
   }
   .product-details-page-bottom{

@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  require 'payjp'
   before_action :set_product, only: [:show,:comment,:edit,:update]
-
+  before_action :set_creditcard
+  
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
     @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
@@ -11,6 +13,30 @@ class ProductsController < ApplicationController
   def show
     @comment =Comment.new
     @comments =@product.comments.includes(:user).all
+  end
+
+  def buy
+    @user = current_user
+    @address = Address.find(params[:id])
+    @product = Product.find(params[:id])
+    Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
+    customer = Payjp::Customer.retrieve(@creditcard.customer_id)
+    @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
+    @card_brand = @creditcard_information.brand 
+    case @card_brand
+    when "Visa"
+      @card_src = "visa.svg"
+    when "JCB"
+      @card_src = "jcb.svg"
+    when "MasterCard"
+      @card_src = "master-card.svg"
+    when "American Express"
+      @card_src = "american_express.svg"
+    when "Diners Club"
+      @card_src = "dinersclub.svg"
+    when "Discover"
+      @card_src = "discover.svg"
+    end
   end
 
   def new
@@ -52,7 +78,21 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-  
+
+  def purchase
+    @product = Product.find(params[:id])
+    binding.pry
+    Payjp.api_key= 'sk_test_be263def71d21c8f58b223e3'
+    # customer = Payjp::Customer.retrieve(@creditcard.customer_id)
+    charge = Payjp::Charge.create(
+      amount: @product.price,
+      customer: 'cus_ab77e249f68ff634161054e92169',
+      currency: 'jpy'
+    )
+    redirect_to purchased_product_path
+  end
+
+
   private
     def product_params
       params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
@@ -61,8 +101,14 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.includes(:comments).find(params[:id])
     end
+
     def update_params
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
 
+    def set_creditcard
+      @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    end
+
+    
 end
