@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
     @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
     @home_appliances = Product.where(category_id: "8").order(created_at: "DESC").limit(10)
     @hobbies = Product.where(category_id: "6").order(created_at: "DESC").limit(10)
+    @chanel = Product.where(brand_id: "0").order(created_at: "DESC").limit(10)
+    @gucci = Product.where(brand_id: "1").order(created_at: "DESC").limit(10)
+    @prada = Product.where(brand_id: "2").order(created_at: "DESC").limit(10)
+    @hermes = Product.where(brand_id: "3").order(created_at: "DESC").limit(10)
   end
 
   def show
@@ -64,5 +68,4 @@ class ProductsController < ApplicationController
     def update_params
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
-
 end
