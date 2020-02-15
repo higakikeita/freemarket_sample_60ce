@@ -24,6 +24,10 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :images
   def self.search(search)
-    search ? Product.where('name LIKE(?)', "%#{search}%") : Product.all
+    if search
+      Product.where('products.name LIKE(?)  ', "%#{search}%")
+    else
+      Product.all
+    end
   end
 end

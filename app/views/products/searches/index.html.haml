@@ -13,7 +13,7 @@
           .top.body__new__item__list__show
             = link_to "", product_path(product)
             .top.body__new__item__list__show__image
-              = image_tag(product.images.first.image, size: "184x184")
+              = image_tag product.images[0].product_image
               %p
                 ¥#{product.price}
             .top.body__new__item__list__show__name
