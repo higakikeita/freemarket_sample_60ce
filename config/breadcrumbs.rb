@@ -18,7 +18,16 @@ crumb :edit_card do
   parent :mypage
 end
 
+# カテゴリー一覧
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+end
 
+# プロフィール編集
+crumb :profile do
+  link "プロフィール", profile_user_path
+  parent :mypage
+end
 
 # crumb :projects do
 #   link "Projects", projects_path
