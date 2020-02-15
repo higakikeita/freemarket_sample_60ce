@@ -5,9 +5,9 @@
         =link_to image_tag("fmarket_logo_red.svg",width:"134",height:"36"), root_path  
       .header__contents__top__form
         = form_tag(products_searches_path, local: true, method: :get) do |f|
-          = text_field_tag :keyword, "", class: 'top.header__box__upper__form__field', placeholder: '何かお探しですか？', id: "form__box"
-          .top.header__box__upper__form__field__point
-          = button_tag type: 'submit'
+          = text_field_tag :keyword, "", class: 'form', placeholder: '何かお探しですか？', id: "form__box"
+          .search-buttom
+          = button_tag "検索する" ,type: 'submit'
           .fas.fa-search-minus
     .header__contents__below
       .header__contents__below__search
