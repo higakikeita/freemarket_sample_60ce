@@ -1,3 +1,10 @@
+.main-section
+  .header
+    -if user_signed_in?
+      =render "home/header_login"
+    -else
+      =render "home/header_unlogin"
+
 .top.body
   .top.body__new
     .top.body__new__item
@@ -19,3 +26,7 @@
             .top.body__new__item__list__show__name
               = product.name
               .top.body__new__item__list__show__name__opa
+
+
+
+=render "home/footer"
