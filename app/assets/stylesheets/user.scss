@@ -192,159 +192,158 @@
     width: 700px;
     height: 236px;
     position: relative;
+  }
     
-    li.tab-content-transaction__now--not-found.bold {
-      background-repeat: no-repeat;
-      background-position: center 40px;
-      background-size: 78px 85px;
-      padding: 160px 0 60px;
-      background-image: image-url("logo-gray-icon.svg");
-      text-align: center;
-      font-size: 16px;
-      color: #ccc;
-      position: relative;
+  li.tab-content-transaction__notfound {
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    padding: 160px 0 60px;
+    background-image: image-url("logo-gray-icon.svg");
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    position: relative;
+  }
+  .transaction-item__link {
+    width: 668px;
+    min-height: 48px;
+    color: #333;
+    text-shadow: none;
+    padding: 16px;
+    display: block;
+    position: relative;
+    &__logo {
+      width: 48px;
+      height: 48px;
+      position: absolute;
     }
-    .transaction-item-link {
-      width: 668px;
-      min-height: 48px;
-      color: #333;
-      text-shadow: none;
-      padding: 16px;
-      display: block;
-      position: relative;
-      &__logo {
-        width: 48px;
-        height: 48px;
-        position: absolute;
-      }
-      &__body {
-        margin: 0 40px 0 68px;
+    &__body {
+      margin: 0 40px 0 68px;
+      width: 560px;
+      float: right;
+      padding: 0;
+      position: absolute;
+      min-height: 38px;
+      &__text {
         width: 560px;
-        float: right;
-        padding: 0;
-        position: absolute;
-        min-height: 38px;
-        &--text {
-          width: 560px;
-          min-height: 21px;
-          font-size: 14px;
-        }
-        .icon-time {
-          width: 16px;
-          height: 17.42;
-        }
+        min-height: 21px;
+        font-size: 14px;
       }
-      .icon-arrow-right {
-        width: 8.59px;
-        height: 14px;
-        float: right;
-        position: 45.703 16 31.719 675.406px;
+      .icon-time {
+        width: 16px;
+        height: 17.42;
       }
     }
-    .mypage-go-list {
-      width: 668px;
-      height: 56px;
-      padding: 16px;
-      position: relative;
-      .go {
-      text-align: center;
-      width: 668px;
-      height: 56px;
-      background: #eee;
-      position:absolute;
-      line-height: 56px;
-      display: block;
-      text-decoration: none;
-      color: #333;
-      }
+    .icon-arrow-right {
+      width: 8.59px;
+      height: 14px;
+      float: right;
+      position: 45.703 16 31.719 675.406px;
+    }
+  }
+  .mypage-go-list {
+    width: 668px;
+    height: 56px;
+    padding: 16px;
+    position: relative;
+    .go {
+    text-align: center;
+    width: 668px;
+    height: 56px;
+    background: #eee;
+    position:absolute;
+    line-height: 56px;
+    display: block;
+    text-decoration: none;
+    color: #333;
     }
   }
 }
 
-    .side-content {
+  .side-content {
+    width: 280px;
+    height: 1252px;
+    margin: 0 40px 0 0;
+    float: left;
+    display: block;
+    padding: 0;
+    .mypage-nav {
       width: 280px;
       height: 1252px;
-      margin: 0 40px 0 0;
-      float: left;
-      display: block;
-      padding: 0;
-      .mypage-nav {
+      &-list {
         width: 280px;
-        height: 1252px;
-        .mypage-nav-list {
-          width: 280px;
-          height: 685px;
-          list-style-type : none;
-          padding:5px 10px;
-          border-bottom:1px solid $Background;
-          
-          .mypage-nav-list-item {
-            width: 248px;
-            position: relative;
-            display: block;
-            background: #fff;
-            font-size: 14px;
-            color: #333;
-            box-sizing: inherit;
-            padding: 16px;
-            line-height: 14px;
-            text-decoration: none;
-            .icon-arrow-right {
-              width: 8.594px;
-              height: 14px;
-            }
+        height: 685px;
+        list-style-type : none;
+        padding:5px 10px;
+        border-bottom:1px solid $Background;
+        
+        &-item {
+          width: 248px;
+          position: relative;
+          display: block;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+          box-sizing: inherit;
+          padding: 16px;
+          line-height: 14px;
+          text-decoration: none;
+          .icon-arrow-right {
+            width: 8.594px;
+            height: 14px;
           }
         }
-        .mypage-nav-head-merpay {
-          width: 280px;
+      }
+      .mypage-nav-head-merpay {
+        width: 280px;
+        color: #333;
+        margin: 40px 0 0;
+        font-size: 16px;
+      }
+      .mypage-nav-list-merpay {
+        width: 280px;
+        height: 97px;
+        &-item {
+          width: 248px;
+          height: 16px;
+          position: relative;
+          display: block;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;              
           color: #333;
-          margin: 40px 0 0;
-          font-size: 16px;
-        }
-        .mypage-nav-list-merpay {
-          width: 280px;
-          height: 97px;
-          .mypage-nav-list-merpay-item {
-            width: 248px;
-            height: 16px;
-            position: relative;
-            display: block;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;              
-            color: #333;
-            line-height: 14px;
-            text-decoration: none;
-          }                        
-        } 
-        .mypage-nav-head-setting {
-          width: 280px;
+          line-height: 14px;
+          text-decoration: none;
+        }                        
+      } 
+      .mypage-nav-head-setting {
+        width: 280px;
+        color: #333;
+        margin: 40px 0 0;
+        font-size: 16px;
+      }
+      .mypage-nav-list-setting {
+        width: 280px;
+        height: 342px;
+        &-item {
+          width: 248px;
+          height: 16px;
+          position: relative;
+          display: block;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;              
           color: #333;
-          margin: 40px 0 0;
-          font-size: 16px;
-        }
-        .mypage-nav-list-setting {
-          width: 280px;
-          height: 342px;
-          .mypage-nav-list-setting-item {
-            width: 248px;
-            height: 16px;
-            position: relative;
-            display: block;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;              
-            color: #333;
-            line-height: 14px;
-            text-decoration: none;
-          }                        
-        }        
-      }     
-    }
-
-  .clearfix:after {
-    content: "";
-    clear: both;
-    display: block;
+          line-height: 14px;
+          text-decoration: none;
+        }                        
+      }        
+    }     
   }
 
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}

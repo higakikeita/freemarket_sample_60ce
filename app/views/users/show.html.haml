@@ -128,13 +128,13 @@
             過去の取引
         .tab-content-transaction
           %ul.tab-content-transaction__now
-            %li.tab-content-transaction__now--not-found.bold 取引中の商品がありません
+            %li.tab-content-transaction__notfound 取引中の商品がありません
           %ul.tab-content-transaction__old.hide
-            %li.transaction-item-link
-              .transaction-item-link__logo
+            %li.transaction-item__link
+              .transaction-item__link__logo
                 = image_tag "logo_red.svg"
-              .transaction-item-link__body
-                .transaction-item-link__body--text レース スカート  新品  RETRO GIRL M」 を購入しました。
+              .transaction-item__link__body
+                .transaction-item-link__body__text レース スカート  新品  RETRO GIRL M」 を購入しました。
                 %i.icon-arrow-right
             %li.mypage-go-list
               =link_to "#", class: "go" do
