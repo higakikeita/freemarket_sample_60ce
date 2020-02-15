@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
-
+  
   private
     def product_params
       params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)

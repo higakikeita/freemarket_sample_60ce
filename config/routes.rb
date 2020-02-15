@@ -17,11 +17,15 @@ Rails.application.routes.draw do
       patch 'profile_update'
     end
   end
+  namespace :products do
+    resources :searches, only: :index
+  end
   resources :products do
     resources :comments,only:[:create,:destroy]
     collection do
       get 'buy'
     end
+    
   end
   resources :registration, only: [:index]
   resources :cards, only: [:show]
