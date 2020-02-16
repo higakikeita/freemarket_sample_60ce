@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_product, only: [:show,:comment,:edit,:update]
+  before_action :set_creditcard, only: [:buy, :purchase]
+  before_action :set_product_purchase, only: [:buy, :purchase]
   
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
@@ -16,7 +18,6 @@ class ProductsController < ApplicationController
 
   def buy
     @user = current_user
-    @creditcard = Creditcard.where(user_id: current_user.id).first
     @address = Address.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
@@ -80,7 +81,6 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @creditcard = Creditcard.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
     charge = Payjp::Charge.create(
@@ -103,8 +103,15 @@ class ProductsController < ApplicationController
       @product = Product.includes(:comments).find(params[:id])
     end
 
+    def set_product_purchase
+      @product = Product.find(params[:id])
+    end
+
     def update_params
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
     
+    def set_creditcard
+      @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    end
 end

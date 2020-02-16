@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_creditcard
 
   def show
-    Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
+    Payjp.api_key = Rails.application.secrets.payjp_access_key
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
     @card_brand = @creditcard_information.brand 
