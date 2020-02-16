@@ -1,5 +1,5 @@
 $(function(){
-    $('a').click(function() {
+    $('#scroll').click(function() {
        var speed = 500;
        var href= $(this).attr("href");
        var target = $(href == "#" || href == "" ? 'html' : href);

@@ -10,8 +10,7 @@
     %ul.search__section--nav
       - @parents.each do |parent|
         %li.search__section--nav-parent
-          %a(href = "#category-#{parent.id}")
-            = parent.name
+          = link_to parent.name, "#category-#{parent.id}", id: "scroll"
 
   .list__section
     .category__box
