@@ -10,7 +10,7 @@
           - if product.images.present?
             = image_tag product.images[0].product_image
           - else
-
+            = image_tag "no_image.png"
 
           -# =image_tag (product.images[0].product_image.url)
 
