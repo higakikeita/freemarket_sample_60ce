@@ -44,7 +44,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_creditcard
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(session["address"])
-    Payjp.api_key = 'sk_test_be263def71d21c8f58b223e3'
+    Payjp.api_key = Rails.application.secrets.payjp_access_key
     if params['payjpToken'].blank?
       redirect_to action: "new"
     else

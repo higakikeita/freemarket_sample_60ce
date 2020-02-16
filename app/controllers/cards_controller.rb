@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_creditcard
 
   def show
-    Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
+    Payjp.api_key = Rails.application.secrets.payjp_access_key
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
     @card_brand = @creditcard_information.brand 
@@ -23,16 +23,18 @@ class CardsController < ApplicationController
     end
   end
 
-  def destroy #PayjpとCardのデータベースを削除
-    Payjp.api_key = "秘密鍵"
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    customer.delete
-    if @card.destroy #削除に成功した時にポップアップを表示します。
-      redirect_to action: "index", notice: "削除しました"
-    else #削除に失敗した時にアラートを表示します。
-      redirect_to action: "index", alert: "削除できませんでした"
-    end
-  end
+
+  # 機能追加時に使用
+  # def destroy #PayjpとCardのデータベースを削除
+  #   Payjp.api_key = "秘密鍵"
+  #   customer = Payjp::Customer.retrieve(@card.customer_id)
+  #   customer.delete
+  #   if @card.destroy #削除に成功した時にポップアップを表示します。
+  #     redirect_to action: "index", notice: "削除しました"
+  #   else #削除に失敗した時にアラートを表示します。
+  #     redirect_to action: "index", alert: "削除できませんでした"
+  #   end
+  # end
 
   private
 
