@@ -1,258 +1,61 @@
 @import "color";
+.edit-main__content {
+  width: 700px;
+  height: 1211.840px;
+  float: right;
+  position: relative;
+  background-color: #fff;
+  &--title {
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #f5f5f5;
+  }
+  &--introduction {
+    height: 150px;
+    margin: 0 auto;
+    padding: 50px 50px 0 50px;
+    line-height: 1.5;
 
-.mypage_a {
-  width: 100%;
-  height: 100%;
-  background-color: $Background;
-  .mypage-contents.clearfix {
-    width: 1020px;
-    height: 1252px;
-    margin: 40px 210px 0 210px;
-    padding: 0 0 40px 0;
-    display: block;
-    border-style: solid;
-    border-width: 0;
-
-    .edit-main__content {
-      width: 700px;
-      height: 1211.840px;
+    &-append {
+      padding-top: 10px;
       float: right;
-      position: relative;
-      background-color: #fff;
-
-
-      &--title {
-        width: 100%;
-        font-size: 30px;
-        font-weight: bold;
-        text-align: center;
-        margin: 0 auto;
-        padding: 10px;
-        border: 1px solid #f5f5f5;
-      }
-
-      &--introduction {
-        height: 150px;
-        margin: 0 auto;
-        padding: 50px 50px 0 50px;
-        line-height: 1.5;
-
-        &-append {
-          padding-top: 10px;
-          float: right;
-          color: $Blue;
-          cursor: pointer;
-        }
-      }
-
-      &--box {
-        padding: 0 50px 0 50px;
-
-        .box__info {
-          padding-bottom: 16px;
-
-          &--label {
-            font-weight: 600;
-            padding-bottom: 10px;
-          }
-
-          &--user {
-            color: #333;
-            padding-bottom: 16px;
-          }
-        }
-      }
-
-      .form-main__content {
-        padding: 0 50px 0 50px;
-      }
-
-      .form__info {
-        padding-top: 40px;
-        float: right;
-        color: $Blue;
-        cursor: pointer;
-      }
+      color: $Blue;
+      cursor: pointer;
     }
-
-    .side-content {
-      width: 280px;
-      height: 1252px;
-      margin: 0 40px 0 0;
-      float: left;
-      display: block;
-      padding: 0;
-
-      .mypage-nav {
-        width: 280px;
-        height: 1252px;
-
-        .mypage-nav-list {
-          width: 280px;
-          height: 685px;
-          list-style-type : none;
-          padding:5px 10px;
-          border-bottom:1px solid $Background;
-          
-          .mypage-nav-list-item {
-            width: 248px;
-            position: relative;
-            display: block;
-            background: #fff;
-            font-size: 14px;
-            color: #333;
-            box-sizing: inherit;
-            padding: 16px;
-            line-height: 14px;
-            text-decoration: none;
-
-            .icon-arrow-right {
-              width: 8.594px;
-              height: 14px;
-            }
-          }
-        }
-
-        .mypage-nav-head-merpay {
-          width: 280px;
-          color: #333;
-          margin: 40px 0 0;
-          font-size: 16px;
-          font-weight: bold;
-        }
-
-        .mypage-nav-list-merpay {
-          width: 280px;
-          height: 97px;
-
-          .mypage-nav-list-merpay-item {
-            width: 248px;
-            height: 16px;
-            position: relative;
-            display: block;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;              
-            color: #333;
-            line-height: 14px;
-            text-decoration: none;
-          }                        
-        } 
-
-        .mypage-nav-head-setting {
-          width: 280px;
-          color: #333;
-          margin: 40px 0 0;
-          font-size: 16px;
-          font-weight: bold;
-        }
-
-        .mypage-nav-list-setting {
-          width: 280px;
-          height: 342px;
-
-          .mypage-nav-list-setting-item {
-            width: 248px;
-            height: 16px;
-            position: relative;
-            display: block;
-            padding: 16px;
-            background: #fff;
-            font-size: 14px;
-            color: #333;
-            line-height: 14px;
-            text-decoration: none;
-          }
-        }
-      }
+  }
+  .form-main__content {
+    padding: 0 50px 0 50px;
+  }
+    .form__info {
+      padding-top: 40px;
+      float: right;
+      color: $Blue;
+      cursor: pointer;
     }
-  } 
-
+  }
   .clearfix:after {
     content: "";
     clear: both;
     display: block;
   }
-}
-
-
-
-.bottom {
-  width: 100vw;
-  background-color: brown;
-
-  .image-bottom {
-    width: 750px;
-    display: flex;
-    justify-content: space-between;
-    margin: 0px auto;
-
-    &__left {
-
-      &--top-text {
-        color: $header-icon;
-        font-size: 24px;
-        font-weight: 600;
-        margin: 30px 0px 15px 0px;
-      }
-
-      &--bottom-text {
-        color: $header-icon;
-        font-size: 35px;
-        margin-bottom: 20px;
-      }
-
-      &--link {
-        display: flex;
-
-        .link__mercari {
-          height: 68px;
-          margin-right: 20px;
-          width: 68px;
-        }
-
-        .link__apple #appstore {
-          height: 40px;
-          width: 144px;
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-
-        .link__google #googleplay {
-          height: 40px;
-          width: 130px;
-          &:hover {
-            opacity: 0.8;
-          }
-        }
-      }
-    }
-
-    &__right {
-      height: 260px;
-      width: 300px;
-    }
-  }
-}
 .main {
   margin: 40px auto 0px;
   width: 71%;
-  display:flex;
-  
+  display:flex; 
   .main__mypage {
     width: calc(100% - 26% - 40px);
     margin:0 auto;
     height: 75%;
-    
-    
     .user {
       width: 100%;
       height: 200px;
       background-image: image-url("free-resources-mac-photos-20.jpg");
       background-position: center;
       background-size: cover;
-
       &__link {
         display: block;
         width: 100%;
@@ -260,13 +63,11 @@
         text-align: center;
         font-weight: bold;
         color:rgb(255, 255, 255);
-
         .user__img {
           width: 60px;
           height: 60px;
           margin-top: 30px;
           border-radius: 50%;
-
         }
         .user__name {
           margin: 8px;
@@ -275,38 +76,27 @@
           text-align: center;
           font-weight: bold;
         }
-  
         .user__status {
           margin: 8px 0px 0px;
           text-align: center;
           font-size:14px;
-  
           .user__likes {
             display: inline-block;
-  
           }
-  
           .user__items {
             display: inline-block;
             margin: 0px 0px 0px 8px;
-  
           }
         }
-      }
-      &__link:hover {
-        opacity: 0.7;
       }
     }
     .tab-box{
       width: 100%;
-  
       &__container{
-  
         .tabs{
           height: 74px;
           list-style: none;
           overflow: hidden;
-
           &__list{
             width: 50%;
             background-color: #eee;
@@ -315,19 +105,12 @@
             display: inline-block;
             text-align: center;
             vertical-align: top;
-
-            &:hover{
-              opacity: 0.7;
-            }
-
             &--active{
               border-bottom: none;
               border-top: 2px solid red;
               background-color: white;
-
             }
             &__body{
-              
               &__link{
                 font-size: 16px;
                 display: block;
@@ -341,158 +124,26 @@
         }
         .contents{
           width: 100%;
-  
           &__lists{
             background-color: white;
-  
             &__list{
               border-bottom: 1px solid #eee;
-              
               &__link{
                 display: block;
                 padding: 18px;
                 text-decoration: none;
                 color: rgb(136,136,136);
-                
                 &:hover{
                   background-color: rgb(246,246,246);
                 }
-                
                 &__image{
                   float: left;
                   width: 48px;
                   margin: 0;
                   background-color: #eee;
-
-                  img{
-                    top: 0;
-                    bottom: 0;
-                    right: 0;
-                    left: 0;
-                    margin: auto;
-                  }
-                }
-  
-                &__body{
-                  margin: 0 48px 0 60px;
-                  font-size: 14px;
-
-                  &__text{
-                    color: rgb(51,51,51);
-                  }
-  
-                  time{
-
-                    .far.fa-clock{
-                      font-size: 16px;
-                      margin-right: 4px;
-                    }
-
-                  }
-
-                }
-                .fa-chevron-right{
-                  color: rgb(51,51,51);
-                  float: right;
-                  right: 16px;
-                  bottom: 30px;                
                 }
               }
             }
-            .show__index {
-              padding: 16px;
-              text-decoration: none;
-              color: rgb(136,136,136);
-            
-              &__text {
-                display: block;
-                text-align: center;
-                text-decoration: none;
-                color: black;
-                height: 56px;
-                background-color: #EEEEEE;
-                line-height: 56px;
-                font-size: 14px;
-              
-                &:hover{
-                  background-color: rgb(246,246,246);
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    .bottom {
-      width: 100%;
-      padding: 0px;
-      margin:40px 0px 0px;
-
-      &__head__text {
-        background-color:#F8F8FF;
-        padding:0px 16px;
-        font-size: 16px;
-        line-height: 72px;
-        margin: 0;
-      }
-
-      .bottom__tab {
-        padding: 0px;
-        margin: 0;
-        list-style: none;
-        display:flex;
-      
-        &__left {
-          width: 50%;
-          text-align: center;
-          
-          h3 {
-            margin: 0;
-            line-height: 74px;
-            border-top: 2px solid red;
-          
-            .left__link {
-              text-decoration: none;
-              font-size: 16px;
-              color: black;
-            }
-          }
-        }
-        li.bottom__tab__right {
-          width: 50%;
-          text-align: center;
-          background-color: #eee;
-        
-          h3 {
-            margin: 0;
-            line-height: 74px;
-            
-            .right__link {
-              text-decoration: none;
-              font-size: 16px;
-              color: black;
-            }
-          }
-        }
-      }
-      .bottom__content {
-        margin: 0;
-        padding: 0;
-        
-        .content__list {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          
-          .list__image {
-            margin: 70px 300px 0px;
-          }
-          
-          &__text {
-            padding:20px 0px 80px;
-            text-align: center;
-            color: gray;
-            opacity: 0.8;
           }
         }
       }
