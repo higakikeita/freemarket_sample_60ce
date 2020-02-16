@@ -7,7 +7,7 @@
         .product__thumbnail--label
           = "¥ #{product.price.to_s(:delimited)}"
         .product__thumbnail--image
-          =image_tag (product.images[].product_image.url)
+          -# =image_tag (product.images[0].product_image.url)
 
           -# -if product.buyer_id.present? 
           -# .items-box_photo__sold
