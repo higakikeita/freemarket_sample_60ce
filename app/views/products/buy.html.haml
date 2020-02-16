@@ -1,57 +1,56 @@
 =render 'single-container'
 
-%main.buy-main
-  .buy-item-container
-    %h2.buy-item-head 購入内容の確認
-    %section.buy-content.buy-item
-      .buy-content-inner
-        .buy-item-box
-          .buy-item-image
-            =image_tag(@product.images[0].product_image.url,class:"buy-image")
-          .buy-item-detail
-            %p.buy-item-name
-              =@product.name
-              %p.buy-item-price.bold
-                = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
-                %span.item-shipping-fee.f14.bold
-                  (税込)送料込み
-    %section.buy-content.buy-user-info
-      .buy-content-inner
-        %ul.buy-price-table
-          %li.buy-price-row.buy-you-pay.bold
-          %li.buy-price-cell 支払い金額
-          %li.buy-price-cell
-            = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
-    %section.buy-content.buy-user-info
-      .buy-content-inner
-        %h3 支払方法
-        .payment-content__creditcards__list
-          %figure
-            = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
-          .payment-content__creditcards__list__number
-            = "**** **** **** " + @creditcard_information.last4
-          .payment-content__creditcards__list__number
-            - exp_month = @creditcard_information.exp_month.to_s
-            - exp_year = @creditcard_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
-    %section.buy-content.buy-user-info
-      .buy-content-inner
-        %h3 配送先
-        %address.buy-user-info-text
-          =@address.postal_code
-          %br
-          =@address.prefecture
-          %br
-          =@address.city
-          =@address.address
-          =@address.apartment
-          %br
-          =@user.last_name
-          =@user.first_name
-        = link_to "#", class: "buy-user-info-fix" do
-          %span 変更する
-          %i.fas.fa-angle-right.arrow-right
-        %button.btn-buy.bold{:type => "submit"} 購入する
+%main.buy-main 
+  = form_tag(action: :purchase, method: :post) do
+    .buy-item-container
+      %h2.buy-item-head 購入内容の確認
+      %section.buy-content.buy-item
+        .buy-content-inner
+          .buy-item-box
+            .buy-item-image
+              =image_tag(@product.images[0].product_image.url,class:"buy-image")
+            .buy-item-detail
+              %p.buy-item-name
+                =@product.name
+                %p.buy-item-price.bold
+                  = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+                  %span.item-shipping-fee.f14.bold
+                    (税込)送料込み
+      %section.buy-content.buy-user-info
+        .buy-content-inner
+          %ul.buy-price-table
+            %li.buy-price-row.buy-you-pay.bold
+            %li.buy-price-cell 支払い金額
+            %li.buy-price-cell
+              = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+          %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 支払方法
+          .payment-content__creditcards__list
+            %figure
+              = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
+            .payment-content__creditcards__list__number
+              = "**** **** **** " + @creditcard_information.last4
+            .payment-content__creditcards__list__number
+              - exp_month = @creditcard_information.exp_month.to_s
+              - exp_year = @creditcard_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+          %section.buy-content.buy-user-info
+        .buy-content-inner
+          %h3 配送先
+          %address.buy-user-info-text
+            =@address.postal_code
+            %br
+            =@address.prefecture
+            %br
+            =@address.city
+            =@address.address
+            =@address.apartment
+            %br
+            =@user.last_name
+            =@user.first_name
+          %section.buy-content.buy-user-info
+          = submit_tag("購入する", class:"purchase")
 .exhibit-page__footer
   .exhibit-page__footer__content
     .exhibit-page__footer__content__main

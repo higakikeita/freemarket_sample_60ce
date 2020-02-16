@@ -3,80 +3,73 @@
 -else
   =render "home/header_unlogin"
 .product-details__page
-  = form_tag(action: :purchase, method: :post) do
-    .product-details__page__head
-      .product-details__page__main
-        %h1.product-name
-          =@product.name
-        %p.product-wording
-          =@product.explain
-        .product-details__page__main__content.clearfix
-          .product-details__page__main__content__image
-            =image_tag(@product.images[0].product_image.url)
-            .owl-dots
-              .owl-dot
-                .owl-dot-inner 
-                .owl-dot-inner
-                .owl-dot-inner
-                .owl-dot-inner
-          %table.product-details__page__main__content__right
-            %tbody
-              %tr
-                %th 出品者
-                %td 
-                  =@product.user.nickname
-                  %div
-                    .product-user-ratings
-                      %i.fa.fa-grin.icon-good
-                      %span
-                        = @good_count
-                    .product-user-ratings
-                      %i.fa.fa-meh.icon-normal
-                      %span
-                        = @normal_count
-                    .product-user-ratings
-                      %i.fa.fa-frown.icon-bad
-                      %span
-                        = @bad_count
-              %tr
-                %th カテゴリー
-                %td=@product.category.name
-              %tr
-                %th ブランド
-                %td=@product.brand_id
-              %tr
-                %th 商品の状態
-                %td=@product.status
-              %tr
-                %th 配送料の負担
-                %td=@product.postage
-              %tr
-                %th 配送元地域
-                %td=@product.prefecture
-              %tr
-                %th 発送の目安
-                %td=@product.shipping_date         
-          .product-details-page__price
-            %span.product-price.bold
-              = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
-            %span.product-tax          (税込)
-            %span.product-shipping-fee 送料込み
-          .product-buy__btn__box       
-          - if user_signed_in? && current_user.id ==@product.user_id
-            = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
-            = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
-          - else
-            -# .payment-content__creditcards__list
-            -#   %figure
-            -#     = image_tag "#{@card_src}",alt: @card_brand, id: "card_image"
-            -#   .payment-content__creditcards__list__number
-            -#     = "**** **** **** " + @creditcard_information.last4
-            -#   .payment-content__creditcards__list__number
-            -#     - exp_month = @creditcard_information.exp_month.to_s
-            -#     - exp_year = @creditcard_information.exp_year.to_s.slice(2,3)
-            -#     = exp_month + " / " + exp_year
-            -#   = submit_tag("purchase", class:"product-purchase__btn")
-            -# -# %button.product-purchase__btn 購入する
+  .product-details__page__head
+    .product-details__page__main
+      %h1.product-name
+        =@product.name
+      %p.product-wording
+        =@product.explain
+      .product-details__page__main__content.clearfix
+        .product-details__page__main__content__image
+          =image_tag(@product.images[0].product_image.url)
+            -if @product.buyer_id.present? 
+            .items-box_photo__sold
+              .items-box_photo__sold__inner SOLD
+          .owl-dots
+            .owl-dot
+              .owl-dot-inner 
+              .owl-dot-inner
+              .owl-dot-inner
+              .owl-dot-inner
+        %table.product-details__page__main__content__right
+          %tbody
+            %tr
+              %th 出品者
+              %td 
+                =@product.user.nickname
+                %div
+                  .product-user-ratings
+                    %i.fa.fa-grin.icon-good
+                    %span
+                      = @good_count
+                  .product-user-ratings
+                    %i.fa.fa-meh.icon-normal
+                    %span
+                      = @normal_count
+                  .product-user-ratings
+                    %i.fa.fa-frown.icon-bad
+                    %span
+                      = @bad_count
+            %tr
+              %th カテゴリー
+              -# %td=@product.category.name
+            %tr
+              %th ブランド
+              %td=@product.brand_id
+            %tr
+              %th 商品の状態
+              %td=@product.status
+            %tr
+              %th 配送料の負担
+              %td=@product.postage
+            %tr
+              %th 配送元地域
+              %td=@product.prefecture
+            %tr
+              %th 発送の目安
+              %td=@product.shipping_date         
+        .product-details-page__price
+          %span.product-price.bold
+            = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+          %span.product-tax          (税込)
+          %span.product-shipping-fee 送料込み
+        .product-buy__btn__box       
+        - if user_signed_in? && current_user.id ==@product.user_id
+          = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
+          = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
+        - elsif @product.buyer_id.present? 
+          = link_to "売り切れました",buy_product_path,class:"disabled-button bold"
+        - else
           = link_to "購入画面に進む",buy_product_path,class:"product-purchase__btn"
         .product-details-page-bottom.clearfix
           .product-button-left

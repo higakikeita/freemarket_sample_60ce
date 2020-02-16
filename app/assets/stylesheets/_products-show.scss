@@ -16,6 +16,7 @@
     margin: 16px 0 0;
     @include clearfix;
     &__image{
+      position: relative;
       float:left;
       min-width: 300px;
       max-width: 300px;

@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   require 'payjp'
   before_action :set_product, only: [:show,:comment,:edit,:update]
-  before_action :set_creditcard
   
   def index
     @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
@@ -17,7 +16,8 @@ class ProductsController < ApplicationController
 
   def buy
     @user = current_user
-    @address = Address.find(params[:id])
+    @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    @address = Address.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
     Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
@@ -80,15 +80,17 @@ class ProductsController < ApplicationController
   end
 
   def purchase
+    @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
     @product = Product.find(params[:id])
-    binding.pry
     Payjp.api_key= 'sk_test_be263def71d21c8f58b223e3'
     # customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     charge = Payjp::Charge.create(
       amount: @product.price,
-      customer: 'cus_ab77e249f68ff634161054e92169',
+      customer: Payjp::Customer.retrieve(@creditcard.customer_id),
       currency: 'jpy'
     )
+    @product_buyer= Product.find(params[:id])
+    @product_buyer.update( buyer_id: current_user.id)
     redirect_to purchased_product_path
   end
 
@@ -105,10 +107,5 @@ class ProductsController < ApplicationController
     def update_params
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
-
-    def set_creditcard
-      @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
-    end
-
     
 end
