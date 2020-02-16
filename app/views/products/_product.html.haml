@@ -7,6 +7,11 @@
         .product__thumbnail--label
           = "¥ #{product.price.to_s(:delimited)}"
         .product__thumbnail--image
+          - if product.images.present?
+            = image_tag product.images[0].product_image
+          - else
+
+
           -# =image_tag (product.images[0].product_image.url)
 
           -# -if product.buyer_id.present? 
