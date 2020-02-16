@@ -24,10 +24,6 @@ class CardsController < ApplicationController
   end
 
 
-  def
-
-
-
   # 機能追加時に使用
   # def destroy #PayjpとCardのデータベースを削除
   #   Payjp.api_key = "秘密鍵"

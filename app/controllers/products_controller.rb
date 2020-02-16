@@ -16,10 +16,10 @@ class ProductsController < ApplicationController
 
   def buy
     @user = current_user
-    @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    @creditcard = Creditcard.where(user_id: current_user.id).first
     @address = Address.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
-    Payjp.api_key = "sk_test_be263def71d21c8f58b223e3"
+    Payjp.api_key = Rails.application.secrets.payjp_access_key
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
     @card_brand = @creditcard_information.brand 
@@ -80,10 +80,9 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    @creditcard = Creditcard.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
-    Payjp.api_key= 'sk_test_be263def71d21c8f58b223e3'
-    # customer = Payjp::Customer.retrieve(@creditcard.customer_id)
+    Payjp.api_key = Rails.application.secrets.payjp_access_key
     charge = Payjp::Charge.create(
       amount: @product.price,
       customer: Payjp::Customer.retrieve(@creditcard.customer_id),
