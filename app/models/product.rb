@@ -32,4 +32,5 @@ class Product < ApplicationRecord
   end
 
   scope :category, ->(category_id) {where(category_id: category_id).order(created_at: "DESC").limit(10)}
+  scope :brand, ->(brand_id) {where(brand_id: brand_id).order(created_at: "DESC").limit(10)}
 end
