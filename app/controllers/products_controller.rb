@@ -6,10 +6,10 @@ class ProductsController < ApplicationController
     @men = Product.category(2)
     @home_appliances = Product.category(8)
     @hobbies = Product.category(6)
-    @chanel = Product.where(brand_id: "0").order(created_at: "DESC").limit(10)
-    @gucci = Product.where(brand_id: "1").order(created_at: "DESC").limit(10)
-    @prada = Product.where(brand_id: "2").order(created_at: "DESC").limit(10)
-    @hermes = Product.where(brand_id: "3").order(created_at: "DESC").limit(10)
+    @chanel = Product.brand(0)
+    @gucci = Product.brand(1)
+    @prada = Product.brand(2)
+    @hermes = Product.brand(3)
   end
 
   def show
