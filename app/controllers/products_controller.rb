@@ -21,7 +21,6 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @user = current_user
     @address = Address.where(user_id: current_user.id).first
     @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key

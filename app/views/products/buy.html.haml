@@ -47,8 +47,8 @@
             =@address.address
             =@address.apartment
             %br
-            =@user.last_name
-            =@user.first_name
+            =current_user.last_name
+            =current_user.first_name
           %section.buy-content.buy-user-info
           = submit_tag("購入する", class:"purchase")
 .exhibit-page__footer
