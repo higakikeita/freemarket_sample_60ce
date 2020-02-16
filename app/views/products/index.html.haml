@@ -87,11 +87,11 @@
         %li.header__list--logo
           シャネル
         %li.header__list--logo
-          ルイ・ヴィトン
+          グッチ
         %li.header__list--logo
-          シュプリーム
+          プラダ
         %li.header__list--logo
-          ナイキ
+          エルメス
 
     .pickup-section__main
       .pickup-section__main--title
@@ -100,74 +100,38 @@
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @chanel.each do |product|
+          = render "product", product: product
         
     .pickup-section__main
       .pickup-section__main--title
         .main__title--text
-          ルイ・ヴィトン新着アイテム
+          グッチ新着アイテム
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @gucci.each do |product|
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
         .main__title--text
-          シュプリーム新着アイテム
+          プラダ新着アイテム
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @prada.each do |product|
+          = render "product", product: product
 
     .pickup-section__main
       .pickup-section__main--title
         .main__title--text
-          ナイキ新着アイテム
+          エルメス新着アイテム
         .main__title--more
           もっと見る >
       %ul.pickup-section__main--products
-        - for i in 1..10
-          %li.products__list
-            -# =link_to "#" 
-            %figure.product
-              %figucaption.product__text
-                レギンス レディース
-              .product__thumbnail
-                .product__thumbnail--label
-                  ¥450
-                .product__thumbnail--image
-                  = image_tag "logo_white.svg"
+        - @hermes.each do |product|
+          = render "product", product: product
 
   = render "bottom"
 

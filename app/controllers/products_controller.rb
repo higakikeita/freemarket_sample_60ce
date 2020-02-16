@@ -3,10 +3,14 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update]
   
   def index
-    @ladies = Product.where(category_id: "1").order(created_at: "DESC").limit(10)
-    @men = Product.where(category_id: "2").order(created_at: "DESC").limit(10)
-    @home_appliances = Product.where(category_id: "8").order(created_at: "DESC").limit(10)
-    @hobbies = Product.where(category_id: "6").order(created_at: "DESC").limit(10)
+    @ladies = Product.category(1)
+    @men = Product.category(2)
+    @home_appliances = Product.category(8)
+    @hobbies = Product.category(6)
+    @chanel = Product.brand(0)
+    @gucci = Product.brand(1)
+    @prada = Product.brand(2)
+    @hermes = Product.brand(3)
   end
 
   def show
@@ -106,5 +110,3 @@ class ProductsController < ApplicationController
     def update_params
       params.require(:product).permit(:name, :explain, :price, :size, :brand_id, :category_id, :status, :shipping_date, :category_id, :brand_id, :user_id, images_attributes: [:product_image, :id])
     end
-    
-end
