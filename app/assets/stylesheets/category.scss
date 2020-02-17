@@ -1,32 +1,129 @@
 .categrory__container {
+  margin: 40px auto;
+  width: 700px;
+
   .search__section {
+    line-height: 30px;
+
     &--title {
       font-size: 24px;
       font-weight: bold;
+      padding: 8px 0;
     }
-  }
-  .list__section {
-    .category__box {
-      &--title {
-        background-color: red;
-        .title--name {
-          font-size: 24px;
-          font-weight: bold;
-          color: white;
+
+    &--nav {
+      width: 700px;
+      height: 250px;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+      list-style: none;
+      margin: 8px 2% 0 0;
+
+      &-parent {
+        background-color: #fff;
+        border-radius: 4px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        font-size: 16px;
+        line-height: 40px;
+        cursor: pointer;
+
+        a {
+          color: #333;
+          display: block;
+        }
+
+        &:hover {
+          background-color: $Red;
+
+          a {
+            color: $White
+          }
         }
       }
+    }
+  }
+
+  .list__section {
+    margin: 30px auto;
+
+    .category__box {
+      border-radius: 4px;
+      margin-bottom: 40px;
+
+      &--title {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        padding: 7px 30px 0 30px;
+        height: 35px;
+        background-color: $Red;
+
+        .title--name {
+          font-size: 22px;
+          color: white;
+          margin-top: 5px;
+        }
+      }
+
       &--inner {
+        background-color: white;
+        padding: 24px 30px 10px 30px;
+        border-radius: 4px;
+        margin-bottom: 40px;
+
+        .list__parent-all {
+          font-size: 16px;
+          margin-top: 8px;
+          margin-bottom: 8px;
+
+          .parent--all {
+            color: $Blue;
+          }
+        }
+
         .list__child {
           &--name {
+            padding-top: 15px;
+            padding-bottom: 5px;
             font-size: 18px;
-            font-weight: bold;
-            .list__child--all {
-              font-size: 14px;
-              font-weight: normal;
-            }
-            .list__grandchild {
-              font-size: 14px;
-              font-weight: normal;
+
+            .list__child--box {
+              padding-left: 20px;
+              padding-right: 20px;
+              padding-bottom: 10px;
+              width: 100%;
+
+              .list__child--all {
+                font-size: 16px;
+                margin-top: 8px;
+                margin-bottom: 8px;
+                width: 50%;
+
+                .child--all {
+                  color: $Blue;
+                  width: 50%;
+                  padding: 0 20px 0 0;
+                }
+              }
+
+              .list__grandchild {
+                &--name {
+                  width: 50%;
+                  padding: 0 20px 0 0;
+                  margin-top: 8px;
+                  margin-bottom: 8px;
+                  
+                  .grandchild--name {
+                    font-size: 16px;
+                    color: $Blue;
+                    width: 50%;
+                  }
+                }
+              }
             }
           }
         }

@@ -11,6 +11,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :brand_id
       t.integer :category_id
       t.integer :prefecture
+      t.integer :buyer_id
       t.references :user,index: true, foreign_key: true
       t.timestamps
     end

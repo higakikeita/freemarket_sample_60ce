@@ -21,11 +21,12 @@ Rails.application.routes.draw do
     resources :searches, only: :index
   end
   resources :products do
-    resources :comments,only:[:create,:destroy]
-    collection do
+    member do
+      post 'purchase'
+      get 'purchased'
       get 'buy'
     end
-    
+    resources :comments,only:[:create,:destroy]
   end
   resources :registration, only: [:index]
   resources :cards, only: [:show]

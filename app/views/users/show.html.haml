@@ -12,14 +12,14 @@
           %h2.user-link__name
             = @user.nickname
           .user-link__number
-            評価　５　出品数　８
+            評価  ５  出品数  ８
       %section.notification-todo
         %ul.tabs
-          %li.tabs__notification
-            %h3 お知らせ
-          %li.tabs__todo
-            %h3 やることリスト
-        .tab-content-notification
+          %li.select
+            お知らせ
+          %li
+            やることリスト
+        .tab-content-notification-todo
           %ul.notification-item-list
             %li.notification-item-link
               .notification-item-link__logo
@@ -67,49 +67,78 @@
                   %span 2 日前
               %i.icon-arrow-right
             %li.mypage-go-list
-              =link_to "#", class: "go" do 
+              =link_to "#", class: "go" do
                 一覧を見る
-          -# 後で実装
-          -# .tab-content-todo
-          -#   %li
-          -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/mypage/email_password/"}
-          -#       %figure
-          -#         %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/images/mercari_profile.png"}/
-          -#       .mypage-item-body
-          -#         .mypage-item-text メールが届いていない状態です。設定しているメールアドレスをご確認ください
-          -#         %time
-          -#           %i.icon-time
-          -#           %span 116 日前
-          -#       %i.icon-arrow-right
-          -#   %li.mypage-go-list
-          -#     %a{:href => "/jp/mypage/todo/"} 一覧を見る 
-
+          %ul.notification-item-list.hide
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text メールアドレスを確認してください。
+                %time
+                  %i.icon-time
+                  %span 1 時間前
+              %i.icon-arrow-right
+            %li.notification-item-link            
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text メールアドレスを確認してください。
+                %time
+                  %i.icon-time
+                  %span 1 時間前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 事務局から個別メッセージ「【対象者限定】セブン-イレブン初発送200円分ポイントプレゼント」
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 《最大10万円相当》売れたら売上金が2倍のチャンス！本日スタート！
+                %time
+                  %i.icon-time
+                  %span 1 日前
+              %i.icon-arrow-right
+            %li.notification-item-link
+              .notification-item-link__logo
+                = image_tag "logo_red.svg"
+              .notification-item-link__body
+                .notification-item-link__body--text 3日後、8%還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                %time
+                  %i.icon-time
+                  %span 2 日前
+              %i.icon-arrow-right
+            %li.mypage-go-list
+              =link_to "#", class: "go" do
+                一覧を見る
 
       %section.transaction-hisory
         %h2.header 購入した商品
         %ul.transaction-tabs
-          %li.transaction-tabs__now
-            %h3 取引中
-          %li.transaction-tabs__old
-            %h3 過去の取引
+          %li.select
+            取引中
+          %li
+            過去の取引
         .tab-content-transaction
           %ul.tab-content-transaction__now
-            %li.tab-content-transaction__now--not-found.bold 取引中の商品がありません
-          -# 後で実装             
-          -# %ul.tab-content-transaction__old
-          -#   %li
-          -#     %a.mypage-item-link{:href => "https://www.mercari.com/jp/transaction/order_status/m59827217698/"}
-          -#       %figure
-          -#         %img.lazyload{:alt => "", "data-src" => "//static.mercdn.net/thumb/photos/m59827217698_1.jpg?1515386008"}/
-          -#       .mypage-item-body
-          -#         .mypage-item-text
-          -#           「インナー付き レース スカート  新品  RETRO GIRL M」 を購入しました。
-          -#           %span 取引が完了しました
-          -#         .mypage-item-status.bold.done
-          -#           取引完了
-          -#       %i.icon-arrow-right
-          -#   %li.mypage-go-list
-          -#     %a{:href => "/jp/mypage/purchased/"} 一覧を見る
+            %li.tab-content-transaction__notfound 取引中の商品がありません
+          %ul.tab-content-transaction__old.hide
+            %li.transaction-item__link
+              .transaction-item__link__logo
+                = image_tag "logo_red.svg"
+              .transaction-item__link__body
+                .transaction-item-link__body__text レース スカート  新品  RETRO GIRL M」 を購入しました。
+                %i.icon-arrow-right
+            %li.mypage-go-list
+              =link_to "#", class: "go" do
+                一覧を見る
     .side-content
       %nav.mypage-nav
         %ul.mypage-nav-list

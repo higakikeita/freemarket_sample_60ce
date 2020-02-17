@@ -11,3 +11,9 @@
             = image_tag product.images[0].product_image
           - else
             = image_tag "no_image.png"
+
+          -# =image_tag (product.images[0].product_image.url)
+
+          -# -if product.buyer_id.present? 
+          -# .items-box_photo__sold
+          -#   .items-box_photo__sold__inner SOLD
