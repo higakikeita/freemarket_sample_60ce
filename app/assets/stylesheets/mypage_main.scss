@@ -61,3 +61,61 @@ a{
     margin-left: 40px;
   }
 }
+.bottom {
+  width: 100vw;
+  background-color: brown;
+
+  .image-bottom {
+    width: 750px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto;
+
+    &__left {
+
+      &--top-text {
+        color: $header-icon;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 30px 0px 15px 0px;
+      }
+
+      &--bottom-text {
+        color: $header-icon;
+        font-size: 35px;
+        margin-bottom: 20px;
+      }
+
+      &--link {
+        display: flex;
+
+        .link__mercari {
+          height: 68px;
+          margin-right: 20px;
+          width: 68px;
+        }
+
+        .link__apple #appstore {
+          height: 40px;
+          width: 144px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        .link__google #googleplay {
+          height: 40px;
+          width: 130px;
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    &__right {
+      height: 260px;
+      width: 300px;
+    }
+  }
+}
