@@ -1,10 +1,20 @@
-.main-p {
-  margin: 40px auto 0px;
-  width: 71%;
+.mypage-contents.clearfix {
+  width: 1020px;
   height: 1252px;
+  padding: 0 0 40px 0;
+  display: block;
+  border-style: solid;
+  border-width: 0;
+  margin:0 auto;
+  margin-top:40px; 
+}
+.main-p { 
+  width: 700px;
+  height: 1211.840px;
   background-color: #fff;
   padding-right: 40px;
-  margin-left: 360px;
+  position: relative;
+  float:right;
   .profile-form{
     text-align: center;
     width: 100%;
@@ -110,3 +120,4 @@ a{
     }
   }
 }
+@import "color";
