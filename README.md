@@ -64,6 +64,7 @@ Things you may want to cover:
 |postage|string|null: false|
 |shipping_date|string|null: false|
 |brand_id|references|null: false, foreign_key: true|
+|buyer_id|integer||
 ### Association
 - belongs_to : user
 - has_many : comments
@@ -106,7 +107,7 @@ Things you may want to cover:
 - belongs_to : product
 
 
-## categoriesテーブル(未実装)
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
@@ -139,7 +140,7 @@ Things you may want to cover:
 - belongs_to : product 
 
 
-## imagesテーブル(未実装)
+## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
@@ -157,6 +158,8 @@ Things you may want to cover:
 |card_year|integer|null: false| 
 |card_month|integer|null: false| 
 |card_pass|integer|null: false|
+|cutomer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to : user
 
@@ -174,7 +177,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|postal_code|string(7)|null: false| 
+|postal_code|string|null: false| 
 |prefecture|integer|null: false| 
 |city|string|null: false| 
 |address|string|null: false| 
