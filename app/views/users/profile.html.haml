@@ -2,22 +2,25 @@
 - breadcrumb :profile
 = render "layouts/breadcrumbs"
 =render "mypage_side"
-.main-p
-  .profile-form
-    .profile-header
-      %h1 プロフィール
-    .profile-detail
-    = form_for @user,url:profile_update_user_path(current_user), method: :patch,html:{class:"personal-input-form" } do |form|
-      .profile-name
-        .profile-name-detail
-          .profile-name__img
-            = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", height: "50", width: "50", class: "user-img"
-            .profile-name__form
-              = form.text_field :nickname
-      .profile-message
-        = form.text_area :introduction,class:'text-introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" 
+.mypage_a  
+  %main.mypage-contents.clearfix
+    .main-p
+      .profile-form
+        .profile-header
+          %h1 プロフィール
+        .profile-detail
+        = form_for @user,url:profile_update_user_path(current_user), method: :patch,html:{class:"personal-input-form" } do |form|
+          .profile-name
+            .profile-name-detail
+              .profile-name__img
+                = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", height: "50", width: "50", class: "user-img"
+                .profile-name__form
+                  = form.text_field :nickname
+          .profile-message
+            = form.text_area :introduction,class:'text-introduction',placeholder:"例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" 
 
-      .form-group
-        = form.submit "変更する", class: "btn-default btn-red"
+          .form-group
+            = form.submit "変更する", class: "btn-default btn-red"
+= render "products/bottom"
 =render "products/sell-tab"
 =render "home/footer"
