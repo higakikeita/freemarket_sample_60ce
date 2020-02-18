@@ -1,0 +1,126 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.main-contents{
+  width: 1020px;
+  margin: 0px auto;
+  height: auto;
+}
+
+.side-search{
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  height: calc(100vh - 100px);
+  &__sort{
+    background-color:white;
+    padding: 16px;
+    margin: 30px;
+    border-color: #CBCBCB;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+  }
+  &__details{
+    background-color:white;
+    padding: 16px;
+    margin: 30px;
+    height: 300px;
+  }
+}
+
+
+.search-result{ 
+  margin: 30px auto;
+  // padding: 42px 0px 100px;
+  float: left;
+  width: calc(100% - 320px);
+  height: calc(100vh - 100px);
+
+  &--title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 16px;
+    padding-left: 16px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+  
+
+  &--products {
+    margin: 0px auto;
+    width: 1020px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__list {
+      width: 182px;
+      height: 230px;
+      margin: 10px;
+
+      .product {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: $White;
+        margin: 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,.18);
+
+        &__text {
+          color: #222;
+          font-size: 14px;
+          height: 40px;
+          line-height: 1.4em;
+          padding: 0 12px;
+          word-break: break-word;
+          overflow: hidden;
+          margin-top: 8px;
+        }
+
+        &__thumbnail {
+          overflow: hidden;
+          padding: 0 0 100%;
+          width: 100%;
+          position: relative;
+
+          &--label {
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+            border-radius: 0 14px 14px 0;
+            bottom: 8px;
+            color: $White;
+            display: inline-flex;
+            font-size: 17px;
+            height: 28px;
+            letter-spacing: .02em;
+            margin: 0;
+            padding: 0 12px;
+            position: absolute;
+            z-index: 2;
+            opacity: 0.5;
+          }
+
+          &--image {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            vertical-align: top;
+            z-index: 1;
+          }
+        }
+      }
+
+      .product:hover {
+        margin: -1px;
+        border: 1px solid rgb(0, 149, 238);
+        cursor: pointer;
+      }
+    }
+  }
+}
