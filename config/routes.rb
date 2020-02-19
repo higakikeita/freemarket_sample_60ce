@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       post 'purchase'
       get 'purchased'
       get 'buy'
+      get 'reserve'
+      post 'reserving'
+      get 'reserved'
     end
     resources :comments,only:[:create,:destroy]
   end

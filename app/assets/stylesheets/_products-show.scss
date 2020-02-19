@@ -157,6 +157,10 @@
     background:$Red;
     @include product-buy;
   }
+  .product-details-resorve__btn {
+    background:$Blue;
+    @include product-buy;
+  }
   .product-purchase__btn {
     background:$Red;
     cursor: hand;

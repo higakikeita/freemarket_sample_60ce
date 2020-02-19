@@ -67,6 +67,12 @@ class ProductsController < ApplicationController
     @comments =@product.comments
   end
 
+  def reserve
+    @product = Product.find(params[:id])
+    
+  end
+
+
   def update
     if @product.update(update_params)
       redirect_to product_path
