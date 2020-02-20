@@ -69,7 +69,12 @@ class ProductsController < ApplicationController
 
   def reserve
     @product = Product.find(params[:id])
-    
+  end
+
+  def reserved
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+
   end
 
 
@@ -106,7 +111,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,:reservation_email,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
     end
 
     def set_product

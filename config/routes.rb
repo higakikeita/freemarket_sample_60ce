@@ -20,14 +20,14 @@ Rails.application.routes.draw do
   namespace :products do
     resources :searches, only: :index
   end
+  
   resources :products do
     member do
       post 'purchase'
       get 'purchased'
       get 'buy'
       get 'reserve'
-      post 'reserving'
-      get 'reserved'
+      patch 'reserved'
     end
     resources :comments,only:[:create,:destroy]
   end

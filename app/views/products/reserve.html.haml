@@ -1,33 +1,27 @@
 =render 'single-container'
 
 %main.buy-main 
-  = form_tag(action: :reserved, method: :post) do
-    .buy-item-container
-      %h2.buy-item-head 取り置き内容の確認
-      %section.buy-content.buy-item
-        .buy-content-inner
-          .buy-item-box
-            .buy-item-image
-              =image_tag(@product.images[0].product_image.url,class:"buy-image")
-            .buy-item-detail
-              %p.buy-item-name
-                =@product.name
-                %p.buy-item-price.bold
-                  = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
-                  %span.item-shipping-fee.f14.bold
-                    (税込)送料込み
+  .buy-item-container
+    %h2.buy-item-head 取り置き内容の確認
+    %section.buy-content.buy-item
+      .buy-content-inner
+        .buy-item-box
+          .buy-item-image
+            =image_tag(@product.images[0].product_image.url,class:"buy-image")
+          .buy-item-detail
+            %p.buy-item-name
+              =@product.name
+              %p.buy-item-price.bold
+                = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+                %span.item-shipping-fee.f14.bold
+                  (税込)送料込み
+        =form_for(@product, url: reserved_product_path,method: :patch) do |f|
           .form-group
-            =label_tag :お取り置きをする方のアドレス
+            =f.label :お取り置きをする方のアドレス
             %span.form-group__require 必須
             %br/
-            =email_field_tag :email
-          .form-group
-            =label_tag :お取り置き期間
-            %span.form-group__require 必須
-            %br/
-            =number_field_tag :time
-            時間
-          = submit_tag("取り置きする", class:"reserve")
+            = f.email_field :reservation_email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
+            = f.submit '取り置きする', class: "reserve"
 .exhibit-page__footer
   .exhibit-page__footer__content
     .exhibit-page__footer__content__main

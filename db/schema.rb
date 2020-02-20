@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20200125120245) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",          limit: 191,   null: false
+    t.string   "name",              limit: 191,   null: false
     t.integer  "price"
-    t.text     "explain",       limit: 65535, null: false
-    t.integer  "postage",                     null: false
+    t.text     "explain",           limit: 65535, null: false
+    t.integer  "postage",                         null: false
     t.integer  "status"
     t.integer  "shipping_date"
     t.integer  "size"
@@ -76,8 +76,9 @@ ActiveRecord::Schema.define(version: 20200125120245) do
     t.integer  "prefecture"
     t.integer  "buyer_id"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "reservation_email"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["name"], name: "index_products_on_name", using: :btree
     t.index ["price"], name: "index_products_on_price", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
