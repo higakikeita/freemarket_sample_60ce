@@ -74,7 +74,12 @@ class ProductsController < ApplicationController
   def reserved
     @product = Product.find(params[:id])
     @product.update(product_params)
+  end
 
+  def reserve_cancel
+    @product = Product.find(params[:id])
+    @product.update(reservation_email:"")
+    redirect_to product_path
   end
 
 
@@ -103,6 +108,9 @@ class ProductsController < ApplicationController
       customer: Payjp::Customer.retrieve(@creditcard.customer_id),
       currency: 'jpy'
     )
+    if @product.reservation_email.present?
+      @product.update(reservation_email:"")
+    end
     @product_buyer= Product.find(params[:id])
     @product_buyer.update( buyer_id: current_user.id)
     redirect_to purchased_product_path

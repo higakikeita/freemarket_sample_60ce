@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get 'buy'
       get 'reserve'
       patch 'reserved'
+      patch 'reserve_cancel'
     end
     resources :comments,only:[:create,:destroy]
   end

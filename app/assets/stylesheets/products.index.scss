@@ -259,9 +259,34 @@
     left: 0;
     z-index: 2;
     color: #fff;
-    -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
     letter-spacing: 2px;
     font-weight: 600;
   }
 }
+
+
+.items-box_photo__reserved{
+  width: 0;
+  height: 0;
+  border-width: 120px 120px 0 0;
+  border-color: $Blue transparent transparent transparent;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-style: solid;
+  &__inner{
+    top: -80px;
+    font-size: 20px;
+    position: absolute;
+    left: -5px;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
+

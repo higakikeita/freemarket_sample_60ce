@@ -22,6 +22,9 @@
             %br/
             = f.email_field :reservation_email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
             = f.submit '取り置きする', class: "reserve"
+        - if @product.reservation_email.present?
+          =link_to reserve_cancel_product_path,method: :patch, class:"btn-default btn-red" do
+            取り置きをやめる
 .exhibit-page__footer
   .exhibit-page__footer__content
     .exhibit-page__footer__content__main
