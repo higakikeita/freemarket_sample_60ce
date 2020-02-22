@@ -1,21 +1,33 @@
-.top.body
-  .top.body__new
-    .top.body__new__item
-      .top.body__new__item__box
-        .top.body__new__item__box__category
-          #{@keyword}
-          .top.body__new__item__box__category__view
-            の検索結果
-        .top.body__new__item__box__more
-          = link_to "もっと見る ＞", root_path
-      .top.body__new__item__list
+.main-section
+  .header
+    -if user_signed_in?
+      =render "home/header_login"
+    -else
+      =render "home/header_unlogin"
+  .main-contents.clearfix
+    .side-search
+      .side-search__sort
+        並び替え
+      .side-search__details
+        詳細検索      
+    .search-result
+      .search-result--title
+        #{@keyword} の検索結果
+      %ul.search-result--products__list
         - @products.each do |product|
-          .top.body__new__item__list__show
-            = link_to "", product_path(product)
-            .top.body__new__item__list__show__image
-              = image_tag product.images[0].product_image
-              %p
-                ¥#{product.price}
-            .top.body__new__item__list__show__name
-              = product.name
-              .top.body__new__item__list__show__name__opa
+          = link_to product_path(product.id), class: "products__list" do
+            %li.product
+              %figucaption.product__text
+                = product.name
+              .product__thumbnail
+                .product__thumbnail--label
+                  ¥#{product.price}
+                .product__thumbnail--image
+                  - if product.images.present?
+                    =image_tag (product.images[0].product_image.url)
+                  - else
+                    = image_tag "no_image.png"
+                  -if product.buyer_id.present? 
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner SOLD
+=render "home/footer"
