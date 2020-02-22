@@ -1,0 +1,39 @@
+=render 'single-container'
+
+%main.buy-main 
+  .buy-item-container
+    %h2.buy-item-head 取り置き内容の確認
+    %section.buy-content.buy-item
+      .buy-content-inner
+        .buy-item-box
+          .buy-item-image
+            =image_tag(@product.images[0].product_image.url,class:"buy-image")
+          .buy-item-detail
+            %p.buy-item-name
+              =@product.name
+              %p.buy-item-price.bold
+                = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
+                %span.item-shipping-fee.f14.bold
+                  (税込)送料込み
+        =form_for(@product, url: reserved_product_path,method: :patch) do |f|
+          .form-group
+            =f.label :お取り置きをする方のアドレス
+            %span.form-group__require 必須
+            %br/
+            = f.email_field :reservation_email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可",class:'form-group__input'}
+            = f.submit '取り置きする', class: "reserve"
+        - if @product.reservation_email.present?
+          =link_to reserve_cancel_product_path,method: :patch, class:"btn-default btn-red" do
+            取り置きをやめる
+.exhibit-page__footer
+  .exhibit-page__footer__content
+    .exhibit-page__footer__content__main
+      %ul.exhibit-page__footer__lists
+        %li.exhibit-page__footer__list
+          プライバシーポリシー
+        %li.exhibit-page__footer__list
+          メルカリ利用規約
+        %li.exhibit-page__footer__list
+          特定商取引に関する表記
+        %p.exhibit-page__footer__copyright
+          © 2019 Mercari

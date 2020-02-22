@@ -14,3 +14,6 @@
           -if product.buyer_id.present? 
             .items-box_photo__sold
               .items-box_photo__sold__inner SOLD
+          -if product.reservation_email.present? 
+            .items-box_photo__reserved
+              .items-box_photo__reserved__inner Reserved

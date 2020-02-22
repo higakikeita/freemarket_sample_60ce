@@ -13,6 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :prefecture
       t.integer :buyer_id
       t.references :user,index: true, foreign_key: true
+      t.string :reservation_email
       t.timestamps
     end
   end

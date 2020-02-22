@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'payjp'
-  before_action :set_product, only: [:show,:comment,:edit,:update]
+  before_action :set_product, only: [:show,:comment,:edit,:update,:buy,:reserved,:reserve,:reserve_cancel,:destroy,:purchase]
   before_action :set_creditcard, only: [:buy, :purchase]
   before_action :set_product_purchase, only: [:buy, :purchase]
   
@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
 
   def buy
     @address = Address.where(user_id: current_user.id).first
-    @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
@@ -67,6 +66,26 @@ class ProductsController < ApplicationController
     @comments =@product.comments
   end
 
+  def reserve
+  end
+
+  def reserved
+    @product.update(product_params)
+    if @product.reservation_email.present?
+    else
+      render :reserve
+    end
+  end
+
+  def reserve_cancel
+    if @product.update(reservation_email:"")
+    redirect_to product_path
+    else
+    redirect_to product_path
+    end
+  end
+
+
   def update
     if @product.update(update_params)
       redirect_to product_path
@@ -76,7 +95,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
     if product.destroy
       redirect_to root_path, notice: '削除しました'
     else
@@ -85,13 +103,15 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
     charge = Payjp::Charge.create(
       amount: @product.price,
       customer: Payjp::Customer.retrieve(@creditcard.customer_id),
       currency: 'jpy'
     )
+    if @product.reservation_email.present?
+      @product.update(reservation_email:"")
+    end
     @product_buyer= Product.find(params[:id])
     @product_buyer.update( buyer_id: current_user.id)
     redirect_to purchased_product_path
@@ -100,7 +120,7 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
+      params.require(:product).permit(:name,:category_id,:price,:explain,:size,:brand_id,:status,:postage,:shipping_date,:prefecture,:reservation_email,images_attributes: [:product_image,:_destroy,:id]).merge(user_id: current_user.id)
     end
 
     def set_product
