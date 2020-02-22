@@ -71,11 +71,18 @@ class ProductsController < ApplicationController
 
   def reserved
     @product.update(product_params)
+    if @product.reservation_email.present?
+    else
+      render :reserve
+    end
   end
 
   def reserve_cancel
-    @product.update(reservation_email:"")
+    if @product.update(reservation_email:"")
     redirect_to product_path
+    else
+    redirect_to product_path
+    end
   end
 
 
