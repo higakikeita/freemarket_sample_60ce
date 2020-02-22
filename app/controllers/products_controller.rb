@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'payjp'
-  before_action :set_product, only: [:show,:comment,:edit,:update]
+  before_action :set_product, only: [:show,:comment,:edit,:update,:buy,:reserved,:reserve,:reserve_cancel,:destroy,:purchase]
   before_action :set_creditcard, only: [:buy, :purchase]
   before_action :set_product_purchase, only: [:buy, :purchase]
   
@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
 
   def buy
     @address = Address.where(user_id: current_user.id).first
-    @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
     customer = Payjp::Customer.retrieve(@creditcard.customer_id)
     @creditcard_information = customer.cards.retrieve(@creditcard.card_id)
@@ -68,16 +67,13 @@ class ProductsController < ApplicationController
   end
 
   def reserve
-    @product = Product.find(params[:id])
   end
 
   def reserved
-    @product = Product.find(params[:id])
     @product.update(product_params)
   end
 
   def reserve_cancel
-    @product = Product.find(params[:id])
     @product.update(reservation_email:"")
     redirect_to product_path
   end
@@ -92,7 +88,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find(params[:id])
     if product.destroy
       redirect_to root_path, notice: '削除しました'
     else
@@ -101,7 +96,6 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(params[:id])
     Payjp.api_key = Rails.application.secrets.payjp_access_key
     charge = Payjp::Charge.create(
       amount: @product.price,
