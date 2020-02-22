@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'payjp'
-  before_action :set_product, only: [:show,:comment,:edit,:update,:buy,:reserved,:reserve,:reserve_cancel,:destroy,:purchase]
+  before_action :set_product, only: [:show,:comment,:edit,:update,:buy,:reserved,:reserve,:reserve_cancel,:purchase]
   before_action :set_creditcard, only: [:buy, :purchase]
   before_action :set_product_purchase, only: [:buy, :purchase]
   
@@ -95,6 +95,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product=Product.find(params[:id])
     if product.destroy
       redirect_to root_path, notice: '削除しました'
     else
