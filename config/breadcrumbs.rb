@@ -18,6 +18,12 @@ crumb :edit_card do
   parent :mypage
 end
 
+crumb :logout do
+  link "ログアウト",  logout_user_path
+  parent :mypage
+end
+
+
 # カテゴリー一覧
 crumb :categories do
   link "カテゴリー一覧", categories_path

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
-    get '/users/sign_out', to: 'devise/sessions#logout'
+    # get '/users/sign_out', to: 'devise/sessions#logout'
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     member do
       get 'profile'
       patch 'profile_update'
+      get 'logout'
     end
   end
   namespace :products do

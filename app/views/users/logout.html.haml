@@ -1,0 +1,15 @@
+=render "home/header_login"
+- breadcrumb :logout
+= render "layouts/breadcrumbs"
+=render "users/mypage_side"
+.mypage_a  
+  %main.mypage-contents.clearfix
+    .main-content
+      .logout
+        .logout-content
+          =link_to destroy_user_session_path, method: :delete, class:"btn-default btn-red" do
+            ログアウト
+=render "home/footer"
+
+
+
