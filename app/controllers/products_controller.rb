@@ -118,6 +118,23 @@ class ProductsController < ApplicationController
     redirect_to purchased_product_path
   end
 
+  def search_child
+    respond_to do |format|
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def search_grandchild
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildren = Category.find(params[:child_id]).children
+      end
+    end
+  end
 
   private
     def product_params

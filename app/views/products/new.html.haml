@@ -37,45 +37,10 @@
               %h3.product-details__form__category__name
                 カテゴリー
                 %span.form--caution 必須
-                
-                .select--wrap
-                  = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1"}
+
+                .select--wrap{id: "category__box--parent"}
+                  = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"select--wrap-cat1__default-category1", id: "parent_form"}
                   %i.fas.fa-angle-down
-                -# 後で実装予定
-                -# .select--wrap
-                -#   %select.select--wrap-cat2__default-category2
-                -#     %option{value: 0} ---
-                -#     %option{value: 1} トップス
-                -#     %option{value: 2} ジャケット/アウター
-                -#     %option{value: 3} パンツ
-                -#     %option{value: 4} スカート
-                -#     %option{value: 5} ワンピース
-                -#     %option{value: 1328} 靴
-                -#     %option{value: 6} ルームウェア/パジャマ
-                -#     %option{value: 7} レッグウェア
-                -#     %option{value: 8} 帽子
-                -#     %option{value: 9}バッグ
-                -#     %option{value: 1027} アクセサリー
-                -#     %option{value: 1318} ヘアアクセサリー
-                -#     %option{value: 10} その他
-                -#   %i.fas.fa-angle-down
-                -# .select--wrap
-                -#   %select.select--wrap-cat3__default-category3
-                -#     %option{value: "0"} ---
-                -#     %option{value: "1"} Tシャツ
-                -#     %option{value: "2"} シャツ
-                -#     %option{value: "3"} ポロシャツ
-                -#     %option{value: "4"} キャミソール
-                -#     %option{value: "5"} タンクトップ
-                -#     %option{value: "1328"} ホルターネック
-                -#     %option{value: "6"} ニット/セーター
-                -#     %option{value: "7"} チュニック
-                -#     %option{value: "8"} カーディガン
-                -#     %option{value: "9"} アンサンブル
-                -#     %option{value: "1027"} ベスト
-                -#     %option{value: "1318"} パーカー
-                -#     %option{value: "10"} その他
-                -#   %i.fas.fa-angle-down
 
             .product-details__form__brand
               %h3.product-details__form__brand__name
