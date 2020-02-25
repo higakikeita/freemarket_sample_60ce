@@ -14,21 +14,19 @@
           .detail_search__title
         %h3 詳細検索
         .side-search__group
-        .side-search__group--label
-          -# = fa_icon "search"
+        .side-search__group__label
           %p キーワードを追加する
           = f.search_field :name_cont, placeholder: "例）値下げ"
         .side-search__group
-          .detail_search__group--label
-            -# = fa_icon "search"
+          .side-search__group__label
           %p 価格 
-        .side-search__group--forms
+        .side-search__group__forms
           = f.search_field :price_gteq, placeholder: "¥ Min"
           %p 〜
           = f.search_field :price_lteq, placeholder: "¥ Max"
           
-        .detail_search__btns
-          .detail_search__btn--grey
+        .side-search__btns
+          .side-search__btn--grey
             = link_to "クリア", request.path ,type: "button"
           = f.submit "完了"
     .search-result
