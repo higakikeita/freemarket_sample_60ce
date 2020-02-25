@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:comment,:edit,:update,:buy,:reserved,:reserve,:reserve_cancel,:purchase]
   before_action :set_creditcard, only: [:buy, :purchase]
   before_action :set_product_purchase, only: [:buy, :purchase]
-  
+  before_action :set_ransack
   def index
     @ladies = Product.category(1)
     @men = Product.category(2)
@@ -138,5 +138,8 @@ class ProductsController < ApplicationController
     
     def set_creditcard
       @creditcard = Creditcard.where(user_id: current_user.id).first if Creditcard.where(user_id: current_user.id).present?
+    end
+    def set_ransack
+      @q = Product.ransack(params[:q])
     end
 end
