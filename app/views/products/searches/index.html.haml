@@ -29,7 +29,7 @@
           
         .detail_search__btns
           .detail_search__btn--grey
-            = link_to "クリア", products_searches_path ,type: "button"
+            = link_to "クリア", request.path ,type: "button"
           = f.submit "完了"
     .search-result
       .search-result--title
