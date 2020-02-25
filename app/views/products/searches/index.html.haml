@@ -7,10 +7,30 @@
   .main-contents.clearfix
   
     .side-search
-      .side-search__sort
-        並び替え
-      .side-search__details
-        詳細検索      
+      = search_form_for(@q,url: products_searches_path) do |f|
+        .side-search_sort
+          = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+        .side-search_form
+          .detail_search__title
+        %h3 詳細検索
+        .side-search__group
+        .side-search__group--label
+          -# = fa_icon "search"
+          %p キーワードを追加する
+          = f.search_field :name_cont, placeholder: "例）値下げ"
+        .side-search__group
+          .detail_search__group--label
+            -# = fa_icon "search"
+          %p 価格 
+        .side-search__group--forms
+          = f.search_field :price_gteq, placeholder: "¥ Min"
+          %p 〜
+          = f.search_field :price_lteq, placeholder: "¥ Max"
+          
+        .detail_search__btns
+          .detail_search__btn--grey
+            = link_to "クリア", products_searches_path ,type: "button"
+          = f.submit "完了"
     .search-result
       .search-result--title
         #{@keyword} の検索結果
