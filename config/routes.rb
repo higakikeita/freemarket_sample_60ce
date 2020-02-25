@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :products do
-    resources :searches, only: :index
+    resources :searches, only: [:index,:show]
   end
   
   resources :products do
