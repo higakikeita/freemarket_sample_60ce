@@ -15,7 +15,8 @@
   width: 280px;
   margin: 0 40px 0 0;
   height: calc(100vh - 100px);
-  &__sort{
+}
+  .side-search__sort{
     background-color:white;
     padding: 16px;
     margin: 30px;
@@ -23,14 +24,74 @@
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
+    width: 280px;
+    height:48px;
   }
-  &__details{
+  .side-search_form{
     background-color:white;
     padding: 16px;
-    margin: 30px;
-    height: 300px;
+    height: auto;
+    .side-search__title{
+      font-size: 16px;
+      font-weight: bold;
+      margin:15px;
+    }
+    .side-search__textarea{
+      width:100%;
+      height:48px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__pricerange{
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__status{
+      background-color:white;
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__postage{
+      background-color:white;
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+
+    .side_search__btn{
+  
+      display: flex;
+      justify-content: space-between;
+      &--grey{
+        margin: auto;
+        background: #aaa;
+        border: 1px solid #aaa;
+        width: 45%;
+        color: #fff;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+      }
+      &--red{
+        background:Red;
+        width: 45%;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: #fff;
+      }
+    }
   }
-}
+
 
 
 .search-result{ 

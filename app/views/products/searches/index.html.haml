@@ -9,26 +9,38 @@
     .side-search
       = search_form_for(@q,url: products_searches_path) do |f|
         .side-search_sort
-          = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+          = f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} ,class:"side-search__sort")
         .side-search_form
-          .detail_search__title
-        %h3 詳細検索
-        .side-search__group
-        .side-search__group__label
-          %p キーワードを追加する
-          = f.search_field :name_cont, placeholder: "例）値下げ"
-        .side-search__group
+          .side-search__title
+          %h3 詳細検索
+          .side-search__group
           .side-search__group__label
-          %p 価格 
-        .side-search__group__forms
-          = f.search_field :price_gteq, placeholder: "¥ Min"
-          %p 〜
-          = f.search_field :price_lteq, placeholder: "¥ Max"
+            %p キーワードを追加する
+            = f.search_field :name_cont, placeholder: "例）値下げ",class:"side-search__textarea"
+          .side-search__group
+            .side-search__group__label
+            %p 価格 
+          .side-search__group__forms
+            = f.search_field :price_gteq, placeholder: "¥ Min",class:"side-search__pricerange"
+            %p 〜
+            = f.search_field :price_lteq, placeholder: "¥ Max",class:"side-search__pricerange"
+          .input-form-box
+            %label 商品の状態を指定する
+            = f.select :status_in, Product.statuses.keys,{prompt:"---"},class:"side-search__status"
+          .input-form-box
+            %label 配送料の負担　　　　　
+            = f.select :postage_eq,Product.postages.keys,{prompt: "---"},class:"side-search__postage"
+
+
+
+          .input-form-box
+            %label 発送元の地域　　　　　　　　　
+            = f.select :prefecture,Product.prefectures.keys,{prompt:"---"},class:"side-search__postage"
           
-        .side-search__btns
-          .side-search__btn--grey
-            = link_to "クリア", request.path ,type: "button"
-          = f.submit "完了"
+          .side_search__btn
+            .side_search__btn--grey
+              = link_to "クリア", request.path ,type: "button"
+            = f.submit "完了",class:"side_search__btn--red"
     .search-result
       .search-result--title
         #{@keyword} の検索結果
