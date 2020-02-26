@@ -34,8 +34,8 @@
 
 
 .search-result{ 
-  margin: 30px auto;
-  // padding: 42px 0px 100px;
+  margin: 0 auto;
+  
   float: left;
   width: calc(100% - 320px);
   height: calc(100vh - 100px);
@@ -57,10 +57,10 @@
     flex-wrap: wrap;
 
     &__list {
-      width: 182px;
+      
       height: 230px;
       margin: 10px;
-
+      display: flex;
       .product {
         width: 100%;
         display: flex;
@@ -115,7 +115,12 @@
           }
         }
       }
-
+      a.products__list{
+        width: 182px;
+        height: 230px;
+        margin: 0px auto;
+        display: flex;
+  }
       .product:hover {
         margin: -1px;
         border: 1px solid rgb(0, 149, 238);
