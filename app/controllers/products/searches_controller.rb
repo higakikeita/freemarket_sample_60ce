@@ -2,7 +2,6 @@ class Products::SearchesController < ApplicationController
   before_action :set_ransack
 
   def index
-    @products = Product.search(params[:keyword]).order("id DESC")
 
     @keyword = search_params[:name_cont]
 
