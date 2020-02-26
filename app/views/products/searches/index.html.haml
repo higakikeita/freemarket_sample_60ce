@@ -26,16 +26,13 @@
             = f.search_field :price_lteq, placeholder: "¥ Max",class:"side-search__pricerange"
           .input-form-box
             %label 商品の状態を指定する
-            = f.select :status_in, Product.statuses.keys,{prompt:"---"},class:"side-search__status"
+            = f.select :status_eq, Product.statuses.keys,{prompt:"---"},class:"side-search__status"
           .input-form-box
             %label 配送料の負担　　　　　
             = f.select :postage_eq,Product.postages.keys,{prompt: "---"},class:"side-search__postage"
-
-
-
           .input-form-box
             %label 発送元の地域　　　　　　　　　
-            = f.select :prefecture,Product.prefectures.keys,{prompt:"---"},class:"side-search__postage"
+            = f.select :prefecture_eq,Product.prefectures.keys,{prompt:"---"},class:"side-search__postage"
           
           .side_search__btn
             .side_search__btn--grey
