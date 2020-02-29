@@ -1,27 +1,76 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Image from Gyazo](https://i.gyazo.com/3900d76e27a47b7a172637f4f214f99d.jpg)](https://gyazo.com/3900d76e27a47b7a172637f4f214f99d)
 
-Things you may want to cover:
+# このアプリについて
+ - メルカリクローンのフリマサイト
+ - TECH:EXPERT 60期夜間メンバー５名にて作成
+ - 制作期間:2019.Dec.21~2020.Mar.14
+ - 使用Gemや機能、各担当箇所は以下に記載
 
-* Ruby version
+# 制作メンバー
+## 檜垣 慶太
+### 実装内容
+デプロイ
+
+## 王子 史也
+### 実装内容
+カテゴリ実装
+
+## 鈴村 彩
+### 実装内容
+いいね機能実装
+ 
+## 大石 夏実
+### 実装内容
+テストコード実装
+
+
+## 上野 龍彦 
+<a href="https://github.com/Tatsu88-Tokyo"><img src="https://avatars1.githubusercontent.com/u/57035748?s=460&v=4" width="100px;" />
+
+### 実装内容
+購入機能実装
+
+
+
+# Gem/ver
+* Ruby:2.5.1
+
+* Rails:5.0.7.2
 
 * System dependencies
+ - gem 'mysql2':0.3.18
+ - gem 'sass-rails:5.0
+ - gem 'jquery-rails'
+ - gem 'jbuilder', '~> 2.5'
+ - gem 'capistrano'
+ - gem 'rspec-rails'
+ - gem 'rails-controller-testing'
+ - gem 'factory_bot_rails'
+ - gem 'pry-rails'
+ - gem 'carrierwave'
+ - gem 'fog-aws'
+ - gem 'unicorn':5.4.1
+ - gem 'faker':2.8
+ - gem 'mini_magick'
+ - gem 'font-awesome-sass'
+ - gem 'haml-rails'
+ - gem 'owlcarousel-rails'
+ - gem 'devise'
+ - gem 'active_hash'
+ - gem 'ancestry'
+ - gem 'omniauth-facebook'
+ - gem 'omniauth-google-oauth2'
+ - gem "omniauth-rails_csrf_protection"
+ - gem 'gretel'
+ - gem 'payjp'
+ - gem 'ransack' 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# サイトURL（Basic認証キー）
+ - ユーザー名:admin
+ - パスワード:0322
+ - パブリックIP:http://18.176.134.115/
 
 ## ER図
 <img width="1109" alt="メルカリ ER図" src="https://user-images.githubusercontent.com/57035748/72214994-446ef680-3550-11ea-88d7-f96c6443d596.png">
@@ -65,6 +114,8 @@ Things you may want to cover:
 |shipping_date|string|null: false|
 |brand_id|references|null: false, foreign_key: true|
 |buyer_id|integer||
+|reservation_email|string||
+
 ### Association
 - belongs_to : user
 - has_many : comments
@@ -75,33 +126,13 @@ Things you may want to cover:
 - belongs_to : brand
 - belongs_to : categories
 
-
-## brandsテーブル(未実装)
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|product_id|references|null: false, foreign_key: true|
-### Association
-- has_many : products
-
-
-## messagesテーブル(未実装)
-|Column|Type|Options|
-|------|----|-------|
-|message|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|order_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to : user
-- belongs_to : order
-
-
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
+
 ### Association
 - belongs_to : user
 - belongs_to : product
@@ -112,42 +143,28 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null:false|
 |ancestry|string||
+
 ### Association
 - has_many : products
-
-
-## ordersテーブル(未実装)
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-|ship_to_address_id|references|null: false, foreign_key: true|
-|order_number|integer|null: false|
-### Association
-- has_many: messages
-- belongs_to : user
-- belongs_to : product
-- has_one : ship-to_address
-
 
 ## likesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
+
 ### Association
 - belongs_to : user
 - belongs_to : product 
-
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|
 |product_image|text|null: false|
+
 ### Association
 - belongs_to : product
-
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -160,18 +177,9 @@ Things you may want to cover:
 |card_pass|integer|null: false|
 |cutomer_id|string|null: false|
 |card_id|string|null: false|
+
 ### Association
 - belongs_to : user
-
-
-## user_evaluatesテーブル(未実装)
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|evaluate|integer|null: false| 
-### Association
-- belongs_to : user
-
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -182,23 +190,9 @@ Things you may want to cover:
 |city|string|null: false| 
 |address|string|null: false| 
 |apartment|string|| 
+
 ### Association
 - belongs_to : user 
-
-
-## ship_to_addressesテーブル(未実装)
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|order_id|references|null: false, foreign_key: true|
-|postal_code|string(7)|null: false| 
-|prefecture|integer|null: false| 
-|city|string|null: false| 
-|address|string|null: false| 
-|apartment|string|| 
-### Association
-- belongs_to : order
-- belongs_to : user
 
 ## sns_credentialテーブル
 |Column|Type|Options|
@@ -206,5 +200,6 @@ Things you may want to cover:
 |provider|string|null: false|
 |uid|string|null: false|
 |user_id|references|null: false, foreign_key: true|
+
 ### Association
 - belongs_to : user
