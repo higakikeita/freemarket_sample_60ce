@@ -11,8 +11,17 @@
 # 制作メンバー
 ## 檜垣 慶太
 ### 実装内容
-デプロイ
+<a href="https://github.com/higakikeita"><img src="https://avatars0.githubusercontent.com/u/41051390?s=460&v=4" height="60px;" /></a>　
 
+デプロイ担当AWS〜S3導入<br>
+
+Basic認証 <br>
+商品出品機能<br>
+商品詳細表示<br>
+コメント機能<br>
+商品検索機能<br>
+商品画像プレビュー<br>
+ユーザープロフィール編集ページ<br>
 ## 王子 史也
 ### 実装内容
 カテゴリ実装
