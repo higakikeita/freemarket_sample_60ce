@@ -36,12 +36,12 @@
           
           .side_search__btn
             .side_search__btn--grey
-              = link_to "クリア", request.path ,type: "button"
+              = link_to "クリア", request.path ,type: "button",class:"side_search__btn--grey"
             = f.submit "完了",class:"side_search__btn--red"
     .search-result
       .search-result--title
         #{@keyword} の検索結果
-      %ul.search-result--products__list
+      -# %ul.search-result--products__list
         - @products.each do |product|
           = link_to product_path(product.id), class: "products__list" do
             %li.product
