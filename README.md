@@ -27,8 +27,9 @@ Basic認証 <br>
 カテゴリ実装
 
 ## 鈴村 彩
-### 実装内容
 <a href="https://github.com/ayaszmr"><img src="https://avatars0.githubusercontent.com/u/56391010?s=460&v=4" height="100px;" /></a>
+
+### 実装内容
 いいね機能実装
  
 ## 大石 夏実
