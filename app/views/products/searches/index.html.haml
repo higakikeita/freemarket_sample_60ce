@@ -40,7 +40,7 @@
             = f.submit "完了",class:"side_search__btn--red"
     .search-result
       .search-result--title
-        0件 の検索結果
+        検索結果
       -# %ul.search-result--products__list
         - @products.each do |product|
           = link_to product_path(product.id), class: "products__list" do
