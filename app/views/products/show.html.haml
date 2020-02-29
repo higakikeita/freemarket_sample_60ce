@@ -60,13 +60,13 @@
               %td=@product.prefecture
             %tr
               %th 発送の目安
-              %td=@product.shipping_date         
+              %td=@product.shipping_date
         .product-details-page__price
           %span.product-price.bold
             = number_to_currency(@product.price,format: "%u%n",unit:"¥",precision: 0)
           %span.product-tax          (税込)
           %span.product-shipping-fee 送料込み
-        .product-buy__btn__box       
+        .product-buy__btn__box
           - if user_signed_in? && current_user.id ==@product.user_id
             = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
             = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
@@ -92,6 +92,20 @@
               %span あんしん・あんぜんへの取り組み
         .listening-item-change-box
           %p.text-center 
+
+        -# = link_to '#',class:'product-button-like' do
+        -#   %i.fa.fa-heart.vertical-like__red-icon  いいね! #{@product.likes.count}
+        -#   - if current_user.already_liked?(@product)
+        -#     = button_to 'いいねを取り消す', product_like_path(@product), method: :delete
+        -#   - else
+        -#     = button_to 'いいね', product_likes_path(@product)
+
+        -# %h3 いいね件数: #{@product.likes.count}
+        - if current_user.already_liked?(@product)
+          = button_to 'いいねを取り消す#{@product.likes.count}', product_like_path(@product), method: :delete
+        - else
+          = button_to 'いいね#{@product.likes.count}', product_likes_path(@product)
+
       .product-detail-message
         .message-container
           .product-details-comment-form__contents

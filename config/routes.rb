@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   namespace :products do
     resources :searches, only: [:index,:show]
-    resources :likes, only: [:create, :destroy]
+    
   end
   
   resources :products do
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
 
     resources :comments,only:[:create,:destroy]
+    resources :likes, only: [:create, :destroy]
   end
 
   resources :registration, only: [:index]
