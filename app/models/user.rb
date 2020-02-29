@@ -25,4 +25,8 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
+  end
 end
