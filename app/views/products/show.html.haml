@@ -73,6 +73,8 @@
             = link_to "取り置きする/編集する", reserve_product_path(@product.id),class:"product-details-resorve__btn"
           - elsif @product.buyer_id.present? 
             = link_to "売り切れました",buy_product_path,class:"disabled-button bold"
+          - elsif @product.reservation_email.present? && !user_signed_in?
+            = link_to "取り置き商品のため購入できません",buy_product_path,class:"disabled-button bold"
           - elsif @product.reservation_email.present? && @product.reservation_email == current_user.email
             = link_to "取り置き商品を購入する",buy_product_path,class:"product-purchase__btn"
           - elsif @product.reservation_email.present? && @product.reservation_email != current_user.email
