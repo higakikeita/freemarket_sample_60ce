@@ -22,13 +22,13 @@
       .header__contents__below__personal
         .header__contents__below__personal__likes
           %span.fas.fa-heart.login__icon
-          =link_to "いいね！", "/likes/",class:"likes"
+          =link_to "いいね！",ready_users_path,class:"likes"
         .header__contents__below__personal__notification
           %span.fas.fa-bell.login__icon
-          =link_to "お知らせ", "/notification/",class:"notification"
+          =link_to "お知らせ", ready_users_path,class:"notification"
         .header__contents__below__personal__todo
           %span.fas.fa-check.login__icon
-          =link_to "やることリスト", "/todo/",class:"todo"
+          =link_to "やることリスト", ready_users_path,class:"todo"
         .header__contents__below__personal__mypage
           %span.fas.fa-user-circle.login__icon
           =link_to "マイページ", user_path(current_user.id),class:"mypage"

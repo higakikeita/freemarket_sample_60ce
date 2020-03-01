@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       patch 'profile_update'
       get 'logout'
     end
+    collection do
+      get 'ready'
+    end
   end
   namespace :products do
     resources :searches, only: [:index,:show]
