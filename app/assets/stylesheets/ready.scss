@@ -63,14 +63,14 @@
   background-color:black;
   height: 600px;
 }
-h1{
+h1.comingsoon{
   color: white;
   text-align: center;
   font-size: 60px;
 }
 @keyframes typing { from { width: 0; } }
 @keyframes caret { 50% { border-color: transparent; } }
-p{
+p.schedule{
   color: white;
   text-align: center;
   font-size: 60px;
@@ -85,7 +85,7 @@ p{
     
 }
 
-h2{
+h2.teamname{
   opacity: 0;
   text-align: center;
   color: white;
@@ -106,7 +106,7 @@ h2{
     opacity: 1;
   }
 }
-h3{
+h3.sorry{
   opacity: 0;
   text-align: center;
   color: white;
@@ -119,3 +119,4 @@ h3{
   animation-direction: normal; 
   animation-fill-mode: forwards; 
 }
+
