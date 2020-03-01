@@ -65,4 +65,22 @@ loader,
 h1{
   color: white;
   text-align: center;
+  font-size: 60px;
 }
+@keyframes typing { from { width: 0; } }
+@keyframes caret { 50% { border-color: transparent; } }
+p{
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  
+  font-family: monospace; 
+  width: 30ch;
+  border-right: .08em solid;
+  overflow: hidden;
+  font-size: 4em;
+  white-space: nowrap;
+  animation: typing 20s steps(20, end), caret .5s step-end infinite;
+    
+}
+
