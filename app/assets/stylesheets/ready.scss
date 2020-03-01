@@ -86,6 +86,7 @@ p{
 }
 
 h2{
+  opacity: 0;
   text-align: center;
   color: white;
   font-size: 60px;
@@ -109,6 +110,7 @@ h2{
   }
 }
 h3{
+  opacity: 0;
   text-align: center;
   color: white;
   font-size: 60px;
@@ -116,7 +118,7 @@ h3{
   animation-name: fade-in1;
   animation-duration: 10s; //アニメーション時間
   animation-timing-function: ease-out; //アニメーションさせるイージング
-  animation-delay: 5s; //アニメーション開始させる時間
+  animation-delay: 10s; //アニメーション開始させる時間
   animation-iteration-count: 1; //繰り返し回数
   animation-direction: normal; //往復処理をするかどうか
   animation-fill-mode: forwards; //アニメーション後のスタイルをどうするか
