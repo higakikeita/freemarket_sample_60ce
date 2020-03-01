@@ -84,7 +84,7 @@ Basic認証 <br>
  - パブリックIP:http://18.176.134.115/
 
 ## ER図
-<img width="1109" alt="メルカリ ER図" src="hhttps://github.com/higakikeita/freemarket_sample_60ce/files/4271469/ER._team_c_.pdf"
+<img width="1109" alt="メルカリ ER図" src="https://github.com/higakikeita/freemarket_sample_60ce/files/4271477/ER._team_c_.pdf"
 >
 
 
@@ -124,10 +124,10 @@ Basic認証 <br>
 |size|string|null: false| 
 |postage|string|null: false|
 |shipping_date|string|null: false|
-|brand_id|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 |buyer_id|integer||
 |reservation_email|string||
-|user_id|references|index: true, foreign_key: true|
+|user|references|index: true, foreign_key: true|
 
 ### Association
 - belongs_to : user
@@ -143,8 +143,8 @@ Basic認証 <br>
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
@@ -162,8 +162,8 @@ Basic認証 <br>
 ## likesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
@@ -172,7 +172,7 @@ Basic認証 <br>
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 |product_image|text|null: false|
 
 ### Association
@@ -181,7 +181,7 @@ Basic認証 <br>
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |card_company|string|null: false| 
 |card_number|string|null: false|
 |card_year|integer|null: false| 
@@ -196,7 +196,7 @@ Basic認証 <br>
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |postal_code|string|null: false| 
 |prefecture|integer|null: false| 
 |city|string|null: false| 
@@ -211,7 +211,7 @@ Basic認証 <br>
 |------|----|-------|
 |provider|string|null: false|
 |uid|string|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
