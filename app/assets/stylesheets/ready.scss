@@ -119,4 +119,23 @@ h3.sorry{
   animation-direction: normal; 
   animation-fill-mode: forwards; 
 }
-
+.ready-page__main__return__to__toppage{
+  opacity: １;
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  // animation-name: fade-in1;
+  // animation-duration: 0s; 
+  // animation-timing-function: ease-out; 
+  // animation-delay: 0s; 
+  // animation-iteration-count: 1; 
+  // animation-direction: normal; 
+  // animation-fill-mode: forwards; 
+  width:200px;
+  font-size:24px;
+  font-weight:bold;
+  text-decoration:none;
+  display:block;
+  padding:8px 0 10px;
+  border:1px solid #333;
+}
