@@ -28,6 +28,8 @@ class UsersController < ApplicationController
       render :profile
     end
   end
+  def ready
+  end
 
   private
   def address_params
