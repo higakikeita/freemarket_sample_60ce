@@ -82,7 +82,7 @@ p.schedule{
   font-size: 4em;
   white-space: nowrap;
   animation: typing 5s steps(15, end), caret .3s step-end infinite;
-    
+  margin: 0 auto;
 }
 
 h2.teamname{
@@ -91,7 +91,7 @@ h2.teamname{
   color: white;
   font-size: 60px;
   animation-name: fade-in1;
-  animation-duration: 10s; 
+  animation-duration: 5s; 
   animation-timing-function: ease-out; 
   animation-delay: 5s; 
   animation-iteration-count: 1; 
@@ -112,9 +112,9 @@ h3.sorry{
   color: white;
   font-size: 60px;
   animation-name: fade-in1;
-  animation-duration: 10s; 
+  animation-duration: 4s; 
   animation-timing-function: ease-out; 
-  animation-delay: 10s; 
+  animation-delay: 8s; 
   animation-iteration-count: 1; 
   animation-direction: normal; 
   animation-fill-mode: forwards; 
@@ -138,4 +138,7 @@ h3.sorry{
   display:block;
   padding:8px 0 10px;
   border:1px solid #333;
+  margin: 0 auto;
+  border-radius: 20px;
 }
+
