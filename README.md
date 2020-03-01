@@ -84,7 +84,7 @@ Basic認証 <br>
  - パブリックIP:http://18.176.134.115/
 
 ## ER図
-<img width="1109" alt="メルカリ ER図" src="https://github.com/higakikeita/freemarket_sample_60ce/files/4271441/ER._team_c_.pdf"
+<img width="1109" alt="メルカリ ER図" src="hhttps://github.com/higakikeita/freemarket_sample_60ce/files/4271469/ER._team_c_.pdf"
 >
 
 
