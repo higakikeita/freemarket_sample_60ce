@@ -18,6 +18,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :images, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
   validates :name, :explain, presence: true
   validates :price,presence: true,numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :category_id, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 13}

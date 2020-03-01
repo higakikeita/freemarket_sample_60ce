@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
   def show
     @comment =Comment.new
     @comments =@product.comments.includes(:user).all
+    @like = Like.new
   end
 
   def buy

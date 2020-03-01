@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_one :creditcard
   has_many :sns_credentials
   has_many :products
+  has_many :likes, dependent: :destroy
+  has_many :liked_products, through: :likes, source: :product
   has_many :comments
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
@@ -22,5 +24,9 @@ class User < ApplicationRecord
       sns.save
     end
     { user: user, sns: sns }
+  end
+
+  def already_liked?(product)
+    self.likes.exists?(product_id: product.id)
   end
 end
