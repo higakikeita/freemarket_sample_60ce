@@ -127,6 +127,7 @@ Basic認証 <br>
 |brand_id|references|null: false, foreign_key: true|
 |buyer_id|integer||
 |reservation_email|string||
+|user_id|references|index: true, foreign_key: true|
 
 ### Association
 - belongs_to : user
@@ -141,14 +142,13 @@ Basic認証 <br>
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|comment|text|null: false|
+|comment|text|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
 - belongs_to : product
-
 
 ## categoriesテーブル
 |Column|Type|Options|
