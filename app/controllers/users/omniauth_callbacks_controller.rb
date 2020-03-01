@@ -12,6 +12,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     authorization
   end
 
+
+  def twitter
+    authorization
+  end
+
   def failure
     redirect_to root_path
   end
@@ -21,7 +26,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def authorization
     sns_info = User.from_omniauth(request.env["omniauth.auth"])
     @user = sns_info[:user]
-
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
     else

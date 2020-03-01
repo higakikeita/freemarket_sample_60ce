@@ -545,6 +545,21 @@ input[type=checkbox] {
     border: #979797 solid 1px;
     color: #333;
   }
+  &--twitter{
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    margin: 16px 0 0;
+    background: $Blue;
+    color: #fff;
+  }
   &--login{
     display: block;
     width: 100%;
@@ -558,7 +573,7 @@ input[type=checkbox] {
     border-radius: 4px;
     margin: 16px 0 0;
     color: #fff;
-    background-color:#0099e8;
+    background-color:$Red;
   }
 }
 
