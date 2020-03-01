@@ -92,19 +92,11 @@
               %span あんしん・あんぜんへの取り組み
         .listening-item-change-box
           %p.text-center 
-
-        -# = link_to '#',class:'product-button-like' do
-        -#   %i.fa.fa-heart.vertical-like__red-icon  いいね! #{@product.likes.count}
-        -#   - if current_user.already_liked?(@product)
-        -#     = button_to 'いいねを取り消す', product_like_path(@product), method: :delete
-        -#   - else
-        -#     = button_to 'いいね', product_likes_path(@product)
-
-        -# %h3 いいね件数: #{@product.likes.count}
+        %h3 いいね件数: #{@product.likes.count}
         - if current_user.already_liked?(@product)
-          = button_to 'いいねを取り消す#{@product.likes.count}', product_like_path(@product), method: :delete
+          = button_to 'いいねを取り消す', product_like_path(@product), method: :delete
         - else
-          = button_to 'いいね#{@product.likes.count}', product_likes_path(@product)
+          = button_to 'いいね', product_likes_path(@product)
 
       .product-detail-message
         .message-container
