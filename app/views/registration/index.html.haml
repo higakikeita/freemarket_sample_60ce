@@ -21,4 +21,8 @@
             %i.fab.fa-google
             %span<>
             Googleで登録する
+          =link_to user_twitter_omniauth_authorize_path, method: :post, class: "btn-def--twitter" do
+            %i.fab.fa-twitter
+            %span<>
+            Twitterで登録する
   = render "registration_footer"

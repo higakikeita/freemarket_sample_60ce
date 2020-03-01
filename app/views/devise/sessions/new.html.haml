@@ -17,7 +17,11 @@
         = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-def--google" do
           %i.fab.fa-google
           %span<>
-          Googleでログイン             
+          Googleでログイン
+        = link_to user_twitter_omniauth_authorize_path, method: :post, class: "btn-def--twitter" do
+          %i.fab.fa-twitter
+          %span<>
+          Twitterでログイン               
       .login-form-inner
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .form-group
