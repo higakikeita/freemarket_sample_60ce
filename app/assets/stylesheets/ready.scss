@@ -1,4 +1,4 @@
-loader,
+
 .loader,
 .loader:before,
 .loader:after {
@@ -6,7 +6,7 @@ loader,
   -webkit-animation: load1 1s infinite ease-in-out;
   animation: load1 1s infinite ease-in-out;
   width: 1em;
-  height: 4em;
+  height: 10em;
 }
 .loader {
   color: #ffffff;
@@ -61,6 +61,7 @@ loader,
 
 .ready-page{
   background-color:black;
+  height: 600px;
 }
 h1{
   color: white;
@@ -73,14 +74,51 @@ p{
   color: white;
   text-align: center;
   font-size: 60px;
-  
+  margin-top: 30px;
   font-family: monospace; 
   width: 30ch;
   border-right: .08em solid;
   overflow: hidden;
   font-size: 4em;
   white-space: nowrap;
-  animation: typing 20s steps(20, end), caret .5s step-end infinite;
+  animation: typing 5s steps(15, end), caret .3s step-end infinite;
     
 }
 
+h2{
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  // アニメーション設定
+  animation-name: fade-in1;
+  animation-duration: 10s; //アニメーション時間
+  animation-timing-function: ease-out; //アニメーションさせるイージング
+  animation-delay: 5s; //アニメーション開始させる時間
+  animation-iteration-count: 1; //繰り返し回数
+  animation-direction: normal; //往復処理をするかどうか
+  animation-fill-mode: forwards; //アニメーション後のスタイルをどうするか
+  
+}
+// アニメーション
+@keyframes fade-in1 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+h3{
+  text-align: center;
+  color: white;
+  font-size: 60px;
+  // アニメーション設定
+  animation-name: fade-in1;
+  animation-duration: 10s; //アニメーション時間
+  animation-timing-function: ease-out; //アニメーションさせるイージング
+  animation-delay: 5s; //アニメーション開始させる時間
+  animation-iteration-count: 1; //繰り返し回数
+  animation-direction: normal; //往復処理をするかどうか
+  animation-fill-mode: forwards; //アニメーション後のスタイルをどうするか
+  
+}
