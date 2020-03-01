@@ -84,3 +84,4 @@ gem "omniauth-rails_csrf_protection"
 gem 'gretel'
 gem 'payjp'
 gem 'omniauth-twitter'
+gem 'ransack' 

@@ -220,6 +220,8 @@ GEM
     owlcarousel-rails (2.2.3.5)
     payjp (0.0.7)
       rest-client (~> 2.0)
+    polyamorous (2.3.0)
+      activerecord (>= 5.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -259,6 +261,12 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.19.1)
     rake (13.0.1)
+    ransack (2.3.0)
+      actionpack (>= 5.0)
+      activerecord (>= 5.0)
+      activesupport (>= 5.0)
+      i18n
+      polyamorous (= 2.3.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -380,6 +388,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.2)
   rails-controller-testing
+  ransack
   rspec-rails
   sass-rails (~> 5.0)
   spring

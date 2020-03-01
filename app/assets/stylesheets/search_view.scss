@@ -14,28 +14,89 @@
   float: left;
   width: 280px;
   margin: 0 40px 0 0;
-  height: calc(100vh - 100px);
-  &__sort{
+  // height: ;
+}
+  .side-search__sort{
     background-color:white;
     padding: 16px;
-    margin: 30px;
+    margin: 30px 0;
     border-color: #CBCBCB;
     border-style: solid;
     border-width: 1px;
     border-radius: 2px;
+    width: 280px;
+    height:48px;
   }
-  &__details{
+  .side-search_form{
     background-color:white;
     padding: 16px;
-    margin: 30px;
-    height: 300px;
+    height: auto;
+    .side-search__title{
+      font-size: 16px;
+      font-weight: bold;
+      margin:15px;
+    }
+    .side-search__textarea{
+      width:100%;
+      height:48px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__pricerange{
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__status{
+      background-color:white;
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+    .side-search__postage{
+      background-color:white;
+      width:100%;
+      height:30px;
+      border: 1px solid #ccc;
+      resize: none;
+      margin:15px 0;
+    }
+
+    .side_search__btn{
+  
+      display: flex;
+      justify-content: space-between;
+      &--grey{
+        margin: auto;
+        background: #aaa;
+        border: 1px solid #aaa;
+        width: 45%;
+        color: #fff;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+      }
+      &--red{
+        background:Red;
+        width: 45%;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        color: #fff;
+      }
+    }
   }
-}
+
 
 
 .search-result{ 
-  margin: 30px auto;
-  // padding: 42px 0px 100px;
+  margin: 0 auto;
+  
   float: left;
   width: calc(100% - 320px);
   height: calc(100vh - 100px);
@@ -57,10 +118,10 @@
     flex-wrap: wrap;
 
     &__list {
-      width: 182px;
+      
       height: 230px;
       margin: 10px;
-
+      display: flex;
       .product {
         width: 100%;
         display: flex;
@@ -115,7 +176,12 @@
           }
         }
       }
-
+      a.products__list{
+        width: 182px;
+        height: 230px;
+        margin: 0px auto;
+        display: flex;
+  }
       .product:hover {
         margin: -1px;
         border: 1px solid rgb(0, 149, 238);
@@ -125,3 +191,6 @@
   }
 }
 
+a.side_search__btn--grey{
+  color: white;
+}
