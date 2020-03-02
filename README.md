@@ -5,23 +5,26 @@
 # このアプリについて
  - メルカリクローンのフリマサイト
  - TECH:EXPERT 60期夜間メンバー５名にて作成
- - 制作期間:2019.Dec.21~2020.Mar.14
+ - 制作期間:December 21st,2019 ~March 14th,2020
  - 使用Gemや機能、各担当箇所は以下に記載
 
 # 制作メンバー
 ## 檜垣 慶太
 ### 実装内容
-<a href="https://github.com/higakikeita"><img src="https://avatars0.githubusercontent.com/u/41051390?s=460&v=4" height="60px;" /></a>
+<a href="https://github.com/higakikeita"><img src="https://avatars0.githubusercontent.com/u/41051390?s=460&v=4" height="100px;" /></a>
 
-デプロイ担当AWS〜S3導入<br>
-
+デプロイ担当AWS EC2〜S3導入<br>
+Nginx,Unicorn,Capistrano導入<br>
 Basic認証 <br>
 商品出品機能<br>
 商品詳細表示<br>
 コメント機能<br>
+コメントAjax処理<br>
+商品編集機能<br>
 商品検索機能<br>
-商品画像プレビュー<br>
+商品画像プレビュー表示<br>
 ユーザープロフィール編集ページ<br>
+未実装ページCSSコーディング
 ## 王子 史也
 ### 実装内容
 カテゴリ実装
