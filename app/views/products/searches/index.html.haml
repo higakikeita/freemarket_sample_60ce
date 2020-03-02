@@ -35,9 +35,10 @@
             = f.select :prefecture_eq,Product.prefectures.keys,{prompt:"---"},class:"side-search__postage"
           
           .side_search__btn
-            .side_search__btn--grey
-              = link_to "クリア", request.path ,type: "button",class:"side_search__btn--grey"
-            = f.submit "完了",class:"side_search__btn--red"
+            .side_search__btn--grey{ id:"search-clear",class:"side_search__btn--grey"}
+              クリア　
+            = f.submit "完了",class:"side_search__btn--red",id:'search_submit'
+   
     .search-result
       .search-result--title
         ="#{@keyword} "

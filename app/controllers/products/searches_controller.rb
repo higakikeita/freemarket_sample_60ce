@@ -2,8 +2,9 @@ class Products::SearchesController < ApplicationController
   before_action :set_ransack
 
   def index
-    @keyword = (search_params[:name_cont])
+    
     @products = @q.result(distinct: true) 
+    @keyword = (search_params[:name_cont])
   end
 
   private
