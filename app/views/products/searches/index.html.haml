@@ -35,12 +35,15 @@
             = f.select :prefecture_eq,Product.prefectures.keys,{prompt:"---"},class:"side-search__postage"
           
           .side_search__btn
-            .side_search__btn--grey
-              = link_to "クリア", request.path ,type: "button",class:"side_search__btn--grey"
-            = f.submit "完了",class:"side_search__btn--red"
+            .side_search__btn--grey{ id:"search-clear",class:"side_search__btn--grey"}
+              クリア　
+            = f.submit "完了",class:"side_search__btn--red",id:'search_submit'
+   
     .search-result
       .search-result--title
-        検索結果
+        ="#{@keyword} "
+        の検索結果
+        ="1-#{@products.count}件表示"
       %ul.search-result--products__list
         - @products.each do |product|
           = link_to product_path(product.id), class: "products__list" do
