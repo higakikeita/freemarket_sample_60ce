@@ -3,7 +3,7 @@ class Products::SearchesController < ApplicationController
 
   def index
     
-    @products = @q.result(distinct: true) 
+    @products = @q.result(distinct: true).page(params[:page]).per(5) 
     @keyword = (search_params[:name_cont])
   end
 
