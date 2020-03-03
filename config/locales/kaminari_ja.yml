@@ -1,0 +1,17 @@
+ja:
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: ""
+          one: "<strong>1-1</strong>/1件中"
+          other: "<strong>1-%{count}</strong>/%{count}件中"
+      more_pages:
+        display_entries: "<strong>%{first}-%{last}</strong>/%{total}件中"
