@@ -71,7 +71,9 @@
             = link_to "削除する", product_path(@product.id), method: :delete,class:"product-details-delete__btn"
             = link_to "編集する", edit_product_path(@product.id),class:"product-details-edit__btn"
             = link_to "取り置きする", reserve_product_path(@product.id),class:"product-details-resorve__btn"
-            = link_to "Twitterでシェアする","#",class:"product-details-twitter__btn"
+            %br/
+            %a.twitter-share-button{"data-show-count": "false", href:"https://twitter.com/share?ref_src=twsrc%5Etfw"} Tweet
+            %script{async: "", charset: "utf-8", src:"https://platform.twitter.com/widgets.js"}
           - elsif @product.buyer_id.present? 
             = link_to "売り切れました",buy_product_path,class:"disabled-button bold"
           - elsif @product.reservation_email.present? && !user_signed_in?
