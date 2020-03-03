@@ -61,5 +61,7 @@
                   -if product.buyer_id.present? 
                     .items-box_photo__sold
                       .items-box_photo__sold__inner SOLD
-= paginate(@products)
+  .pagination
+  = paginate(@products)
+
 =render "home/footer"
