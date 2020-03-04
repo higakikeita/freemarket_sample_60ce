@@ -171,6 +171,7 @@
     @include clearfix;
     .product-button-left{
       float: left;
+      display: flex;
       .product-button-like{
        @include product-button; 
       }
