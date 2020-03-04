@@ -85,4 +85,5 @@ gem 'gretel'
 gem 'payjp'
 gem 'omniauth-twitter'
 gem 'ransack' 
+gem 'whenever', :require => false
 gem 'kaminari'
