@@ -83,8 +83,7 @@
             = link_to "購入画面に進む",buy_product_path,class:"product-purchase__btn"
         .product-details-page-bottom.clearfix
           .product-button-left
-            = link_to '#',class:'product-button-like' do
-              %i.fa.fa-heart.vertical-like__red-icon  いいね!
+            = render partial: 'likes/like', locals: @products
             = link_to '#',class: 'product-button-report clearfix' do
               %i.fa.fa-flag.flag
               %span.flag-text 適切な商品の報告
@@ -94,12 +93,6 @@
               %span あんしん・あんぜんへの取り組み
         .listening-item-change-box
           %p.text-center 
-        %h3 いいね件数: #{@product.likes.count}
-        - if current_user.already_liked?(@product)
-          = button_to 'いいねを取り消す', product_like_path(@product), method: :delete
-        - else
-          = button_to 'いいね', product_likes_path(@product)
-
       .product-detail-message
         .message-container
           .product-details-comment-form__contents
