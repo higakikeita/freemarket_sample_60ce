@@ -1,0 +1,6 @@
+- if current_user.already_liked?(@product)
+  = button_to product_like_path(@product), class:'product-button-like', method: :delete, remote: true do
+    %i.fa.fa-heart.vertical-like__red-icon  いいねを取り消す
+- else
+  = button_to product_likes_path(@product), class:'product-button-like', method: :post, remote: true do
+    %i.fa.fa-heart.vertical-like__red-icon いいね！
