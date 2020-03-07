@@ -41,7 +41,7 @@ Basic認証 <br>
 
 
 ## Tatsu88-Tokyo
-<a href="https://github.com/Tatsu88-Tokyo"><img src="https://avatars2.githubusercontent.com/u/57035748?s=400&u=3d123ebf35b338697c65474615e45353ecd3d0a0&v=4" width="100px;" />
+<a href="https://github.com/Tatsu88-Tokyo"><img src="https://avatars1.githubusercontent.com/u/57035748?s=460&v=4" width="100px;" />
 
 ### 実装内容
 スクラムマスター<br>
