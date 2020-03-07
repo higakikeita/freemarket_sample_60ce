@@ -40,12 +40,19 @@ Basic認証 <br>
 テストコード実装
 
 
-## 上野 龍彦 
+## Tatsu88-Tokyo
 <a href="https://github.com/Tatsu88-Tokyo"><img src="https://avatars1.githubusercontent.com/u/57035748?s=460&v=4" width="100px;" />
 
 ### 実装内容
-購入機能実装
-
+スクラムマスター<br>
+ユーザー新規登録（セッションを用いたWizard形式）/ログアウト<br>
+クレジットカード登録（Payjp)<br>
+クレジットカード情報表示(Payjp)<br>
+商品購入機能実装（Payjp)<br>
+取り置き機能（オリジナル）<br>
+Twitter APIを用いた新規登録＋ログイン(オリジナル）<br>
+Twitterへのリンクシェア機能（オリジナル）<br>
+README編集
 
 
 # Gem/ver
@@ -80,6 +87,7 @@ Basic認証 <br>
  - gem 'gretel'
  - gem 'payjp'
  - gem 'ransack' 
+ - gem 'kaminari'
 
 # サイトURL（Basic認証キー）
  - ユーザー名:admin
@@ -87,9 +95,7 @@ Basic認証 <br>
  - パブリックIP:http://18.176.134.115/
 
 ## ER図
-<img width="1109" alt="メルカリ ER図" src="https://github.com/higakikeita/freemarket_sample_60ce/files/4271477/ER._team_c_.pdf"
->
-
+![ER図_team_c_メルカリ](https://user-images.githubusercontent.com/57035748/75970856-4e8bf080-5f14-11ea-9c63-d8da68c1b493.jpeg)
 
 ## usersテーブル
 |Column|Type|Options|
@@ -162,7 +168,7 @@ Basic認証 <br>
 ### Association
 - has_many : products
 
-## likesテーブル(未実装)
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
