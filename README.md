@@ -29,11 +29,14 @@ Basic認証 <br>
 ### 実装内容
 カテゴリ実装
 
-## 鈴村 彩
+## ayaszmr
 <a href="https://github.com/ayaszmr"><img src="https://avatars0.githubusercontent.com/u/56391010?s=460&v=4" height="100px;" /></a>
 
 ### 実装内容
-いいね機能実装
+いいね機能実装<br>
+マイページ作成<br>
+商品削除機能<br>
+
  
 ## 大石 夏実
 ### 実装内容
