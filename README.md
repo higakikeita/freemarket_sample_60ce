@@ -1,11 +1,11 @@
 # README
 
-[![Image from Gyazo](https://i.gyazo.com/3900d76e27a47b7a172637f4f214f99d.jpg)](https://gyazo.com/3900d76e27a47b7a172637f4f214f99d)
+![Image from Gyazo](https://gyazo.com/6a8ea91986422ee494d2b0153749c315.jpg)
 
 # このアプリについて
  - メルカリクローンのフリマサイト
- - TECH:EXPERT 60期夜間メンバー５名にて作成
- - 制作期間:December 21st,2019 ~March 14th,2020
+ - TECH::EXPERT 60期夜間メンバー５名にて作成
+ - 制作期間:December 21st,2019 ~ March 14th,2020
  - 使用Gemや機能、各担当箇所は以下に記載
 
 # 制作メンバー
@@ -25,9 +25,19 @@ Basic認証 <br>
 商品画像プレビュー表示<br>
 ユーザープロフィール編集ページ<br>
 未実装ページCSSコーディング
-## 王子 史也
+
+## fo-ji
+<a href="https://github.com/fo-ji"><img src="https://avatars0.githubusercontent.com/u/57491651?s=460&v=4" height="100px;" /></a>
+
 ### 実装内容
-カテゴリ実装
+ER図作成<br>
+TOPページ_マークアップ<br>
+ユーザー登録_Google認証の実装<br>
+ユーザー新規登録/ログインページ_マークアップ<br>
+マイページ_本人情報編集の実装<br>
+商品カテゴリ機能_マークアップ&サーバーサイド<br>
+タイムセール機能（*開発環境のみ）<br>
+商品一覧ページ_単体テスト
 
 ## 鈴村 彩
 <a href="https://github.com/ayaszmr"><img src="https://avatars0.githubusercontent.com/u/56391010?s=460&v=4" height="100px;" /></a>
@@ -87,8 +97,7 @@ Basic認証 <br>
  - パブリックIP:http://18.176.134.115/
 
 ## ER図
-<img width="1109" alt="メルカリ ER図" src="https://github.com/higakikeita/freemarket_sample_60ce/files/4271477/ER._team_c_.pdf"
->
+<img width="1109" alt="メルカリ ER図" src="https://github.com/higakikeita/freemarket_sample_60ce/files/4271477/ER._team_c_.pdf">
 
 
 ## usersテーブル
