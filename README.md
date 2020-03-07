@@ -107,9 +107,9 @@ README編集
  - gem 'kaminari'
 
 # サイトURL（Basic認証キー）
- - ユーザー名:admin
- - パスワード:0322
- - パブリックIP:http://18.176.134.115/
+ - ユーザー名: admin
+ - パスワード: 0322
+ - パブリックIP: http://18.176.134.115/
 
 ## ER図
 
@@ -130,15 +130,15 @@ README編集
 |birthday|date|null: false|
 
 ### Association
-- has_many: products
-- has_many: user-evaluates
-- has_many: messages
-- has_many: comments
-- has_many: likes
-- has_many: orders
-- has_many: ship_to-addresses
-- has_one: address
-- has_one : creditcards
+ - has_many: products
+ - has_many: user-evaluates
+ - has_many: messages
+ - has_many: comments
+ - has_many: likes
+ - has_many: orders
+ - has_many: ship_to-addresses
+ - has_one: address
+ - has_one : creditcards
 
 ## productsテーブル
 |Column|Type|Options|
@@ -157,14 +157,14 @@ README編集
 |user|references|index: true, foreign_key: true|
 
 ### Association
-- belongs_to : user
-- has_many : comments
-- has_many : messages
-- has_many : likes
-- has_many : product-images
-- has_one: order
-- belongs_to : brand
-- belongs_to : categories
+ - belongs_to : user
+ - has_many : comments
+ - has_many : messages
+ - has_many : likes
+ - has_many : product-images
+ - has_one: order
+ - belongs_to : brand
+ - belongs_to : categories
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -174,8 +174,8 @@ README編集
 |product|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to : user
-- belongs_to : product
+ - belongs_to : user
+ - belongs_to : product
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -184,7 +184,7 @@ README編集
 |ancestry|string||
 
 ### Association
-- has_many : products
+ - has_many : products
 
 ## likesテーブル
 |Column|Type|Options|
@@ -193,8 +193,8 @@ README編集
 |product|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to : user
-- belongs_to : product 
+ - belongs_to : user
+ - belongs_to : product 
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -203,7 +203,7 @@ README編集
 |product_image|text|null: false|
 
 ### Association
-- belongs_to : product
+ - belongs_to : product
 
 ## credit_cardsテーブル
 |Column|Type|Options|
@@ -218,7 +218,7 @@ README編集
 |card_id|string|null: false|
 
 ### Association
-- belongs_to : user
+ - belongs_to : user
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -231,7 +231,7 @@ README編集
 |apartment|string|| 
 
 ### Association
-- belongs_to : user 
+ - belongs_to : user 
 
 ## sns_credentialテーブル
 |Column|Type|Options|
@@ -241,4 +241,4 @@ README編集
 |user|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to : user
+ - belongs_to : user
