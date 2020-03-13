@@ -49,6 +49,7 @@ TOPページ_マークアップ<br>
 
  
 ## 大石 夏実
+<a href="https://github.com/vamnasocana"><img src="https://avatars0.githubusercontent.com/u/56463816?s=400&u=75ca0c9bccb94da4779795b7878b0b4790ce32a5&v=4" height="100px;" /></a>
 ### 実装内容
 ユーザー新規登録画面（ビュー）作成<br>
 OmniAuthを用いたFacebookでのログイン<br>
