@@ -241,7 +241,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.3)
-    puma (3.12.2)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     rack (2.2.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -401,7 +402,7 @@ DEPENDENCIES
   owlcarousel-rails
   payjp
   pry-rails
-  puma (~> 3.0)
+  puma (~> 4.3)
   rails (~> 5.0.7, >= 5.0.7.2)
   rails-controller-testing
   ransack
